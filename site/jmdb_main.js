@@ -13,7 +13,7 @@ function setup() {
     apiKey = new Keyval(TMDB_API_KEY);
     keyval = new Keyval(KEYVAL_API_KEY);
     loadPerson();
-    ate(120);
+    //ate(120);
 
 function draw() {
     background(0);
