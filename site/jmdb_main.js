@@ -1,5 +1,6 @@
 
 let button;
+let apiKey;
 let keyval;
 let input;
 
@@ -8,6 +9,7 @@ function setup() {
     input = createInput();
     button = createButton("Fetch");
     button.mousePressed(fetchData);
+    apiKey = new Keyval(TMDB_API_KEY);
     keyval = new Keyval(KEYVAL_API_KEY);
 }
 
