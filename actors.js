@@ -7,7 +7,7 @@ let personName;
 let apiKey = "Nqljl58Nyo"
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1600, 800);
   loadButton = createButton("Load Person");
   loadButton.position(0, 420);
   loadButton.mousePressed(loadPerson);
@@ -55,7 +55,7 @@ function loadPerson() {
   personId = int(textbox1.value());
   textbox2.value("");
 
-  let profileUrl = `https://api.themoviedb.org/3/person/${personId}?api_key=d3b4cd4323297f17aff8e4a1d37f83ab`;
+  let profileUrl = 'https://api.themoviedb.org/3/person/${personId}?api_key=TMDB_API_KEY';
 
   httpGet(profileUrl, "jsonp", false, function (response) {
     person = response;
@@ -68,7 +68,7 @@ function loadPerson() {
 
     background(220);
 
-    let keyValUrl = `https://keyval.learnscrum.xyz/keystore/${personId}?apikey=${apiKey}`;
+    let keyValUrl = `https://keyval.learnscrum.xyz/keystore/${personId}?apikey=${TMDB_API_KEY}`;
 
     httpGet(keyValUrl, function (response) {
       comment = response;
