@@ -4,7 +4,7 @@ let personId;
 let profilePath;
 let personName;
 //let apiKey = 1;
-let apiKey = "Nqljl58Nyo"
+let apiKey = TMDB_API_KEY;
 
 function setup() {
   createCanvas(400, 400);
