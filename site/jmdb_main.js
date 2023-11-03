@@ -34,7 +34,7 @@ function load() {
 }
 
   function draw() {
-    background(0);
+    background(255);
   }
 
   function fetchData() {
