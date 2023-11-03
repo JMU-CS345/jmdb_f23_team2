@@ -2,7 +2,7 @@
 let keyval = new Keyval(KEYVAL_API_KEY);
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(windowWidth - 4, windowHeight - 4);
   let input = createInput();
   input.position(100, 275);
   button = createButton("Fetch");
