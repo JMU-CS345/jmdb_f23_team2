@@ -1,4 +1,3 @@
-
 let button;
 let apiKey = new Keyval(TMDB_API_KEY);
 let keyval = new Keyval(KEYVAL_API_KEY);
