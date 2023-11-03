@@ -23,7 +23,7 @@ function load() {
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=`+ TMDB_API_KEY, function(data){
     const myMovie = new Movie(data);
     print(data);
-    myMovie.getImage(200, 100);
+    myMovie.getImage(0, 100);
     //text(myMovie.getName(), 10, 10);
     //text(myMovie.getAbout(), 10, 20);
     //text(myMovie.getScore(), 10, 50);
