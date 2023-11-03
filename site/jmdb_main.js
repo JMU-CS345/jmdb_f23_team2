@@ -8,8 +8,10 @@ let person;
 function setup() {
     createCanvas(800, 600);
     input = createInput();
+    input.position(100, 275);
     button = createButton("Fetch");
     button.mousePressed(fetchData);
+    button.position(100, 300);
     loadPerson();
 
 function draw() {
