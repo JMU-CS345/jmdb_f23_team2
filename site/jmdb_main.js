@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 
+=======
+let button;
+let apiKey = new Keyval(TMDB_API_KEY);
+>>>>>>> 6dbbd70e4e4557a3ba523de7d44ce96eb86ce940
 let keyval = new Keyval(KEYVAL_API_KEY);
 
 function setup() {
