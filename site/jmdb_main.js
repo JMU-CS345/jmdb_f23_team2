@@ -56,9 +56,7 @@ function loadActor() {
 
   function draw() {
     background(128, 0, 128);
-    stroke(50);
-    fill(100);
-    ellipse(200, 12, 50, 50);
+
   }
 
   function fetchData() {
