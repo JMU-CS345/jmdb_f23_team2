@@ -3,11 +3,12 @@ let keyval = new Keyval(KEYVAL_API_KEY);
 
 function setup() {
   createCanvas(windowWidth - 4, windowHeight - 4);
-  let input = createInput();
-  input.position(100, 275);
-  button = createButton("Fetch");
-  button.mousePressed(fetchData);
-  button.position(100, 300);
+  /*let input = createInput();
+  /input.position(100, 275);
+  /button = createButton("Fetch");
+  /button.mousePressed(fetchData);
+  /button.position(100, 300);
+  */
 
   //movie bar
   const Mbutton = createButton("Load Scroovie");
