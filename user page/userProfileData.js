@@ -33,6 +33,7 @@ class User {
         return userJSON
     }
 
+<<<<<<< Updated upstream:user page/userProfileData.js
     addFriend(friend) {
         this.friends.push(friend);
         this.update();
@@ -46,3 +47,8 @@ class User {
     
 
 }
+=======
+function createAccount() {
+    tempUser = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+}
+>>>>>>> Stashed changes:site/userProfileData.js
