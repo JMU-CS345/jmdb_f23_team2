@@ -18,8 +18,6 @@ class User {
         keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
     }
 
-    
-
     createJSONlayout() {
         userJSON = {
             "firstName": this.firstName,
@@ -37,6 +35,14 @@ class User {
 
     addFriend(friend) {
         this.friends.push(friend);
+        this.update();
     }
+
+    removeFriend(friend) {
+        this.friends.splice(this.friends.indexOf(friend), 1);
+        this.update();
+    }
+
+    
 
 }
