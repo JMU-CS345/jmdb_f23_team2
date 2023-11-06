@@ -1,0 +1,12 @@
+  onOffButton = createButton("Toggle On/Off");
+  textbox1 = createInput("");
+  textbox1.position(0, 100);
+  textbox2 = createInput("");
+  textbox2.position(0, 200);
+  textbox3 = createInput("");
+  textbox3.position(0, 300);
+  textbox4 = createInput("");
+  textbox4.position(0, 350);
+  textbox5 = createInput("");
+  textbox5.position(0, 400); 
+  onOffButton = createButton("Toggle On/Off");
