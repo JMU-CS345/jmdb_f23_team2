@@ -14,6 +14,12 @@ class User {
         keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
     }
 
+    update(){
+        keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
+    }
+
+    
+
     createJSONlayout() {
         userJSON = {
             "firstName": this.firstName,
@@ -28,8 +34,9 @@ class User {
         }
         return userJSON
     }
-}
 
-function createAccount() {
-    tempUser = new User(firstNameBox.value(), lastNameBox.value(), emailBox.value(), passwordBox.value());
+    addFriend(friend) {
+        this.friends.push(friend);
+    }
+
 }
