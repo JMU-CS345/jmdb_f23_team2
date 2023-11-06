@@ -14,7 +14,7 @@ class User {
         keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
     }
 
-    update(){
+    update() {
         keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
     }
 
@@ -33,7 +33,6 @@ class User {
         return userJSON
     }
 
-<<<<<<< Updated upstream:user page/userProfileData.js
     addFriend(friend) {
         this.friends.push(friend);
         this.update();
@@ -43,12 +42,8 @@ class User {
         this.friends.splice(this.friends.indexOf(friend), 1);
         this.update();
     }
-
     
-
 }
-=======
 function createAccount() {
     tempUser = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
 }
->>>>>>> Stashed changes:site/userProfileData.js
