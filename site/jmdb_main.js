@@ -29,10 +29,10 @@ function setup() {
     inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 200);
 
   //title
-  let title = createP();
-  title.position(windowWidth / 2, windowHeight / 2 - 100);
-  title.style("color", "white");
-  title.html("Scroovie");
+  let title = createP("Scroovie");
+  title.position(windowWidth / 2 - 90, 20);
+  title.style("color", "#CBB677");
+  title.style("font-size", "36px")
 }
 
 function loadMovie() {
