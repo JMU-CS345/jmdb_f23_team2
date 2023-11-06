@@ -27,6 +27,12 @@ function setup() {
     inputActor = createInput();
     inputActor.size(85);
     inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 200);
+
+  //title
+  let title = createP("Scroovie");
+  title.position(windowWidth / 2 - 90, 20);
+  title.style("color", "#CBB677");
+  title.style("font-size", "36px")
 }
 
 function loadMovie() {
@@ -56,7 +62,7 @@ function loadActor() {
 }
 
   function draw() {
-    background(128, 0, 128);
+    background(69, 0, 132);
 
   }
 
