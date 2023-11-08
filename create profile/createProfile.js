@@ -2,7 +2,6 @@
 let keyval = new Keyval(KEYVAL_API_KEY);
 
 function setup() {
-  createCanvas(0, 0);
   /*let input = createInput();
   /input.position(100, 275);
   /button = createButton("Fetch");
@@ -27,27 +26,12 @@ function setup() {
   passwordBox.position(100, 350);
   onOffButton = createButton("Toggle On/Off");
 
-
-  createJSONlayout() {
-    userJSON = {
-        "firstName": this.firstName,
-        "lastName": this.lastName,
-        "email": this.email,
-        "password": this.password,
-        "friends": [],
-        "recentlyWatchedMovies": [],
-        "movieWatchList": [],
-        "favoriteMovies": [],
-        "reviews": []
-    }
-  //movie bar
-
+}
   //title
   let title = createP("Scroovie");
   title.position(windowWidth / 2 - 90, 20);
   title.style("color", "#CBB677");
   title.style("font-size", "36px")
-}
 
 
   function draw() {
