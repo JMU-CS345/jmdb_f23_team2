@@ -14,32 +14,24 @@ function setup() {
   // textboxes
   onOffButton = createButton("Toggle On/Off");
   firstNameBox = createInput("");
-  saveComment.attribute("placeholder", "First Name");
+  firstNameBox.attribute("placeholder", "First Name");
   firstNameBox.position(100, 100);
   lastNameBox = createInput("");
-  saveComment.attribute("placeholder", "Last Name");
+  lastNameBox.attribute("placeholder", "Last Name");
   lastNameBox.position(100, 200);
   emailbox = createInput("");
-  saveComment.attribute("placeholder", "Email");
+  emailbox.attribute("placeholder", "Email");
   emailbox.position(100, 300);
   passwordBox = createInput("");
-  saveComment.attribute("placeholder", "Password");
+  passwordBox.attribute("placeholder", "Password");
   passwordBox.position(100, 350);
   onOffButton = createButton("Toggle On/Off");
+  onOffButton.mousePressed(loader);
 
 
-  createJSONlayout() {
-    userJSON = {
-        "firstName": this.firstName,
-        "lastName": this.lastName,
-        "email": this.email,
-        "password": this.password,
-        "friends": [],
-        "recentlyWatchedMovies": [],
-        "movieWatchList": [],
-        "favoriteMovies": [],
-        "reviews": []
-    }
+  function loader() {
+    User(firstNameBox.value(), lastNameBox.value(), emailbox.value(), passwordBox.value());
+  }
   //movie bar
 
   //title
