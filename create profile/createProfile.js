@@ -2,7 +2,6 @@
 let keyval = new Keyval(KEYVAL_API_KEY);
 
 function setup() {
-  createCanvas(0, 0);
   /*let input = createInput();
   /input.position(100, 275);
   /button = createButton("Fetch");
@@ -14,32 +13,25 @@ function setup() {
   // textboxes
   onOffButton = createButton("Toggle On/Off");
   firstNameBox = createInput("");
-  firstNameBox.attribute("placeholder", "First Name");
+  saveComment.attribute("placeholder", "First Name");
   firstNameBox.position(100, 100);
   lastNameBox = createInput("");
-  lastNameBox.attribute("placeholder", "Last Name");
+  saveComment.attribute("placeholder", "Last Name");
   lastNameBox.position(100, 200);
   emailbox = createInput("");
-  emailbox.attribute("placeholder", "Email");
+  saveComment.attribute("placeholder", "Email");
   emailbox.position(100, 300);
   passwordBox = createInput("");
-  passwordBox.attribute("placeholder", "Password");
+  saveComment.attribute("placeholder", "Password");
   passwordBox.position(100, 350);
   onOffButton = createButton("Toggle On/Off");
-  onOffButton.mousePressed(loader);
 
-
-  function loader() {
-    User(firstNameBox.value(), lastNameBox.value(), emailbox.value(), passwordBox.value());
-  }
-  //movie bar
-
+}
   //title
   let title = createP("Scroovie");
   title.position(windowWidth / 2 - 90, 20);
   title.style("color", "#CBB677");
   title.style("font-size", "36px")
-}
 
 
   function draw() {
