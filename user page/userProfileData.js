@@ -43,7 +43,19 @@ class User {
         this.update();
     }
     
-}
-function createAccount() {
-    tempUser = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    getFirstName(){
+        return this.firstName;
+    }
+
+    getLastName(){
+        return this.lastName;
+    }
+
+    getEmail(){
+        return this.email;
+    }
+
+    getPassword(){
+        return this.password;
+    }
 }
