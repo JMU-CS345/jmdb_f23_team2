@@ -1,5 +1,4 @@
 class User {
-    nextAvailableUserID = 1
     favoriteMovies = [];
     reviews = [];
     recentlyWatchedMovies = [];
@@ -11,11 +10,11 @@ class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
+        keyval.set(email, createJSONlayout(), none)
     }
 
     update() {
-        keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
+        keyval.set(email, createJSONlayout(), none)
     }
 
     createJSONlayout() {
