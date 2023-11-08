@@ -60,14 +60,5 @@ function loadActor() {
 }
 
   function draw() {
-    background(69, 0, 132);
 
-  }
-
-  function fetchData() {
-    keyval.set("test", input.value(), function (data) {
-      keyval.get("test", function (data) {
-        console.log(data);
-      });
-    });
   }
