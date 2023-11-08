@@ -14,6 +14,10 @@ class User {
         keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
     }
 
+    update() {
+        keyval.set(this.nextAvailableUserID, createJSONlayout(), none)
+    }
+
     createJSONlayout() {
         userJSON = {
             "firstName": this.firstName,
@@ -28,8 +32,18 @@ class User {
         }
         return userJSON
     }
-}
 
+    addFriend(friend) {
+        this.friends.push(friend);
+        this.update();
+    }
+
+    removeFriend(friend) {
+        this.friends.splice(this.friends.indexOf(friend), 1);
+        this.update();
+    }
+    
+}
 function createAccount() {
-    tempUser = new User(firstNameBox.value(), lastNameBox.value(), emailBox.value(), passwordBox.value());
+    tempUser = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
 }

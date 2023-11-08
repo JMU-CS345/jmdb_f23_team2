@@ -1,4 +1,4 @@
-
+ 
 let keyval = new Keyval(KEYVAL_API_KEY);
 
 function setup() {
@@ -10,23 +10,21 @@ function setup() {
   /button.position(100, 300);
   */
 
-  //movie bar
-  const Mbutton = createButton("Load Scroovie");
-  Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 200);
-  Mbutton.mousePressed(loadMovie);
-  
-  loadPerson = createInput();
-  loadPerson.size(85);
-  loadPerson.position(windowWidth / 2 - 145, windowHeight / 2 - 200);
 
-  //actor bar
-  const Abutton = createButton("Load Actor");
-  Abutton.position(windowWidth / 2, windowHeight / 2 - 200);
-  Abutton.mousePressed(loadActor);
-    
-    inputActor = createInput();
-    inputActor.size(85);
-    inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 200);
+  // textboxes
+  onOffButton = createButton("Toggle On/Off");
+  textbox1 = createInput("");
+  textbox1.position(0, 100);
+  textbox2 = createInput("");
+  textbox2.position(0, 200);
+  textbox3 = createInput("");
+  textbox3.position(0, 300);
+  textbox4 = createInput("");
+  textbox4.position(0, 350);
+  textbox5 = createInput("");
+  textbox5.position(0, 400); 
+  onOffButton = createButton("Toggle On/Off");
+  //movie bar
 
   //title
   let title = createP("Scroovie");
@@ -62,8 +60,8 @@ function loadActor() {
 }
 
   function draw() {
-    background(255);
     background(69, 0, 132);
+
   }
 
   function fetchData() {
