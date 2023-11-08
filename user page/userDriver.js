@@ -4,14 +4,15 @@ function setup (){
 
 function draw (){
     user = localStorage.getItem(username);
-    data = keyval.get(user, none, function(err){
-    });
+    data = loadJSON(keyval.get(user, none, function(err){
+    }));
 }
+
 function setup() {
     createCanvas(0, 0);
 
     //Create Temp User
-    temp = createAccount("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    temp = userProfileData.createAccount("Josh", "Derrow", "joshb12d@gmail.com", "password");
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
