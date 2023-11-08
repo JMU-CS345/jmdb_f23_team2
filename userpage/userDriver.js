@@ -1,6 +1,6 @@
 function setup (){
     user = localStorage.getItem(username);
-    userProfileData.createAccount(user);
+    temp = userProfileData.createAccount(user);
     createCanvas(0, 0);
 
     //Create Temp User
