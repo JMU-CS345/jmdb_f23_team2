@@ -1,11 +1,11 @@
 function setup (){
-    keyval = new Keyval(KEYVAL_API_KEY);
+    user = localStorage.getItem(username);
+    userProfileData.createAccount(user);
+    
 }
 
 function draw (){
-    user = localStorage.getItem(username);
-    data = loadJSON(keyval.get(user, none, function(err){
-    }));
+    
 }
 
 function setup() {
