@@ -16,6 +16,7 @@ function setup() {
     let email = createP(temp.getEmail());
     let favMovs = createP(temp.getFavoriteMovies());
     let reviews = createP(temp.getReviews());
+    let recentlyWatched = createP(temp.getRecentlyWatched());
     let movieWatchList = createP(temp.getMovieWatchList());
     let friends = createP(temp.getFriends());
     let ratings = createP(temp.getRatings());
