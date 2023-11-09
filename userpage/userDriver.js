@@ -1,10 +1,8 @@
 function setup (){
-    user = localStorage.getItem(username);
-    temp = userProfileData.createAccount(user);
-    createCanvas(0, 0);
-
+//    user = localStorage.getItem(username);
+//    temp = userProfileData.createAccount(user);
     //Create Temp User
-    temp = userProfileData.createAccount("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
