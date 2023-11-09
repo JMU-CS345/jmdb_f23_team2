@@ -5,24 +5,24 @@ let fileInput;
 function setup() {
 
   fileInput = createFileInput(handleFile);
-  fileInput.position(windowWidth / 2, 700);
+  fileInput.position(windowWidth / 2, 400);
 
   // textboxes
   saveButton = createButton("Create Account");
-  saveButton.position(windowWidth / 2, 800);
+  saveButton.position(windowWidth / 2, 450);
   saveButton.mousePressed(loader);
   firstNameBox = createInput("");
   firstNameBox.attribute("placeholder", "First Name");
-  firstNameBox.position(windowWidth / 2, 300);
+  firstNameBox.position(windowWidth / 2, 200);
   lastNameBox = createInput("");
   lastNameBox.attribute("placeholder", "Last Name");
-  lastNameBox.position(windowWidth / 2, 400);
+  lastNameBox.position(windowWidth / 2, 250);
   emailBox = createInput("");
   emailBox.attribute("placeholder", "Email");
-  emailBox.position(windowWidth / 2, 500);
+  emailBox.position(windowWidth / 2, 300);
   passwordBox = createInput("");
   passwordBox.attribute("placeholder", "Password");
-  passwordBox.position(windowWidth / 2, 600);
+  passwordBox.position(windowWidth / 2, 350);
 
 
 
