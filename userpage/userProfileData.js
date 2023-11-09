@@ -1,3 +1,7 @@
+function setup() {
+    let keyval = new Keyval(KEYVAL_API_KEY);
+}
+
 class User {
     favoriteMovies = [];
     reviews = [];
@@ -5,12 +9,14 @@ class User {
     movieWatchlist = [];
     friends = [];
 
-    constructor(firstName, lastName, email, password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        keyval.set(email, createJSONlayout(), none)
+    constructor(firstName = null, lastName = null, email, password = null) {
+        keyval.get(email, createJSONlayout(), function (err) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.password = password;
+        })
+
     }
 
     update() {
@@ -41,44 +47,44 @@ class User {
         this.friends.splice(this.friends.indexOf(friend), 1);
         this.update();
     }
-    
-    getFirstName(){
+
+    getFirstName() {
         return this.firstName;
     }
 
-    getLastName(){
+    getLastName() {
         return this.lastName;
     }
 
-    getEmail(){
+    getEmail() {
         return this.email;
     }
 
-    getPassword(){
+    getPassword() {
         return this.password;
     }
 
-    getFavoriteMovies(){
+    getFavoriteMovies() {
         return this.favoriteMovies;
     }
 
-    getReviews(){
+    getReviews() {
         return this.reviews;
     }
 
-    getRecentlyWatched(){
+    getRecentlyWatched() {
         return this.recentlyWatchedMovies;
     }
 
-    getMovieWatchList(){
+    getMovieWatchList() {
         return this.movieWatchlist;
     }
 
-    getFriends(){
+    getFriends() {
         return this.friends;
     }
 
-    getRatings(){
+    getRatings() {
         return this.ratings;
     }
 }
