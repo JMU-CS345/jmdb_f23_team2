@@ -4,6 +4,7 @@ class User {
     recentlyWatchedMovies = [];
     movieWatchlist = [];
     friends = [];
+    ratings = [];
 
     constructor(firstName, lastName, email, password) {
         this.firstName = firstName;
@@ -11,6 +12,18 @@ class User {
         this.email = email;
         this.password = password;
         keyval.set(email, createJSONlayout(), none)
+    }
+
+    constructor(username) {
+        userData = loadJSON(keyval.get(username, none));
+        this.firstName = userData.firstName;
+        this.lastName = userData.lastName;
+        this.friends = userData.friends;
+        this.recentlyWatchedMovies = userData.recentlyWatchedMovies;
+        this.movieWatchlist = userData.movieWatchList;
+        this.favoriteMovies = userData.favoriteMovies;
+        this.reviews = userData.reviews;
+        this.ratings = userData.ratings;
     }
 
     update() {
@@ -23,11 +36,12 @@ class User {
             "lastName": this.lastName,
             "email": this.email,
             "password": this.password,
-            "friends": [],
-            "recentlyWatchedMovies": [],
-            "movieWatchList": [],
-            "favoriteMovies": [],
-            "reviews": []
+            "friends": this.friends,
+            "recentlyWatchedMovies": this.recentlyWatchedMovies,
+            "movieWatchList": this.movieWatchlist,
+            "favoriteMovies": this.favoriteMovies,
+            "reviews": this.reviews,
+            "ratings": this.ratings
         }
         return userJSON
     }
@@ -56,29 +70,5 @@ class User {
 
     getPassword(){
         return this.password;
-    }
-
-    getFavoriteMovies(){
-        return this.favoriteMovies;
-    }
-
-    getReviews(){
-        return this.reviews;
-    }
-
-    getRecentlyWatched(){
-        return this.recentlyWatchedMovies;
-    }
-
-    getMovieWatchList(){
-        return this.movieWatchlist;
-    }
-
-    getFriends(){
-        return this.friends;
-    }
-
-    getRatings(){
-        return this.ratings;
     }
 }

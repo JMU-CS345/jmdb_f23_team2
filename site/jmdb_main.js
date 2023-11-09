@@ -62,8 +62,8 @@ function loadActor() {
 }
 
   function draw() {
+    background(255);
     background(69, 0, 132);
-
   }
 
   function fetchData() {
