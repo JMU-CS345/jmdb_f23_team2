@@ -11,14 +11,14 @@ function setup (){
     title.style("font-size", "36px");
 
     //Creates and Displys User Information
-    let name = createP(temp.getFirstName() + " " + temp.getLastName());
-    let email = createP(temp.getEmail());
-    let favMovies = createP(temp.getFavoriteMovies());
-    let reviews = createP(temp.getReviews());
-    let recentlyWatched = createP(temp.getRecentlyWatched());
-    let movieWatchList = createP(temp.getMovieWatchList());
-    let friends = createP(temp.getFriends());
-    let ratings = createP(temp.getRatings());
+    let name = createP("Name: " + temp.getFirstName() + " " + temp.getLastName());
+    let email = createP("Email: " + temp.getEmail());
+    let favMovies = createP("Favorite Movies: " + temp.getFavoriteMovies());
+    let reviews = createP("Reviews: " + temp.getReviews());
+    let recentlyWatched = createP("Recently Watched: " + temp.getRecentlyWatched());
+    let movieWatchList = createP("Movie Watch List: " + temp.getMovieWatchList());
+    let friends = createP("Friends: " + temp.getFriends());
+    let ratings = createP("Ratings: " + temp.getRatings());
     name.position(10, 40);
     email.position(10, 60);
     favMovies.position(10, 80);
