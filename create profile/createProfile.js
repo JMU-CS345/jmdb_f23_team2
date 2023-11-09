@@ -1,28 +1,30 @@
 
 let keyval = new Keyval(KEYVAL_API_KEY);
 let fileInput;
+//let errorT = createP("");
 
 function setup() {
+  
 
   fileInput = createFileInput(handleFile);
-  fileInput.position(windowWidth / 2, 400);
+  fileInput.position(windowWidth / 2 - 90, 400);
 
   // textboxes
   saveButton = createButton("Create Account");
-  saveButton.position(windowWidth / 2, 450);
+  saveButton.position(windowWidth / 2 - 90, 450);
   saveButton.mousePressed(loader);
   firstNameBox = createInput("");
   firstNameBox.attribute("placeholder", "First Name");
-  firstNameBox.position(windowWidth / 2, 200);
+  firstNameBox.position(windowWidth /2 - 90, 200);
   lastNameBox = createInput("");
   lastNameBox.attribute("placeholder", "Last Name");
-  lastNameBox.position(windowWidth / 2, 250);
+  lastNameBox.position(windowWidth / 2 - 90, 250);
   emailBox = createInput("");
   emailBox.attribute("placeholder", "Email");
-  emailBox.position(windowWidth / 2, 300);
+  emailBox.position(windowWidth / 2 - 90, 300);
   passwordBox = createInput("");
   passwordBox.attribute("placeholder", "Password");
-  passwordBox.position(windowWidth / 2, 350);
+  passwordBox.position(windowWidth / 2 - 90, 350);
 
 
 
@@ -33,14 +35,19 @@ function setup() {
 }
 
 function loader() {
-  if (firstNameBox.value() == null || lastNameBox.value() == null || emailBox.value() == null || passwordBox.value() == null) {
-    console.error('Please fill out all input boxes');
+  if (firstNameBox.value() == "" || lastNameBox.value() == "" || emailBox.value() == "" || passwordBox.value() == "") {
+    let errorT = createP("You must fill out all fields!");
+    errorT.position(windowWidth / 2 - 90, 65);
+    errorT.style("color", "#FF0000");
+    errorT.style("font-size", "36px")
   } else {
+    background(69, 0, 132);
+    let errorT = createP("Creation Success!");
+    errorT.position(windowWidth / 2 - 90, 65);
+    errorT.style("color", "#00FF00");
+    errorT.style("font-size", "36px")
     new User(firstNameBox.value(), lastNameBox.value(), emailBox.value(), passwordBox.value());
-    let created = createP("Profile Created!");
-    created.position(windowWidth / 2 - 90, 30);
-    created.style("color", "#CBB677");
-    created.style("font-size", "36px")
+    
   }
 }
 
