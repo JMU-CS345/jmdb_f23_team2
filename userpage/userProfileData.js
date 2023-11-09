@@ -12,13 +12,13 @@ class User {
         this.password = password;
 
         keyval.get(email, this.createJSONlayout(), (err) => {
-            keyval.set(email, this.createJSONlayout(), none);
+            keyval.set(email, this.createJSONlayout());
         });
     }
 
 
     update() {
-        keyval.set(email, this.createJSONlayout(), none)
+        keyval.set(email, this.createJSONlayout())
     }
 
     createJSONlayout() {
