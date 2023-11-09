@@ -6,14 +6,16 @@ class User {
     friends = [];
 
     constructor(firstName = null, lastName = null, email, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
-        keyval.get(email, this.createJSONlayout(), function (err) {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.email = email;
-            this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+
+        keyval.get(email, this.createJSONlayout(), (err) => {
             keyval.set(email, this.createJSONlayout(), none);
-        })
+        });
     }
+
 
     update() {
         keyval.set(email, this.createJSONlayout(), none)
