@@ -77,4 +77,28 @@ class User {
     getPassword() {
         return this.password;
     }
+
+    getFavoriteMovies(){
+        return this.favoriteMovies;
+    }
+
+    getReviews(){
+        return this.reviews;
+    }
+
+    getRecentlyWatched(){
+        return this.recentlyWatchedMovies;
+    }
+
+    getMovieWatchList(){
+        return this.movieWatchlist;
+    }
+
+    getFriends(){
+        return this.friends;
+    }
+
+    getRatings(){
+        return this.ratings;
+    }
 }
