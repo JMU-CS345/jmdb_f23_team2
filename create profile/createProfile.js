@@ -11,7 +11,7 @@ function setup() {
 
 
   // textboxes
-  onOffButton = createButton("Toggle On/Off");
+  saveButton = createButton("Create Account");
   firstNameBox = createInput("");
   saveComment.attribute("placeholder", "First Name");
   firstNameBox.position(100, 100);
@@ -24,9 +24,8 @@ function setup() {
   passwordBox = createInput("");
   saveComment.attribute("placeholder", "Password");
   passwordBox.position(100, 350);
-  onOffButton = createButton("Toggle On/Off");
-
 }
+
   //title
   let title = createP("Scroovie");
   title.position(windowWidth / 2 - 90, 20);
