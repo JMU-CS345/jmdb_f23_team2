@@ -1,7 +1,3 @@
-function setup() {
-    let keyval = new Keyval(KEYVAL_API_KEY);
-}
-
 class User {
     favoriteMovies = [];
     reviews = [];
@@ -9,22 +5,22 @@ class User {
     movieWatchlist = [];
     friends = [];
 
-    constructor(firstName = null, lastName = null, email, password = null) {
-        keyval.get(email, createJSONlayout(), function (err) {
+    constructor(firstName = null, lastName = null, email, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
+        keyval.get(email, this.createJSONlayout(), function (err) {
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
             this.password = password;
+            keyval.set(email, this.createJSONlayout(), none);
         })
-        keyval.set(email, createJSONlayout(), none);
     }
 
     update() {
-        keyval.set(email, createJSONlayout(), none)
+        keyval.set(email, this.createJSONlayout(), none)
     }
 
     createJSONlayout() {
-        userJSON = {
+        let userJSON = {
             "firstName": this.firstName,
             "lastName": this.lastName,
             "email": this.email,
