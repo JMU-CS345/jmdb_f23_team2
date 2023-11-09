@@ -16,7 +16,7 @@ class User {
             this.email = email;
             this.password = password;
         })
-
+        keyval.set(email, createJSONlayout(), none);
     }
 
     update() {
