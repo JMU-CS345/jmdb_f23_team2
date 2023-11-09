@@ -1,10 +1,9 @@
-function setup (){
-    user = localStorage.getItem(username);
-    temp = userProfileData.createAccount(user);
-    createCanvas(0, 0);
+function setup() {
+    let user = localStorage.getItem("username");
+    //temp = new User(user);
 
     //Create Temp User
-    temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -13,6 +12,6 @@ function setup (){
     title.style("font-size", "36px");
 }
 
-function draw (){
-    
+function draw() {
+
 }

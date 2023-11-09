@@ -1,3 +1,5 @@
+let keyval = new Keyval(KEYVAL_API_KEY);
+
 class User {
     favoriteMovies = [];
     reviews = [];
@@ -6,15 +8,16 @@ class User {
     friends = [];
     ratings = [];
 
-    constructor(firstName, lastName, email, password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        keyval.set(email, createJSONlayout(), none)
-    }
+    constructor(firstName = "", lastName = "", email, password = "") {
+        keyval.get(email, createJSONlayout(), function (err) {
+            if (err) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.email = email;
+                this.password = password;
+            }
 
-    constructor(username) {
+        });
         userData = loadJSON(keyval.get(username, none));
         this.firstName = userData.firstName;
         this.lastName = userData.lastName;
@@ -55,20 +58,20 @@ class User {
         this.friends.splice(this.friends.indexOf(friend), 1);
         this.update();
     }
-    
-    getFirstName(){
+
+    getFirstName() {
         return this.firstName;
     }
 
-    getLastName(){
+    getLastName() {
         return this.lastName;
     }
 
-    getEmail(){
+    getEmail() {
         return this.email;
     }
 
-    getPassword(){
+    getPassword() {
         return this.password;
     }
 }
