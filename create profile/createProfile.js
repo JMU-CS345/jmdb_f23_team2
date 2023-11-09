@@ -36,7 +36,7 @@ function loader(){
   if(firstNameBox.value() == null || lastNameBox.value() == null || emailBox.value() == null || passwordBox.value() == null){
     console.error('Please fill out all input boxes');
   }
-  userpage.User(firstNameBox.value(), lastNameBox.value(), emailBox.value(), passwordBox.value());
+  user = new User(firstNameBox.value(), lastNameBox.value(), emailBox.value(), passwordBox.value());
 }
 
   function draw() {
