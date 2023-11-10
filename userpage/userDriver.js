@@ -5,10 +5,11 @@ function setup() {
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
     temp.addMovieToFavorite("Lord of the Rings: Return of the King");
     temp.addMovieToRecentlyWatched("Lord of the Rings: Return of the King");
-    temp.addRating("Hot Rod", "Comedy Gold, would recommend.");
+    temp.addRating("Hot Rod", "4");
     temp.addMovieToFavorite("The Dark Knight");
     temp.addMovieToRecentlyWatched("The Dark Knight Rises");
     temp.addRating("Joker", 5);
+    temp.addMovieToRecentlyWatched("The Martian");
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
