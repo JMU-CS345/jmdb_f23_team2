@@ -70,7 +70,7 @@ function setup() {
     ratings.position(leftXPos, ratingsYPos);
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
-    //    display(temp.getRatings(), leftXPos, ratingsYPos);
+    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     //Navigation Buttons
     let friendsButton = createButton("View Friends");
