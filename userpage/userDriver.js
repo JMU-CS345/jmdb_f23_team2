@@ -5,7 +5,7 @@ function setup() {
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
     temp.addMovieToFavorite("Lord of the Rings: Return of the King");
     temp.addMovieToRecentlyWatched("Lord of the Rings: Return of the King");
-    temp.addRating("Hot Rod", "Comedy Gold, would recommend.");
+    temp.addRating("Hot Rod", 5);
     temp.addMovieToFavorite("The Dark Knight");
     temp.addMovieToRecentlyWatched("The Dark Knight Rises");
     temp.addRating("Joker", 5);
@@ -19,11 +19,11 @@ function setup() {
     //Creates and Displys User Information
     let name = createP("Name: " + temp.getFirstName() + " " + temp.getLastName());
     let email = createP("Email: " + temp.getEmail());
-    let favMovies = createP("Favorite Movies: " + temp.getFavoriteMovies());
-    let reviews = createP("Reviews: " + temp.getReviews());
-    let recentlyWatched = createP("Recently Watched: " + temp.getRecentlyWatched());
-    let movieWatchList = createP("Movie Watch List: " + temp.getMovieWatchList());
-    let ratings = createP("Ratings: " + temp.getRatings());
+    let favMovies = createP("Favorite Movies: ");
+    let reviews = createP("Reviews: ");
+    let recentlyWatched = createP("Recently Watched: ");
+    let movieWatchList = createP("Movie Watch List: ");
+    let ratings = createP("Ratings: ");
     let leftXPos = 50;
     let nameYPos = 100;
     let emailYPos = 125;
