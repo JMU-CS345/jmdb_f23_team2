@@ -85,4 +85,25 @@ class User {
     getRatings() {
         return this.ratings;
     }
+
+    addMovieToWatchList(movie) {
+        this.movieWatchlist.push(movie);
+    }
+
+    addMovieToRecentlyWatched(movie) {
+        this.recentlyWatchedMovies.push(movie);
+    }
+
+    addMovieToWatched(movie) {
+        this.reviews.push(movie);
+    }
+
+    addMovieToFavorite(movie) {
+        this.favoriteMovies.push(movie);
+    }
+
+    addReview(movie, review) {
+        this.reviews.push(movie, review);
+    }
+
 }

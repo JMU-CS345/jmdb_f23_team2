@@ -3,6 +3,11 @@ function setup (){
 //    temp = userProfileData.createAccount(user);
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    temp.addMovieToFavorite("The Dark Knight");
+    temp.addMovieToRecentlyWatched("The Dark Knight Rises");
+    temp.addRating("Joker", "great movie!");
+
+
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
