@@ -3,12 +3,12 @@ function setup() {
     //temp = userProfileData.createAccount(user);
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
-    temp.addMovieToFavorite("Lord of the Rings: Return of the King");
-    temp.addMovieToRecentlyWatched("Lord of the Rings: Return of the King");
-    temp.addRating("Hot Rod", 4);
-    temp.addMovieToFavorite("The Dark Knight");
-    temp.addMovieToRecentlyWatched("The Dark Knight Rises");
-    temp.addRating("Joker", 5);
+    //temp.addMovieToFavorite("Lord of the Rings: Return of the King");
+    //temp.addMovieToRecentlyWatched("Lord of the Rings: Return of the King");
+    //temp.addRating("Hot Rod", 4);
+    //temp.addMovieToFavorite("The Dark Knight");
+    //temp.addMovieToRecentlyWatched("The Dark Knight Rises");
+    //temp.addRating("Joker", 5);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -25,15 +25,15 @@ function setup() {
 
     let favMovies = createP("Favorite Movies: ");
     let favMoviesYPos = 180;
-    //display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
+    display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
     
     let ratings = createP("Ratings: ");
     let ratingsYPos = 380;
-    //display(temp.getRatings(), leftXPos, ratingsYPos);
+    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
-    //display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
+    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 780;
@@ -41,7 +41,7 @@ function setup() {
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 980;
-    //display(temp.getReviews(), leftXPos, reviewsYPos);
+    display(temp.getReviews(), leftXPos, reviewsYPos);
 
 
     name.position(leftXPos, nameYPos);
