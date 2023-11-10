@@ -23,49 +23,47 @@ function setup() {
     let emailYPos = 125;
     let name = createP("Name: " + temp.getFirstName() + " " + temp.getLastName());
     let email = createP("Email: " + temp.getEmail());
+    name.position(leftXPos, nameYPos);
+    email.position(leftXPos, emailYPos);
+    name.style("color", "#CBB677");
+    email.style("color", "#CBB677");
+    name.style("font-size", "24px");
+    email.style("font-size", "24px");
 
     let favMovies = createP("Favorite Movies: ");
     let favMoviesYPos = 180;
+    favMovies.position(leftXPos, favMoviesYPos);
+    favMovies.style("color", "#CBB677");
+    favMovies.style("font-size", "24px");
     display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 380;
+    reviews.position(leftXPos, reviewsYPos);
+    reviews.style("color", "#CBB677");
+    reviews.style("font-size", "24px");
     display(temp.getReviews(), leftXPos, reviewsYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
+    recentlyWatched.position(leftXPos, recentlyWatchedYPos);
+    recentlyWatched.style("color", "#CBB677");
+    recentlyWatched.style("font-size", "24px");
     display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 780;
+    movieWatchList.position(leftXPos, movieWatchListYPos);
+    movieWatchList.style("color", "#CBB677");
+    movieWatchList.style("font-size", "24px");
     display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-//    display(temp.getRatings(), leftXPos, ratingsYPos);
-
-    name.position(leftXPos, nameYPos);
-    email.position(leftXPos, emailYPos);
-    favMovies.position(leftXPos, favMoviesYPos);
-    reviews.position(leftXPos, reviewsYPos);
-    recentlyWatched.position(leftXPos, recentlyWatchedYPos);
-    movieWatchList.position(leftXPos, movieWatchListYPos);
     ratings.position(leftXPos, ratingsYPos);
-    name.style("color", "#CBB677");
-    email.style("color", "#CBB677");
-    favMovies.style("color", "#CBB677");
-    reviews.style("color", "#CBB677");
-    recentlyWatched.style("color", "#CBB677");
-    movieWatchList.style("color", "#CBB677");
     ratings.style("color", "#CBB677");
-    name.style("font-size", "24px");
-    email.style("font-size", "24px");
-    favMovies.style("font-size", "24px");
-    reviews.style("font-size", "24px");
-    recentlyWatched.style("font-size", "24px");
-    movieWatchList.style("font-size", "24px");
     ratings.style("font-size", "24px");
-
+    //    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     //Navigation Buttons
     let friendsButton = createButton("View Friends");
