@@ -48,6 +48,12 @@ function setup (){
     movieWatchList.style("font-size", "12px");
     friends.style("font-size", "12px");
     ratings.style("font-size", "12px");
+
+    //Navigation Buttons
+    let friendsButton = createButton("View Friends");
+    friendsButton.position(windowWidth - 100, 100);
+    let homeButton = createButton("Home");
+    homeButton.position(windowWidth - 160, 100);
 }
 
 function draw (){
