@@ -20,7 +20,6 @@ function setup() {
     let reviews = createP("Reviews: " + temp.getReviews());
     let recentlyWatched = createP("Recently Watched: " + temp.getRecentlyWatched());
     let movieWatchList = createP("Movie Watch List: " + temp.getMovieWatchList());
-    let friends = createP("Friends: " + temp.getFriends());
     let ratings = createP("Ratings: " + temp.getRatings());
     let leftXPos = 10;
     let nameYPos = 100;
@@ -29,15 +28,13 @@ function setup() {
     let reviewsYPos = 175;
     let recentlyWatchedYPos = 200;
     let movieWatchListYPos = 225;
-    let friendsYPos = 250;
-    let ratingsYPos = 275;
+    let ratingsYPos = 250;
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
     favMovies.position(leftXPos, favMoviesYPos);
     reviews.position(leftXPos, reviewsYPos);
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     movieWatchList.position(leftXPos, movieWatchListYPos);
-    friends.position(leftXPos, friendsYPos);
     ratings.position(leftXPos, ratingsYPos);
     name.style("color", "#CBB677");
     email.style("color", "#CBB677");
@@ -45,7 +42,6 @@ function setup() {
     reviews.style("color", "#CBB677");
     recentlyWatched.style("color", "#CBB677");
     movieWatchList.style("color", "#CBB677");
-    friends.style("color", "#CBB677");
     ratings.style("color", "#CBB677");
     name.style("font-size", "24px");
     email.style("font-size", "24px");
@@ -53,7 +49,6 @@ function setup() {
     reviews.style("font-size", "24px");
     recentlyWatched.style("font-size", "24px");
     movieWatchList.style("font-size", "24px");
-    friends.style("font-size", "24px");
     ratings.style("font-size", "24px");
 
     //Navigation Buttons
@@ -64,10 +59,15 @@ function setup() {
 }
 
 function display(arr, x, y) {
-    for (let i = 0; i < arr.length; i++) {
-        let movie = new Movie(arr[i]);
-        movie.getImage(10 + x, 10 + y);
-        movie.name(10 + x, 125 + y);
+    if (arr.length == 0) {
+        let emptyList = createP("Nothing has been added here yet");
+
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            let movie = new Movie(arr[i]);
+            movie.getImage(10 + x, 10 + y);
+            movie.name(10 + x, 125 + y);
+        }
     }
 }
 
