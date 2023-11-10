@@ -9,7 +9,6 @@ function setup() {
     temp.addMovieToFavorite("The Dark Knight");
     temp.addMovieToRecentlyWatched("The Dark Knight Rises");
     temp.addRating("Joker", 5);
-    temp.addMovieToRecentlyWatched("The Martian");
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -18,13 +17,6 @@ function setup() {
     title.style("font-size", "36px");
 
     //Creates and Displys User Information
-    let name = createP("Name: " + temp.getFirstName() + " " + temp.getLastName());
-    let email = createP("Email: " + temp.getEmail());
-    let favMovies = createP("Favorite Movies: " + temp.getFavoriteMovies());
-    let reviews = createP("Reviews: " + temp.getReviews());
-    let recentlyWatched = createP("Recently Watched: " + temp.getRecentlyWatched());
-    let movieWatchList = createP("Movie Watch List: " + temp.getMovieWatchList());
-    let ratings = createP("Ratings: " + temp.getRatings());
     let leftXPos = 50;
     let nameYPos = 100;
     let emailYPos = 125;
@@ -33,6 +25,14 @@ function setup() {
     let recentlyWatchedYPos = 580;
     let movieWatchListYPos = 780;
     let ratingsYPos = 980;
+    let name = createP("Name: " + temp.getFirstName() + " " + temp.getLastName());
+    let email = createP("Email: " + temp.getEmail());
+    let favMovies = createP("Favorite Movies: ");
+    let reviews = createP("Reviews: ");
+    let recentlyWatched = createP("Recently Watched: ");
+    let movieWatchList = createP("Movie Watch List: ");
+    let ratings = createP("Ratings: ");
+
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
     favMovies.position(leftXPos, favMoviesYPos);
