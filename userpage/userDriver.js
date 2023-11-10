@@ -8,7 +8,7 @@ function setup() {
     temp.addRating("Hot Rod", "Comedy Gold, would recommend.");
     temp.addMovieToFavorite("The Dark Knight");
     temp.addMovieToRecentlyWatched("The Dark Knight Rises");
-    temp.addRating("Joker", "great movie!");
+    temp.addRating("Joker", 5);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -24,14 +24,14 @@ function setup() {
     let recentlyWatched = createP("Recently Watched: " + temp.getRecentlyWatched());
     let movieWatchList = createP("Movie Watch List: " + temp.getMovieWatchList());
     let ratings = createP("Ratings: " + temp.getRatings());
-    let leftXPos = 10;
+    let leftXPos = 50;
     let nameYPos = 100;
     let emailYPos = 125;
-    let favMoviesYPos = 150;
-    let reviewsYPos = 175;
-    let recentlyWatchedYPos = 200;
-    let movieWatchListYPos = 225;
-    let ratingsYPos = 250;
+    let favMoviesYPos = 180;
+    let reviewsYPos = 380;
+    let recentlyWatchedYPos = 580;
+    let movieWatchListYPos = 780;
+    let ratingsYPos = 980;
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
     favMovies.position(leftXPos, favMoviesYPos);

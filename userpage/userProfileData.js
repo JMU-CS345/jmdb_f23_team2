@@ -102,8 +102,8 @@ class User {
         this.favoriteMovies.push(movie);
     }
 
-    addRating(movie, review) {
-        this.reviews.push(movie, review);
+    addRating(movie, stars) {
+        this.reviews.push(movie, stars);
     }
 
 }
