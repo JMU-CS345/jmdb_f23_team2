@@ -32,7 +32,7 @@ function setup() {
 
 
 
-  let title = createP("Scroovie");
+  let title = createP("Scroovie Profile Creation");
   title.position(windowWidth / 2 - 90, 20);
   title.style("color", "#CBB677");
   title.style("font-size", "36px")
