@@ -60,7 +60,7 @@ function setup() {
 }
 
 function display(arr, x, y) {
-    if (arr.length == 0) {
+    if (arr.length >= 0) {
         let emptyList = createP("Nothing has been added here yet");
 
     } else {
