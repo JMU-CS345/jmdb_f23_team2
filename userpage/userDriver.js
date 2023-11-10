@@ -1,4 +1,5 @@
 function setup() {
+    let keyval = new Keyval(KEYVAL_API_KEY);
     //user = localStorage.getItem(username);
     //temp = userProfileData.createAccount(user);
     //Create Temp User
@@ -79,7 +80,7 @@ function display(arr, x, y) {
 
     } else {
         for (let i = 0; i < arr.length; i++) {
-            let movie = new Movie(arr[i]);
+            let movie = loadMovie(arr[i]);
             movie.getImage(10 + x, 10 + y);
             movie.name(10 + x, 125 + y);
         }

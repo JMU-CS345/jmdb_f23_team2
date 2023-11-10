@@ -28,3 +28,11 @@ class Movie {
 
 
 }
+
+function loadMovie(movieName) {
+  let myMovie;
+  data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${movieName}&api_key=`+ TMDB_API_KEY, function(data){
+    myMovie = new Movie(data);
+  } );
+  return myMovie;
+}

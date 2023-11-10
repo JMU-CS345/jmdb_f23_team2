@@ -45,10 +45,6 @@ function loadMovie() {
     text(myMovie.getScore(), 10, 50);
     text(myMovie.getDate(), 10, 60);
   } );
-
-  
-  
-  
 }
 
 function loadActor() {
