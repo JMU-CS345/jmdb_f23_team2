@@ -1,5 +1,4 @@
 function setup() {
-    let keyval = new Keyval(KEYVAL_API_KEY);
     //user = localStorage.getItem(username);
     //temp = userProfileData.createAccount(user);
     //Create Temp User
@@ -60,6 +59,14 @@ function setup() {
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
+    //display(temp.getRatings(), leftXPos, ratingsYPos);
+
+    name.position(leftXPos, nameYPos);
+    email.position(leftXPos, emailYPos);
+    favMovies.position(leftXPos, favMoviesYPos);
+    reviews.position(leftXPos, reviewsYPos);
+    recentlyWatched.position(leftXPos, recentlyWatchedYPos);
+    movieWatchList.position(leftXPos, movieWatchListYPos);
     ratings.position(leftXPos, ratingsYPos);
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
@@ -79,7 +86,7 @@ function display(arr, x, y) {
     } else {
         for (let i = 0; i < arr.length; i++) {
             let movie = loadMovie(arr[i]);
-            movie.getImage(10 + x, 10 + y);
+            movie.getImage(10 + x + (i * 40), 10 + y);
             movie.name(10 + x, 125 + y);
         }
     }
