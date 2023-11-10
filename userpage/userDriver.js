@@ -56,6 +56,7 @@ function setup() {
     friends.style("font-size", "24px");
     ratings.style("font-size", "24px");
 
+
     //Navigation Buttons
     let friendsButton = createButton("View Friends");
     friendsButton.position(windowWidth - 100, 100);
@@ -64,10 +65,10 @@ function setup() {
 }
 
 function display(arr, x, y) {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < 4; i++) {
         let movie = new Movie(arr[i]);
-        movie.getImage(10 + x, 10 + y);
-        movie.name(10 + x, 125 + y);
+        movie.getImage(10 + x + (i * 40), 10 + y);
+        movie.name(10 + x + (i * 40), 125 + y);
     }
 }
 

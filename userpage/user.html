@@ -7,7 +7,7 @@
     <title>User Profile</title>
     <style>
         body {
-            height: 150vh;
+            height: 200vh;
             /* Set a height larger than the viewport (e.g., 150% of viewport height) */
             margin: 0;
             /* Remove default margin */
@@ -40,6 +40,14 @@
         <script src="../lib/keyval.js"></script>
         <script src="userDriver.js"></script>
     </main>
+    <canvas id="canvas" width="700" height="1000"></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#CBB677";
+      ctx.fillRect(50, 200, 600, 150);
+    </script>
 </body>
 
 </html>
