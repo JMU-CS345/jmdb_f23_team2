@@ -3,6 +3,9 @@ function setup() {
     //temp = userProfileData.createAccount(user);
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    temp.addMovieToFavorite("Lord of the Rings: Return of the King");
+    temp.addMovieToRecentlyWatched("Lord of the Rings: Return of the King");
+    temp.addRating("Hot Rod", "Comedy Gold, would recommend.");
     temp.addMovieToFavorite("The Dark Knight");
     temp.addMovieToRecentlyWatched("The Dark Knight Rises");
     temp.addRating("Joker", "great movie!");
