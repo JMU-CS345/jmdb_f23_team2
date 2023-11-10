@@ -3,6 +3,11 @@ function setup (){
 //    temp = userProfileData.createAccount(user);
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    temp.addMovieToFavorite("The Dark Knight");
+    temp.addMovieToRecentlyWatched("The Dark Knight Rises");
+    temp.addRating("Joker", "great movie!");
+
+
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -43,6 +48,12 @@ function setup (){
     movieWatchList.style("font-size", "12px");
     friends.style("font-size", "12px");
     ratings.style("font-size", "12px");
+
+    //Navigation Buttons
+    let friendsButton = createButton("View Friends");
+    friendsButton.position(windowWidth - 100, 100);
+    let homeButton = createButton("Home");
+    homeButton.position(windowWidth - 160, 100);
 }
 
 function draw (){
