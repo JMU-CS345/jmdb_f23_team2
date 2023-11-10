@@ -1,13 +1,11 @@
-function setup (){
-//    user = localStorage.getItem(username);
-//    temp = userProfileData.createAccount(user);
+function setup() {
+    //user = localStorage.getItem(username);
+    //temp = userProfileData.createAccount(user);
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
     temp.addMovieToFavorite("The Dark Knight");
     temp.addMovieToRecentlyWatched("The Dark Knight Rises");
     temp.addRating("Joker", "great movie!");
-
-
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -65,6 +63,14 @@ function setup (){
     homeButton.position(windowWidth - 160, 100);
 }
 
-function draw (){
-    
+function display(arr, x, y) {
+    for (let i = 0; i < arr.length; i++) {
+        let movie = new Movie(arr[i]);
+        movie.getImage(10 + x, 10 + y);
+        movie.name(10 + x, 125 + y);
+    }
+}
+
+function draw() {
+
 }
