@@ -55,6 +55,64 @@ class User {
         this.friends.splice(this.friends.indexOf(friend), 1);
         this.update();
     }
+
+    addReview(review) {
+        this.reviews.push(review);
+        this.update();
+    }
+
+    removeReview(review) {
+        this.reviews.splice(this.reviews.indexOf(review), 1);
+        this.update();
+    }
+
+    addRating(rating) {
+        this.ratings.push(rating);
+        this.update();
+    }
+
+    removeRating(rating) {
+        this.ratings.splice(this.ratings.indexOf(ratings), 1);
+        this.update();
+    }
+
+    addMovie(movie, category) {
+        switch(category) {
+            case "favorite":
+                this.favoriteMovies.push(movie);
+                this.update();
+                break;
+            case "recent":
+                this.recentlyWatchedMovies.push(movie);
+                this.update();
+                break;
+            case "watchlist":
+                this.movieWatchlist.push(movie);
+                this.update();
+                break;
+            default:
+                break;
+        }
+    }
+
+    removeMovie(movie, category) {
+        switch(category) {
+            case "favorite":
+                this.favoriteMovies.splice(this.favoriteMovies.indexOf(movie), 1);
+                this.update();
+                break;
+            case "recent":
+                this.recentlyWatchedMovies.splice(this.recentlyWatchedMovies.indexOf(movie), 1);
+                this.update();
+                break;
+            case "watchlist":
+                this.movieWatchlist.splice(this.movieWatchlist.indexOf(movie), 1);
+                this.update();
+                break;
+            default:
+                break;
+        }
+    }
     
     getFirstName(){
         return this.firstName;
