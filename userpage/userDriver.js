@@ -25,13 +25,13 @@ function setup (){
     let friends = createP("Friends: " + temp.getFriends());
     let ratings = createP("Ratings: " + temp.getRatings());
     name.position(10, 100);
-    email.position(10, 120);
-    favMovies.position(10, 140);
-    reviews.position(10, 160);
-    recentlyWatched.position(10, 180);
-    movieWatchList.position(10, 200);
-    friends.position(10, 220);
-    ratings.position(10, 240);
+    email.position(10, 125);
+    favMovies.position(10, 150);
+    reviews.position(10, 175);
+    recentlyWatched.position(10, 200);
+    movieWatchList.position(10, 225);
+    friends.position(10, 250);
+    ratings.position(10, 275);
     name.style("color", "#CBB677");
     email.style("color", "#CBB677");
     favMovies.style("color", "#CBB677");
@@ -40,14 +40,14 @@ function setup (){
     movieWatchList.style("color", "#CBB677");
     friends.style("color", "#CBB677");
     ratings.style("color", "#CBB677");
-    name.style("font-size", "12px");
-    email.style("font-size", "12px");
-    favMovies.style("font-size", "12px");
-    reviews.style("font-size", "12px");
-    recentlyWatched.style("font-size", "12px");
-    movieWatchList.style("font-size", "12px");
-    friends.style("font-size", "12px");
-    ratings.style("font-size", "12px");
+    name.style("font-size", "24px");
+    email.style("font-size", "24px");
+    favMovies.style("font-size", "24px");
+    reviews.style("font-size", "24px");
+    recentlyWatched.style("font-size", "24px");
+    movieWatchList.style("font-size", "24px");
+    friends.style("font-size", "24px");
+    ratings.style("font-size", "24px");
 
     //Navigation Buttons
     let friendsButton = createButton("View Friends");
