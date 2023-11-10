@@ -20,18 +20,28 @@ function setup() {
     let leftXPos = 50;
     let nameYPos = 100;
     let emailYPos = 125;
-    let favMoviesYPos = 180;
-    let reviewsYPos = 380;
-    let recentlyWatchedYPos = 580;
-    let movieWatchListYPos = 780;
-    let ratingsYPos = 980;
     let name = createP("Name: " + temp.getFirstName() + " " + temp.getLastName());
     let email = createP("Email: " + temp.getEmail());
+
     let favMovies = createP("Favorite Movies: ");
+    let favMoviesYPos = 180;
+    display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
+
     let reviews = createP("Reviews: ");
+    let reviewsYPos = 380;
+    display(temp.getReviews(), leftXPos, reviewsYPos);
+
     let recentlyWatched = createP("Recently Watched: ");
+    let recentlyWatchedYPos = 580;
+    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
+
     let movieWatchList = createP("Movie Watch List: ");
+    let movieWatchListYPos = 780;
+    display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
+
     let ratings = createP("Ratings: ");
+    let ratingsYPos = 980;
+//    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
@@ -64,7 +74,7 @@ function setup() {
 }
 
 function display(arr, x, y) {
-    if (arr.length >= 0) {
+    if (arr.length <= 0) {
         let emptyList = createP("Nothing has been added here yet");
 
     } else {
@@ -77,5 +87,4 @@ function display(arr, x, y) {
 }
 
 function draw() {
-
 }
