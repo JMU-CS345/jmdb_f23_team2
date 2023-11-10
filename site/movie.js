@@ -25,8 +25,6 @@ class Movie {
     img.position(x, y); 
     img.style("width", "110px");
   }
-
-
 }
 
 function loadMovie(movieName) {
