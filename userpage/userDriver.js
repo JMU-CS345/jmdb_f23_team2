@@ -7,11 +7,10 @@ function setup() {
     
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
-    temp.addMovieToFavorite("Lord of the Rings: Return of the King");
-    temp.addMovieToRecentlyWatched("Lord of the Rings: Return of the King");
-    temp.addRating("Hot Rod", 4);
-    temp.addMovieToFavorite("The Dark Knight");
-    temp.addMovieToRecentlyWatched("The Dark Knight Rises");
+    temp.addMovie("Lord of the Rings: Return of the King", "seen");
+    temp.addMovie("Lord of the Rings: Return of the King", "favorite");
+    temp.addMovie("The Dark Knight", "seen");
+    temp.addMovie("The Dark Knight Rises", "watchlist");
     temp.addRating("Joker", 5);
 
     //title
