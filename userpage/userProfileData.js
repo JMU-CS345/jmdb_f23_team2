@@ -12,6 +12,7 @@ class User {
         this.password = password;
 
         keyval.get(email, function(data){
+            //Successfully find the username
             this.firstName = data.firstName;
             this.lastName = data.lastName;
             this.email = data.email;
@@ -23,6 +24,7 @@ class User {
             this.reviews = data.reviews;
         
         }, (err) => {
+            //User does not exist
             keyval.set(email, this.createJSONlayout());
         });
     }

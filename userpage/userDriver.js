@@ -6,12 +6,12 @@ function setup() {
     temp = new User(user);
     
     //Create Temp User
-    let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
-    temp.addMovie("Lord of the Rings: Return of the King", "seen");
-    temp.addMovie("Lord of the Rings: Return of the King", "favorite");
-    temp.addMovie("The Dark Knight", "seen");
-    temp.addMovie("The Dark Knight Rises", "watchlist");
-    temp.addRating("Joker", 5);
+    //let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
+    //temp.addMovie("Lord of the Rings: Return of the King", "seen");
+ //   temp.addMovie("Lord of the Rings: Return of the King", "favorite");
+  //  temp.addMovie("The Dark Knight", "seen");
+  //  temp.addMovie("The Dark Knight Rises", "watchlist");
+  //  temp.addRating("Joker", 5);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
