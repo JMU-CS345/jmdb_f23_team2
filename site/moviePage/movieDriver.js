@@ -1,4 +1,4 @@
-let movieName;
+let movie;
 
 function setup() {
     const watchlist = createButton("Add To Watch List");
@@ -11,17 +11,19 @@ function setup() {
 
 function addToWatchList(username) {
     user = new User(username);
-    user.addMovie()
+    user.addMovie(movie, "watchlist");
 }
 
-function addToSeen() {
-
+function addToSeen(username) {
+    user = new User(username);
+    user.addMovie(movie, "seen");
 }
 
 function addToFavorites() {
-
+    user = new User(username);
+    user.addMovie(movie, "favorite");
 }
 
 function loadMovie(movieName) {
-    this.movieName = movieName;
+    this.movie = loadMovie(movieName);
 }
