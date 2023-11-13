@@ -56,7 +56,7 @@ function loader() {
 
     errorT.style("color", "#00FF00");
 
-    new User(firstNameBox.value(), lastNameBox.value(), emailBox.value(), passwordBox.value());
+    new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
 
   }
 }

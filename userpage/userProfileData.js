@@ -5,7 +5,7 @@ class User {
     movieWatchlist = [];
     friends = [];
 
-    constructor(firstName = null, lastName = null, email, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
+    constructor(email, firstName = null, lastName = null, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -83,10 +83,6 @@ class User {
         return this.reviews;
     }
 
-    getRecentlyWatched() {
-        return this.recentlyWatchedMovies;
-    }
-
     getMovieWatchList() {
         return this.movieWatchlist;
     }
@@ -101,10 +97,6 @@ class User {
 
     addMovieToWatchList(movie) {
         this.movieWatchlist.push(movie);
-    }
-
-    addMovieToRecentlyWatched(movie) {
-        this.recentlyWatchedMovies.push(movie);
     }
 
     addMovieToWatched(movie) {
