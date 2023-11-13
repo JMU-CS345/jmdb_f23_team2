@@ -1,6 +1,7 @@
 function setup() {
 
     //Test cases
+<<<<<<< Updated upstream
     let username = "wgkeppel@gmail.com";
     //let user = localStorage.getItem(username);
     temp = new User(username);
@@ -12,6 +13,17 @@ function setup() {
   //  temp.addMovie("The Dark Knight", "seen");
   //  temp.addMovie("The Dark Knight Rises", "watchlist");
   //  temp.addRating("Joker", 5);
+=======
+    let username = localStorage.getItem("username");
+    let user = localStorage.getItem(username);
+    temp = new User(user);
+
+    temp.addMovie("Lord of the Rings: Return of the King", "seen");
+    temp.addMovie("Lord of the Rings: Return of the King", "favorite");
+    temp.addMovie("The Dark Knight", "seen");
+    temp.addMovie("The Dark Knight Rises", "watchlist");
+    temp.addRating("Joker", 5);
+>>>>>>> Stashed changes
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -78,8 +90,10 @@ function setup() {
     //Navigation Buttons
     let friendsButton = createButton("View Friends");
     friendsButton.position(windowWidth - 100, 100);
+    friendsButton.mousePressed(goToSocialPage);
     let homeButton = createButton("Home");
     homeButton.position(windowWidth - 160, 100);
+    homeButton.mousePressed(goToHomePage);
 }
 
 function display(arr, x, y) {
@@ -96,4 +110,12 @@ function display(arr, x, y) {
 }
 
 function draw() {
+}
+
+function goToSocialPage() {
+    
+}
+
+function goToHomePage() {
+
 }
