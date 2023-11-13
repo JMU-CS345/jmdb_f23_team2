@@ -48,7 +48,7 @@ function setup() {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    //    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
+    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 780;
@@ -98,9 +98,9 @@ function draw() {
 }
 
 function goToSocialPage() {
-    
+    socialPageURL = "../site/social.html"
 }
 
 function goToHomePage() {
-
+    homePageURL = "../site/index.html"
 }
