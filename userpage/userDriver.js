@@ -19,6 +19,21 @@ function setup (){
     let movieWatchList = createP(temp.getMovieWatchList());
     let friends = createP(temp.getFriends());
     let ratings = createP(temp.getRatings());
+    let seenMovies = createP(temp.getSeenMovies());
+    temp.getSeenMovies().sort((a, b){
+        let a_date = a.seen_date;
+        let b_date = b.seen_date;
+        if(a_date < b_date) {
+            return -1;
+        }
+        else if (a_date > b_date) {
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    });
+
 
 }
 
