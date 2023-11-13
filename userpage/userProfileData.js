@@ -1,47 +1,48 @@
 class User {
     favoriteMovies = [];
     reviews = [];
-    seenMovies = [];
+    recentlyWatchedMovies = [];
     movieWatchlist = [];
     friends = [];
-    ratings = [];
 
-    constructor(firstName, lastName, email, password) {
+    constructor(firstName = null, lastName = null, email, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        keyval.set(email, createJSONlayout(), none)
+
+        keyval.get(email, function(data){
+            this.firstName = data.firstName;
+            this.lastName = data.lastName;
+            this.email = data.email;
+            this.password = data.password;
+            this.friends = data.friends;
+            this.recentlyWatchedMovies = data.recentlyWatchedMovies;
+            this.movieWatchlist = data.movieWatchlist;
+            this.favoriteMovies = data.favoriteMovies;
+            this.reviews = data.reviews;
+        
+        }, (err) => {
+            keyval.set(email, this.createJSONlayout());
+        });
     }
 
-    constructor(username) {
-        userData = loadJSON(keyval.get(username, none));
-        this.firstName = userData.firstName;
-        this.lastName = userData.lastName;
-        this.friends = userData.friends;
-        this.seenMovies = userData.seenMovies;
-        this.movieWatchlist = userData.movieWatchList;
-        this.favoriteMovies = userData.favoriteMovies;
-        this.reviews = userData.reviews;
-        this.ratings = userData.ratings;
-    }
 
     update() {
-        keyval.set(email, createJSONlayout(), none)
+        keyval.set(email, this.createJSONlayout())
     }
 
     createJSONlayout() {
-        userJSON = {
+        let userJSON = {
             "firstName": this.firstName,
             "lastName": this.lastName,
             "email": this.email,
             "password": this.password,
-            "friends": this.friends,
-            "seenMovies": this.seenMovies,
-            "movieWatchList": this.movieWatchlist,
-            "favoriteMovies": this.favoriteMovies,
-            "reviews": this.reviews,
-            "ratings": this.ratings
+            "friends": [],
+            "recentlyWatchedMovies": [],
+            "movieWatchList": [],
+            "favoriteMovies": [],
+            "reviews": []
         }
         return userJSON
     }
@@ -56,77 +57,64 @@ class User {
         this.update();
     }
 
-    addReview(review) {
-        this.reviews.push(review);
-        this.update();
-    }
-
-    removeReview(review) {
-        this.reviews.splice(this.reviews.indexOf(review), 1);
-        this.update();
-    }
-
-    addRating(rating) {
-        this.ratings.push(rating);
-        this.update();
-    }
-
-    removeRating(rating) {
-        this.ratings.splice(this.ratings.indexOf(ratings), 1);
-        this.update();
-    }
-
-    addMovie(movie, category) {
-        switch(category) {
-            case "favorite":
-                this.favoriteMovies.push(movie);
-                this.update();
-                break;
-            case "seen":
-                this.seenMovies.push(movie);
-                this.update();
-                break;
-            case "watchlist":
-                this.movieWatchlist.push(movie);
-                this.update();
-                break;
-            default:
-                break;
-        }
-    }
-
-    removeMovie(movie, category) {
-        switch(category) {
-            case "favorite":
-                this.favoriteMovies.splice(this.favoriteMovies.indexOf(movie), 1);
-                this.update();
-                break;
-            case "seen":
-                this.seenMovies.splice(this.seenMovies.indexOf(movie), 1);
-                this.update();
-                break;
-            case "watchlist":
-                this.movieWatchlist.splice(this.movieWatchlist.indexOf(movie), 1);
-                this.update();
-                break;
-            default:
-                break;
-        }
-    }
-    
-    getFirstName(){
+    getFirstName() {
         return this.firstName;
     }
 
-    getLastName(){
+    getLastName() {
         return this.lastName;
     }
 
-    getEmail(){
+    getEmail() {
         return this.email;
     }
 
-    getPassword(){
+    getPassword() {
         return this.password;
     }
+
+    getFavoriteMovies() {
+        return this.favoriteMovies;
+    }
+
+    getReviews() {
+        return this.reviews;
+    }
+
+    getRecentlyWatched() {
+        return this.recentlyWatchedMovies;
+    }
+
+    getMovieWatchList() {
+        return this.movieWatchlist;
+    }
+
+    getFriends() {
+        return this.friends;
+    }
+
+    getRatings() {
+        return this.ratings;
+    }
+
+    addMovieToWatchList(movie) {
+        this.movieWatchlist.push(movie);
+    }
+
+    addMovieToRecentlyWatched(movie) {
+        this.recentlyWatchedMovies.push(movie);
+    }
+
+    addMovieToWatched(movie) {
+        this.reviews.push(movie);
+    }
+
+    addMovieToFavorite(movie) {
+        this.favoriteMovies.push(movie);
+    }
+
+    addRating(movie, stars) {
+        this.reviews.push(movie, stars);
+    }
+
 }
