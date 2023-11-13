@@ -1,7 +1,7 @@
 class User {
     favoriteMovies = [];
     reviews = [];
-    recentlyWatchedMovies = [];
+    seenMovies = [];
     movieWatchlist = [];
     friends = [];
     ratings = [];
@@ -19,7 +19,7 @@ class User {
         this.firstName = userData.firstName;
         this.lastName = userData.lastName;
         this.friends = userData.friends;
-        this.recentlyWatchedMovies = userData.recentlyWatchedMovies;
+        this.seenMovies = userData.seenMovies;
         this.movieWatchlist = userData.movieWatchList;
         this.favoriteMovies = userData.favoriteMovies;
         this.reviews = userData.reviews;
@@ -37,7 +37,7 @@ class User {
             "email": this.email,
             "password": this.password,
             "friends": this.friends,
-            "recentlyWatchedMovies": this.recentlyWatchedMovies,
+            "seenMovies": this.seenMovies,
             "movieWatchList": this.movieWatchlist,
             "favoriteMovies": this.favoriteMovies,
             "reviews": this.reviews,
@@ -82,8 +82,8 @@ class User {
                 this.favoriteMovies.push(movie);
                 this.update();
                 break;
-            case "recent":
-                this.recentlyWatchedMovies.push(movie);
+            case "seen":
+                this.seenMovies.push(movie);
                 this.update();
                 break;
             case "watchlist":
@@ -101,8 +101,8 @@ class User {
                 this.favoriteMovies.splice(this.favoriteMovies.indexOf(movie), 1);
                 this.update();
                 break;
-            case "recent":
-                this.recentlyWatchedMovies.splice(this.recentlyWatchedMovies.indexOf(movie), 1);
+            case "seen":
+                this.seenMovies.splice(this.seenMovies.indexOf(movie), 1);
                 this.update();
                 break;
             case "watchlist":
