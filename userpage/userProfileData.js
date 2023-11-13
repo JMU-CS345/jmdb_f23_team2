@@ -11,7 +11,7 @@ class User {
         this.email = email;
         this.password = password;
 
-        keyval.get(email, function(json){
+        keyval.get(email, (json) =>{
             //Successfully find the username
             let data = loadJSON(json);
             this.firstName = data.firstName;
@@ -30,11 +30,11 @@ class User {
     }
 
     update() {
-        keyval.set(email, createJSONlayout(), none)
+        keyval.set(email, this.createJSONlayout(), none)
     }
 
     createJSONlayout() {
-        userJSON = {
+        let userJSON = {
             "firstName": this.firstName,
             "lastName": this.lastName,
             "email": this.email,

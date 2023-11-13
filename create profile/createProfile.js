@@ -66,18 +66,6 @@ function draw() {
 
 }
 
-function fetchData() {
-  keyval.set("test", input.value(), function (data) {
-    keyval.get("test", function (data) {
-      console.log(data);
-    });
-  });
-}
-
-
-
-
-
 function handleFile(file) {
   if (file.type === 'image') {
     var reader = new FileReader();

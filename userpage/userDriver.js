@@ -1,9 +1,9 @@
 function setup() {
 
     //Test cases
-    let username = "wgkeppel@gmail.com";
+    let username = "w@gmail.com";
     //let user = localStorage.getItem(username);
-    temp = new User(username);
+    let temp = new User(username);
 
 
     //temp.addMovie("Lord of the Rings: Return of the King", "favorite");
@@ -49,7 +49,7 @@ function setup() {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
+    display(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 780;
