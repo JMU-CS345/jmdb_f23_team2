@@ -7,6 +7,7 @@ function setup() {
     watchlist.mousePressed(addToWatchList);
     seen.mousePressed(addToSeen);
     favorites.mousePressed(addToFavorites);
+    movie.getImage(10,10);
 }
 
 function addToWatchList(username) {
