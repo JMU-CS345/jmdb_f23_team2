@@ -1,7 +1,6 @@
 function setup() {
 
     //Test cases
-<<<<<<< Updated upstream
     let username = "wgkeppel@gmail.com";
     //let user = localStorage.getItem(username);
     temp = new User(username);
@@ -13,17 +12,6 @@ function setup() {
   //  temp.addMovie("The Dark Knight", "seen");
   //  temp.addMovie("The Dark Knight Rises", "watchlist");
   //  temp.addRating("Joker", 5);
-=======
-    let username = localStorage.getItem("username");
-    let user = localStorage.getItem(username);
-    temp = new User(user);
-
-    temp.addMovie("Lord of the Rings: Return of the King", "seen");
-    temp.addMovie("Lord of the Rings: Return of the King", "favorite");
-    temp.addMovie("The Dark Knight", "seen");
-    temp.addMovie("The Dark Knight Rises", "watchlist");
-    temp.addRating("Joker", 5);
->>>>>>> Stashed changes
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -113,9 +101,9 @@ function draw() {
 }
 
 function goToSocialPage() {
-    
+    socialPageURL = "../site/social.html"
 }
 
 function goToHomePage() {
-
+    homePageURL = "../site/index.html"
 }
