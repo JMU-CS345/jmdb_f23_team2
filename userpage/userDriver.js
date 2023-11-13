@@ -5,6 +5,7 @@ function setup() {
     //let user = localStorage.getItem(username);
     temp = new User(username);
 
+
     //temp.addMovie("Lord of the Rings: Return of the King", "favorite");
     //temp.addMovie("The Dark Knight", "seen");
     //temp.addMovie("The Dark Knight Rises", "watchlist");
@@ -59,7 +60,7 @@ function setup() {
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    //display(temp.getRatings(), leftXPos, ratingsYPos);
+    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
