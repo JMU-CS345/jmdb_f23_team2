@@ -4,14 +4,19 @@ function setup() {
     let username = "wgkeppel@gmail.com";
     //let user = localStorage.getItem(username);
     temp = new User(username);
-    
+
     //Create Temp User
     //let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
     //temp.addMovie("Lord of the Rings: Return of the King", "seen");
- //   temp.addMovie("Lord of the Rings: Return of the King", "favorite");
-  //  temp.addMovie("The Dark Knight", "seen");
-  //  temp.addMovie("The Dark Knight Rises", "watchlist");
-  //  temp.addRating("Joker", 5);
+    //let username = localStorage.getItem("username");
+    let user = localStorage.getItem(username);
+    temp = new User(user);
+
+    temp.addMovie("Lord of the Rings: Return of the King", "seen");
+    temp.addMovie("Lord of the Rings: Return of the King", "favorite");
+    temp.addMovie("The Dark Knight", "seen");
+    temp.addMovie("The Dark Knight Rises", "watchlist");
+    temp.addRating("Joker", 5);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -51,7 +56,7 @@ function setup() {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
+    //    display(temp.getRecentlyWatched(), leftXPos, recentlyWatchedYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 780;

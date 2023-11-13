@@ -8,17 +8,16 @@ class User {
     constructor(email, firstName = null, lastName = null, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.password = password;
 
-        keyval.get(email, function(data){
+        keyval.get(email, (data) => {
             //Successfully find the username
             this.firstName = data.firstName;
             this.lastName = data.lastName;
             this.email = data.email;
             this.password = data.password;
             this.friends = data.friends;
-            this.recentlyWatchedMovies = data.recentlyWatchedMovies;
+            //this.recentlyWatchedMovies = data.recentlyWatchedMovies;
             this.movieWatchlist = data.movieWatchlist;
             this.favoriteMovies = data.favoriteMovies;
             this.reviews = data.reviews;
@@ -99,7 +98,7 @@ class User {
         this.movieWatchlist.push(movie);
     }
 
-    addMovieToWatched(movie) {
+    addMovieToSeen(movie) {
         this.reviews.push(movie);
     }
 
@@ -111,4 +110,7 @@ class User {
         this.reviews.push(movie, stars);
     }
 
+    addReviews(movie, review) {
+        this.reviews.push(movie, review);
+    }
 }
