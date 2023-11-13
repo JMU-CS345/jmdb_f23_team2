@@ -132,4 +132,28 @@ class User {
     getPassword(){
         return this.password;
     }
+
+    getFriends(){
+        return this.friends;
+    }
+
+    getReviews(){
+        return this.reviews;
+    }
+
+    getRatings(){
+        return this.ratings;
+    }
+
+    getFavoriteMovies(){
+        return this.favoriteMovies;
+    }
+
+    getSeenMovies(){
+        return this.seenMovies;
+    }
+
+    getMovieWatchList(){
+        return this.movieWatchlist;
+    }
 }
