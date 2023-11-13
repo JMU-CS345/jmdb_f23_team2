@@ -1,6 +1,6 @@
 function setup() {
-    //user = localStorage.getItem(username);
-    //temp = userProfileData.createAccount(user);
+   user = localStorage.getItem(username);
+    temp = userProfileData.createAccount(user);
     //Create Temp User
     let temp = new User("Josh", "Derrow", "joshb12d@gmail.com", "password");
     temp.addMovieToFavorite("Lord of the Rings: Return of the King");
