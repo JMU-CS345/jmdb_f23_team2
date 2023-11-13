@@ -11,7 +11,18 @@ class User {
         this.email = email;
         this.password = password;
 
-        keyval.get(email, this.createJSONlayout(), (err) => {
+        keyval.get(email, function(data){
+            this.firstName = data.firstName;
+            this.lastName = data.lastName;
+            this.email = data.email;
+            this.password = data.password;
+            this.friends = data.friends;
+            this.recentlyWatchedMovies = data.recentlyWatchedMovies;
+            this.movieWatchlist = data.movieWatchlist;
+            this.favoriteMovies = data.favoriteMovies;
+            this.reviews = data.reviews;
+        
+        }, (err) => {
             keyval.set(email, this.createJSONlayout());
         });
     }
