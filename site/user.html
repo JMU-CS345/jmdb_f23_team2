@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            height: 200vh;
+            /* Set a height larger than the viewport (e.g., 150% of viewport height) */
+            margin: 0;
+            /* Remove default margin */
+            overflow-y: scroll;
+            /* Enable vertical scrolling */
+        }
+
+        /* Additional styling for demonstration purposes */
+        h1 {
+            text-align: center;
+            padding: 50px 0;
+        }
+    </style>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #450084;
+        }
+    </style>
+    <script src="../p5.js"></script>
+    <script src="../api_keys.js"></script>
+    <!-- <script src="../addons/p5.sound.js"></script> -->
+
+</head>
+
+<body>
+    <main>
+        <script src="../site/movie.js"></script>
+        <script src="../lib/keyval.js"></script>
+        <script src="../userpage/userProfileData.js"></script>
+        <script src="../userpage/userDriver.js"></script>
+    </main>
+    <canvas id="canvas" width="1500" height="2000"></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#CBB677";
+      ctx.fillRect(50, 130, screen.width - 50, 150);
+      ctx.fillRect(50, 330, screen.width - 50, 150);
+      ctx.fillRect(50, 530, screen.width - 50, 150);
+      ctx.fillRect(50, 730, screen.width - 50, 150);
+      ctx.fillRect(50, 930, screen.width - 50, 150);
+    </script>
+</body>
+
+</html>

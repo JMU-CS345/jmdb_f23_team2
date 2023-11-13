@@ -11,14 +11,25 @@ class User {
         this.email = email;
         this.password = password;
 
-        keyval.get(email, this.createJSONlayout(), (err) => {
-            keyval.set(email, this.createJSONlayout(), none);
+        keyval.get(email, function(data){
+            this.firstName = data.firstName;
+            this.lastName = data.lastName;
+            this.email = data.email;
+            this.password = data.password;
+            this.friends = data.friends;
+            this.recentlyWatchedMovies = data.recentlyWatchedMovies;
+            this.movieWatchlist = data.movieWatchlist;
+            this.favoriteMovies = data.favoriteMovies;
+            this.reviews = data.reviews;
+        
+        }, (err) => {
+            keyval.set(email, this.createJSONlayout());
         });
     }
 
 
     update() {
-        keyval.set(email, this.createJSONlayout(), none)
+        keyval.set(email, this.createJSONlayout())
     }
 
     createJSONlayout() {
@@ -85,4 +96,25 @@ class User {
     getRatings() {
         return this.ratings;
     }
+
+    addMovieToWatchList(movie) {
+        this.movieWatchlist.push(movie);
+    }
+
+    addMovieToRecentlyWatched(movie) {
+        this.recentlyWatchedMovies.push(movie);
+    }
+
+    addMovieToWatched(movie) {
+        this.reviews.push(movie);
+    }
+
+    addMovieToFavorite(movie) {
+        this.favoriteMovies.push(movie);
+    }
+
+    addRating(movie, stars) {
+        this.reviews.push(movie, stars);
+    }
+
 }
