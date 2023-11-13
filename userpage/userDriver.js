@@ -80,16 +80,16 @@ function setup() {
 }
 
 function display(arr, x, y) {
-//    if (arr.length <= 0) {
+    if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
-//    } else {
-//        for (let i = 0; i < arr.length; i++) {
-//            let movie = new Movie(loadMovie(arr[i]));
-//            movie.getImage(10 + x + (i * 40), 10 + y);
-//            movie.name(10 + x, 125 + y);
-//        }
-//    }
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            let movie = new Movie(loadMovie(arr[i]));
+            movie.getImage(10 + x + (i * 40), 10 + y);
+            movie.name(10 + x, 125 + y);
+        }
+    }
 }
 
 function draw() {
