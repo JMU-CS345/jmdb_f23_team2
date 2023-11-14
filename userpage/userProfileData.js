@@ -153,6 +153,10 @@ class User {
         return this.seenMovies;
     }
 
+    getLastWatched(){
+        return this.seenMovies[this.seenMovies.length - 1];
+    }
+
     getMovieWatchList(){
         return this.movieWatchlist;
     }
