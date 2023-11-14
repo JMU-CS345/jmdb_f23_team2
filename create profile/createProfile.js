@@ -40,12 +40,12 @@ function setup() {
 
 function loader() {
   errorT.html("");
-  errorT.style("color", ""); 
+  errorT.style("color", "");
 
   errorT.style("font-size", "36px")
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (firstNameBox.value() == "" || lastNameBox.value() == "" || emailBox.value() == "" || passwordBox.value() == "" ||
-  !(/^[^@]+@[^@]+\.[^@.]+$/i.test(emailBox.value()))) {
+    !(/^[^@]+@[^@]+\.[^@.]+$/i.test(emailBox.value()))) {
     errorT.html("You must fill out all fields!");
 
     errorT.style("color", "#FF0000");
@@ -56,8 +56,12 @@ function loader() {
 
     errorT.style("color", "#00FF00");
 
+    if (!(checkUnique(emailBox.value()))) {
+      errorT.html("Email already in use!");
+      errorT.style("color", "#FF0000");
+      return;
+    }
     new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
-
   }
 }
 
@@ -83,4 +87,12 @@ function handleFile(file) {
   }
 }
 
-
+function checkUnique(email) {
+  keyval.get(email, (data) => {
+    //User exists
+    return false;
+  }, (err) => {
+    //User does not exist
+    return true;
+  });
+}
