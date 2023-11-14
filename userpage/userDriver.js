@@ -1,8 +1,9 @@
 function setup() {
 
     //Test cases
-    let username = "w@gmail.com";
+    let username = "wgkeppel@gmail.com";
     //let user = localStorage.getItem(username);
+    let temp1 = new User(username, "will", "keppel", "p");
     let temp = new User(username);
 
 
@@ -49,18 +50,18 @@ function setup() {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    display(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
+    //display(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 780;
     movieWatchList.position(leftXPos, movieWatchListYPos);
     movieWatchList.style("color", "#CBB677");
     movieWatchList.style("font-size", "24px");
-    display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
+    //display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    display(temp.getRatings(), leftXPos, ratingsYPos);
+    //display(temp.getRatings(), leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
@@ -71,7 +72,6 @@ function setup() {
     ratings.position(leftXPos, ratingsYPos);
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
-    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     //Navigation Buttons
     let friendsButton = createButton("View Friends");

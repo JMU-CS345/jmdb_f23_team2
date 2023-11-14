@@ -6,27 +6,38 @@ class User {
     friends = [];
 
     constructor(email, firstName = null, lastName = null, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.password = password;
 
-        keyval.get(email, (json) =>{
-            //Successfully find the username
-            let data = loadJSON(json);
-            this.firstName = data.firstName;
-            this.lastName = data.lastName;
-            this.email = data.email;
-            this.password = data.password;
-            this.friends = data.friends;
-            this.seenMovies = data.seenMovies;
-            this.movieWatchlist = data.movieWatchlist;
-            this.favoriteMovies = data.favoriteMovies;
-            this.reviews = data.reviews;
-        }, (err) => {
-            //User does not exist
-            keyval.set(email, this.createJSONlayout());
-        });
+        // Check if email is provided
+        if (email) {
+            keyval.get(email, (json) => {
+                cosole.log(json);
+                //Check the object
+
+                // Successfully find the user data
+                let data = loadJSON(json);
+                console.log("Paresd JSON:", data);
+                this.updateFromData(data);
+            }, (err) => {
+                // User does not exist, set default data
+                keyval.set(email, this.createJSONlayout());
+            });
+        }
+    }
+
+    updateFromData(data) {
+        this.firstName = data.firstName;
+        this.lastName = data.lastName;
+        this.email = data.email;
+        this.password = data.password;
+        this.friends = data.friends;
+        this.seenMovies = data.seenMovies;
+        this.movieWatchlist = data.movieWatchlist;
+        this.favoriteMovies = data.favoriteMovies;
+        this.reviews = data.reviews;
     }
 
     update() {
