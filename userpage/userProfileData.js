@@ -1,47 +1,37 @@
 class User {
     favoriteMovies = [];
     reviews = [];
+    ratings = [];
     recentlyWatchedMovies = [];
     movieWatchlist = [];
     friends = [];
 
-    constructor(email, firstName = null, lastName = null, password = null, keyval = new Keyval(KEYVAL_API_KEY)) {
+    constructor(email, firstName, lastName, password, keyval = new Keyval(KEYVAL_API_KEY)) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-
-        // Check if email is provided
-        if (email) {
-            keyval.get(email, (json) => {
-                cosole.log(json);
-                //Check the object
-
-                // Successfully find the user data
-                let data = loadJSON(json);
-                console.log("Paresd JSON:", data);
-                this.updateFromData(data);
-            }, (err) => {
-                // User does not exist, set default data
-                keyval.set(email, this.createJSONlayout());
-            });
-        }
+        keyval.set(email, this.createJSONlayout());
     }
 
-    updateFromData(data) {
-        this.firstName = data.firstName;
-        this.lastName = data.lastName;
-        this.email = data.email;
-        this.password = data.password;
-        this.friends = data.friends;
-        this.seenMovies = data.seenMovies;
-        this.movieWatchlist = data.movieWatchlist;
-        this.favoriteMovies = data.favoriteMovies;
-        this.reviews = data.reviews;
+    //Return a new User if the user exists, otherwise return null
+    loadUser(username, keyval = new Keyval(KEYVAL_API_KEY)) {
+        keyval.get(username, (data) => {
+            const user = new User(data.email, data.firstName, data.lastName, data.password);
+            user.setFriends(data.friends);
+            user.setReviews(data.reviews);
+            user.setRatings(data.ratings);
+            user.setFavoriteMovies(data.favoriteMovies);
+            user.setSeenMovies(data.seenMovies);
+            user.setMovieWatchList(data.movieWatchList);
+            return user;
+        }, (err) => {
+            return null;
+        });
     }
 
     update() {
-        keyval.set(email, this.createJSONlayout(), none)
+        keyval.set(email, this.createJSONlayout());
     }
 
     createJSONlayout() {
@@ -57,9 +47,12 @@ class User {
             "reviews": this.reviews,
             "ratings": this.ratings
         }
-        return userJSON
+        return JSON.stringify(userJSON);
     }
 
+
+
+    //ADD AND REMOVE FUNCTIONS 
     addFriend(friend) {
         this.friends.push(friend);
         this.update();
@@ -91,7 +84,7 @@ class User {
     }
 
     addMovie(movie, category) {
-        switch(category) {
+        switch (category) {
             case "favorite":
                 this.favoriteMovies.push(movie);
                 this.update();
@@ -110,7 +103,7 @@ class User {
     }
 
     removeMovie(movie, category) {
-        switch(category) {
+        switch (category) {
             case "favorite":
                 this.favoriteMovies.splice(this.favoriteMovies.indexOf(movie), 1);
                 this.update();
@@ -127,48 +120,78 @@ class User {
                 break;
         }
     }
-    
-    getFirstName(){
+
+
+
+    //SETTERS
+    setFriends(friends) {
+        this.friends = friends;
+    }
+
+    setReviews(reviews) {
+        this.reviews = reviews;
+    }
+
+    setRatings(ratings) {
+        this.ratings = ratings;
+    }
+
+    setFavoriteMovies(favoriteMovies) {
+        this.favoriteMovies = favoriteMovies;
+    }
+
+    setSeenMovies(seenMovies) {
+        this.seenMovies = seenMovies;
+    }
+
+    setMovieWatchList(movieWatchList) {
+        this.movieWatchList = movieWatchList;
+    }
+
+
+
+    //GETTERS
+    getFirstName() {
         return this.firstName;
     }
 
-    getLastName(){
+    getLastName() {
         return this.lastName;
     }
 
-    getEmail(){
+    getEmail() {
         return this.email;
     }
 
-    getPassword(){
+    getPassword() {
         return this.password;
     }
 
-    getFriends(){
+    getFriends() {
         return this.friends;
     }
 
-    getReviews(){
+    getReviews() {
         return this.reviews;
     }
 
-    getRatings(){
+    getRatings() {
         return this.ratings;
     }
 
-    getFavoriteMovies(){
+    getFavoriteMovies() {
         return this.favoriteMovies;
     }
 
-    getSeenMovies(){
+    getSeenMovies() {
         return this.seenMovies;
     }
 
-    getLastWatched(){
+    getLastWatched() {
         return this.seenMovies[this.seenMovies.length - 1];
     }
 
-    getMovieWatchList(){
+    getMovieWatchList() {
         return this.movieWatchlist;
     }
 }

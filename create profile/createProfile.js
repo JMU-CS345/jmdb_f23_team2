@@ -56,11 +56,11 @@ function loader() {
 
     errorT.style("color", "#00FF00");
 
-    if (!(checkUnique(emailBox.value()))) {
-      errorT.html("Email already in use!");
-      errorT.style("color", "#FF0000");
-      return;
-    }
+  //  if (!(checkUnique(emailBox.value()))) {
+  //    errorT.html("Email already in use!");
+  //    errorT.style("color", "#FF0000");
+  //    return;
+  //  }
     new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
   }
 }

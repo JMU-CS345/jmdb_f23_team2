@@ -1,16 +1,24 @@
 function setup() {
 
     //Test cases
+    
     let username = "wgkeppel@gmail.com";
-    //let user = localStorage.getItem(username);
     let temp1 = new User(username, "will", "keppel", "p");
-    let temp = new User(username);
+    loadUser(username)
+        .then(user => {
+            if (user) {
+                // User exists
+                console.log(user);
+            } else {
+                // User does not exist
+                console.log("User not found");
+            }
+        })
+        .catch(err => {
+            console.error("Error loading user:", err);
+        });
 
-
-    //temp.addMovie("Lord of the Rings: Return of the King", "favorite");
-    //temp.addMovie("The Dark Knight", "seen");
-    //temp.addMovie("The Dark Knight Rises", "watchlist");
-    //temp.addRating("Joker", 5);
+    //let user = localStorage.getItem(username);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -38,26 +46,26 @@ function setup() {
     favMovies.style("font-size", "24px");
     display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
 
-    let reviews = createP("Reviews: ");
-    let reviewsYPos = 380;
-    reviews.position(leftXPos, reviewsYPos);
-    reviews.style("color", "#CBB677");
-    reviews.style("font-size", "24px");
-    display(temp.getReviews(), leftXPos, reviewsYPos);
+    let movieWatchList = createP("Movie Watch List: ");
+    let movieWatchListYPos = 380;
+    movieWatchList.position(leftXPos, movieWatchListYPos);
+    movieWatchList.style("color", "#CBB677");
+    movieWatchList.style("font-size", "24px");
+    display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    //display(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
+    //display(temp.getLastWatched(), leftXPos, recentlyWatchedYPos);
 
-    let movieWatchList = createP("Movie Watch List: ");
-    let movieWatchListYPos = 780;
-    movieWatchList.position(leftXPos, movieWatchListYPos);
-    movieWatchList.style("color", "#CBB677");
-    movieWatchList.style("font-size", "24px");
-    //display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
+    let reviews = createP("Reviews: ");
+    let reviewsYPos = 780;
+    reviews.position(leftXPos, reviewsYPos);
+    reviews.style("color", "#CBB677");
+    reviews.style("font-size", "24px");
+    display(temp.getReviews(), leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
