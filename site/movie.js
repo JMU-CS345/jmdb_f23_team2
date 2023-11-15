@@ -22,9 +22,23 @@ class Movie {
   getImage(x, y) {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
-    img.position(x, y); 
+    img.position(x - img.width, y); 
     img.style("width", "110px");
   }
+  getBackground(cs) {
+    let img = createElement("img");
+    img.attribute("src", imgUrl + this.data.results[0].poster_path);
+    img.opacity(0.5);
+    background(img);
+  }
+
+  getBigImage(x, y) {
+    let img = createElement("img");
+    img.attribute("src", imgUrl + this.data.results[0].poster_path);
+    img.position(x, y); 
+    img.style("width", "200px");
+  }
+
 }
 
 function loadMovie(movieName) {
