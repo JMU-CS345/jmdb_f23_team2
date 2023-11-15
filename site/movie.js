@@ -24,6 +24,7 @@ class Movie {
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
     img.position(x - img.width, y); 
     img.style("width", "110px");
+    img.mousePressed(loadMoviePage);
   }
   getBackground(x, y) {
     let img = createElement("img");
@@ -48,4 +49,8 @@ function loadMovie(movieName) {
     myMovie = new Movie(data);
   } );
   return myMovie;
+}
+
+function loadMoviePage() {
+  window.location.href = 'moviePage.html';
 }
