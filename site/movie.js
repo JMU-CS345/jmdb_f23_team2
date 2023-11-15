@@ -25,18 +25,19 @@ class Movie {
     img.position(x - img.width, y); 
     img.style("width", "110px");
   }
-  getBackground(cs) {
+  getBackground(x, y) {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
-    img.opacity(0.5);
-    background(img);
+    //img.opacity(0.5);
+    img.style("width", "400px");
+    img.position((x/2) - width * 2, 0); 
   }
 
   getBigImage(x, y) {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
-    img.position(x, y); 
-    img.style("width", "200px");
+    img.style("width", "250px");
+    img.position((x/2) - width * 3, 105); 
   }
 
 }
