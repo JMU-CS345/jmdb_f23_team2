@@ -105,11 +105,3 @@ function display(arr, x, y) {
 
 function draw() {
 }
-
-function goToSocialPage() {
-    socialPageURL = "../site/social.html"
-}
-
-function goToHomePage() {
-    homePageURL = "../site/index.html"
-}
