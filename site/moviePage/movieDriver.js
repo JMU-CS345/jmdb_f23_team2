@@ -1,9 +1,8 @@
 let movie;
 let myPos = 50; //adjust height of all text
-let myColor = "white";
+let myColor = "white"; // adjust color
 
 function setup() {
-    //createCanvas(windowWidth, windowHeight);
     Title = createP();
     let boxSize = 100;
     rect(200, 1500, 1500);
