@@ -1,9 +1,12 @@
 let movie;
 let myPos = 50; //adjust height of all text
+let myColor = "white";
 
 function setup() {
     //createCanvas(windowWidth, windowHeight);
     Title = createP();
+    let boxSize = 100;
+    rect(200, 1500, 1500);
     const watchlist = createButton("Add To Watch List");
     watchlist.position(0,20);
     const seen = createButton("Add To Seen");
@@ -21,19 +24,23 @@ function setup() {
     Title = createP("Title: " + myMovie.getName());
     Title.position(windowWidth / 2, myPos);
     Title.style("font-size", "46px");
+    Title.style('color', myColor);
 
     Release = createP("Date: " + myMovie.getDate());
     Release.position(windowWidth / 2, myPos + 50);
     Release.style("font-size", "46px");
+    Release.style('color', myColor);
 
     AboutTitle = createP("About: ")
     AboutTitle.position(windowWidth / 2, myPos + 100);
     AboutTitle.style("font-size", "46px");
+    AboutTitle.style('color', myColor);
 
     About = createP( myMovie.getAbout());
     About.position(windowWidth / 2, myPos + 170);
     About.style('max-width', '400px');
     About.style("font-size", "30px");
+    About.style('color', myColor);
   } );
 
 }
