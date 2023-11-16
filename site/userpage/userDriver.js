@@ -1,7 +1,8 @@
 function setup() {
-    let tempArr = ["The Dark Knight", "The Dark Knight Rises"];
     User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
+            user.addMovie("The Dark Knight", "favoriteMovies");
+            user.addMovie("The Dark Knight Rises", "favoriteMovies");
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -65,10 +66,9 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-
+    let tempArr = ["The Dark Knight", "The Dark Knight Rises"];
     //A string representation of the user object
 
-//    temp.setMovieWatchList(tempArr);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -108,7 +108,7 @@ function updateUI(temp) {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    //displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
+    displayRecentlyWatched(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;

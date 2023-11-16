@@ -12,7 +12,6 @@ class User {
         this.lastName = lastName;
         this.password = password;
         keyval.set(email, this.createJSONlayout());
-        localStorage.setItem('user', user.createJSONlayout());
     }
 
     //Return a new User if the user exists, otherwise return null
@@ -29,8 +28,6 @@ class User {
                 user.setSeenMovies(data.seenMovies);
                 user.setMovieWatchList(data.movieWatchList);
 
-                keyval.set(user.getEmail(), user.createJSONlayout());
-
                 // Call the callback with the user object
                 callback(user);
             } else {
@@ -42,7 +39,7 @@ class User {
 
 
     update() {
-        keyval.set(email, this.createJSONlayout());
+        keyval.set(this.email, this.createJSONlayout());
     }
 
     createJSONlayout() {
@@ -102,9 +99,11 @@ class User {
                 break;
             case "seen":
                 this.seenMovies.push(movie);
+                this.update();
                 break;
             case "watchlist":
                 this.movieWatchlist.push(movie);
+                this.update();
                 break;
             default:
                 break;
