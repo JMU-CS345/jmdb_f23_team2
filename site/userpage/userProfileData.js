@@ -2,8 +2,8 @@ class User {
     favoriteMovies = [];
     reviews = [];
     ratings = [];
-    recentlyWatchedMovies = [];
     movieWatchlist = [];
+    seenMovies = [];
     friends = [];
 
     constructor(email, firstName, lastName, password, keyval = new Keyval(KEYVAL_API_KEY)) {
@@ -12,6 +12,7 @@ class User {
         this.lastName = lastName;
         this.password = password;
         keyval.set(email, this.createJSONlayout());
+        localStorage.setItem('user', user.createJSONlayout());
     }
 
     //Return a new User if the user exists, otherwise return null
@@ -27,6 +28,8 @@ class User {
                 user.setFavoriteMovies(data.favoriteMovies);
                 user.setSeenMovies(data.seenMovies);
                 user.setMovieWatchList(data.movieWatchList);
+
+                keyval.set(user.getEmail(), user.createJSONlayout());
 
                 // Call the callback with the user object
                 callback(user);
@@ -87,23 +90,21 @@ class User {
     }
 
     removeRating(rating) {
-        this.ratings.splice(this.ratings.indexOf(ratings), 1);
+        this.ratings.splice(this.ratings.indexOf(rating), 1);
         this.update();
     }
 
     addMovie(movie, category) {
+        console.log("Inside addMovie category: " + category);
         switch (category) {
             case "favorite":
                 this.favoriteMovies.push(movie);
-                this.update();
                 break;
             case "seen":
                 this.seenMovies.push(movie);
-                this.update();
                 break;
             case "watchlist":
                 this.movieWatchlist.push(movie);
-                this.update();
                 break;
             default:
                 break;
@@ -128,8 +129,6 @@ class User {
                 break;
         }
     }
-
-
 
     //SETTERS
     setFriends(friends) {
@@ -193,10 +192,6 @@ class User {
 
     getSeenMovies() {
         return this.seenMovies;
-    }
-
-    getLastWatched() {
-        return this.seenMovies[this.seenMovies.length - 1];
     }
 
     getMovieWatchList() {

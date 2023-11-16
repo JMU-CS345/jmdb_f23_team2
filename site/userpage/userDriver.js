@@ -34,9 +34,19 @@ function display(arr, x, y) {
 }
 
 function displayRatings(user, x, y) {
+    if (user.getRatings().length <= 0) {
+        emptyList = createP("Nothing has been added here yet");
+        emptyList.position(x + 10, y + 100);
+    } else {
+    }
 }
 
 function displayReviews(user, x, y) {
+    if (user.getReviews().length <= 0) {
+        emptyList = createP("Nothing has been added here yet");
+        emptyList.position(x + 10, y + 100);
+    } else {
+    }
 }
 
 function displayRecentlyWatched(arr, x, y) {
