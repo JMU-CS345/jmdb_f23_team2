@@ -2,7 +2,7 @@ function setup() {
     User.loadUser(localStorage.getItem("user"), (user) => {
         if (user) {
             updateUI(user);
-            localStorage.setItem('user', User.createJSONlayout(user));
+            localStorage.setItem('user', user.createJSONlayout());
         } else {
             console.error("Error loading user or user not found.");
         }
