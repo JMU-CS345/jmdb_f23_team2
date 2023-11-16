@@ -1,9 +1,7 @@
 function setup() {
-    User.loadUser(localStorage.getItem("user"), (user) => {
+    let tempArr = ["The Dark Knight", "The Dark Knight Rises"];
+    User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
-            user.addMovie("The Lord of the Rings: The Fellowship of the Ring", "watchlist");
-            user.addMovie("The Lord of the Rings: The Two Towers", "watchlist");
-            user.addMovie("The Dark Knight", "seen");
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -17,6 +15,7 @@ function setup() {
     let socialPageButton = createButton("To Social Page");
     socialPageButton.position(10, 40);
     socialPageButton.mousePressed(goToSocialPage);
+
 }
 
 function display(arr, x, y) {
@@ -45,7 +44,7 @@ function displayRecentlyWatched(arr, x, y) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
-        for (let i = 1; i <= 3 && arr.lngth - i > 0; i++) {
+        for (let i = 1; i <= 3 && arr.length - i > 0; i++) {
             console.log(arr[arr.length - i]);
             let movie = new Movie(loadMovie(arr[arr.length - i]));
             console.log(movie);
@@ -58,7 +57,8 @@ function displayRecentlyWatched(arr, x, y) {
 function updateUI(temp) {
 
     //A string representation of the user object
-    //let temp = JSON.parse(localStorage.getItem('user'));
+
+//    temp.setMovieWatchList(tempArr);
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -98,7 +98,7 @@ function updateUI(temp) {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
+    //displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
