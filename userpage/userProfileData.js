@@ -15,20 +15,28 @@ class User {
     }
 
     //Return a new User if the user exists, otherwise return null
-    loadUser(username, keyval = new Keyval(KEYVAL_API_KEY)) {
+    static loadUser(username, callback, keyval = new Keyval(KEYVAL_API_KEY)) {
         keyval.get(username, (data) => {
-            const user = new User(data.email, data.firstName, data.lastName, data.password);
-            user.setFriends(data.friends);
-            user.setReviews(data.reviews);
-            user.setRatings(data.ratings);
-            user.setFavoriteMovies(data.favoriteMovies);
-            user.setSeenMovies(data.seenMovies);
-            user.setMovieWatchList(data.movieWatchList);
-            return user;
-        }, (err) => {
-            return null;
+            if (data) {
+                console.log(data);
+                data = JSON.parse(data);
+                const user = new User(data.email, data.firstName, data.lastName, data.password);
+                user.setFriends(data.friends);
+                user.setReviews(data.reviews);
+                user.setRatings(data.ratings);
+                user.setFavoriteMovies(data.favoriteMovies);
+                user.setSeenMovies(data.seenMovies);
+                user.setMovieWatchList(data.movieWatchList);
+
+                // Call the callback with the user object
+                callback(user);
+            } else {
+                // Call the callback with null when there's an issue with keyval.get
+                callback(null);
+            }
         });
     }
+
 
     update() {
         keyval.set(email, this.createJSONlayout());

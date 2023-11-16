@@ -1,24 +1,34 @@
 function setup() {
-
-    //Test cases
-    
     let username = "wgkeppel@gmail.com";
     let temp1 = new User(username, "will", "keppel", "p");
-    loadUser(username)
-        .then(user => {
-            if (user) {
-                // User exists
-                console.log(user);
-            } else {
-                // User does not exist
-                console.log("User not found");
-            }
-        })
-        .catch(err => {
-            console.error("Error loading user:", err);
-        });
 
-    //let user = localStorage.getItem(username);
+    User.loadUser(username, (user) => {
+        if (user) {
+            updateUI(user);
+            localStorage.setItem('user', JSON.stringify(user));
+        } else {
+            console.error("Error loading user or user not found.");
+        }
+    });
+}
+
+function display(arr, x, y) {
+    if (arr.length <= 0) {
+        emptyList = createP("Nothing has been added here yet");
+        emptyList.position(x + 10, y + 100);
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            let movie = new Movie(loadMovie(arr[i]));
+            movie.getImage(10 + x + (i * 40), 10 + y);
+            movie.name(10 + x, 125 + y);
+        }
+    }
+}
+
+function updateUI(temp) {
+
+    //A string representation of the user object
+    //let temp = JSON.parse(localStorage.getItem('user'));
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -89,20 +99,6 @@ function setup() {
     homeButton.position(windowWidth - 160, 100);
     homeButton.mousePressed(goToHomePage);
 }
-
-function display(arr, x, y) {
-    if (arr.length <= 0) {
-        emptyList = createP("Nothing has been added here yet");
-        emptyList.position(x + 10, y + 100);
-    } else {
-        for (let i = 0; i < arr.length; i++) {
-            let movie = new Movie(loadMovie(arr[i]));
-            movie.getImage(10 + x + (i * 40), 10 + y);
-            movie.name(10 + x, 125 + y);
-        }
-    }
-}
-
 function draw() {
 }
 
