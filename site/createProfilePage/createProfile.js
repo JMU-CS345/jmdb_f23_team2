@@ -59,6 +59,8 @@ function loader() {
         return;
       }
     new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
+    localStorage.setItem("user", emailBox.value());
+    goToUserPage();
   }
 }
 
