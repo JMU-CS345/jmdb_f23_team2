@@ -12,6 +12,7 @@ class User {
         this.lastName = lastName;
         this.password = password;
         keyval.set(email, this.createJSONlayout());
+        localStorage.setItem('user', user.createJSONlayout());
     }
 
     //Return a new User if the user exists, otherwise return null

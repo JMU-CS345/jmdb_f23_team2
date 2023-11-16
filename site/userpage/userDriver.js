@@ -1,8 +1,10 @@
 function setup() {
     User.loadUser(localStorage.getItem("user"), (user) => {
         if (user) {
+            user.addMovie("The Lord of the Rings: The Fellowship of the Ring", "watchlist");
+            user.addMovie("The Lord of the Rings: The Two Towers", "watchlist");
+            user.addMovie("The Dark Knight", "seen");
             updateUI(user);
-            localStorage.setItem('user', user.createJSONlayout());
         } else {
             console.error("Error loading user or user not found.");
         }
@@ -25,6 +27,27 @@ function display(arr, x, y) {
         for (let i = 0; i < arr.length; i++) {
             console.log(arr[i]);
             let movie = new Movie(loadMovie(arr[i]));
+            console.log(movie);
+            movie.getImage(10 + x + (i * 40), 10 + y);
+            movie.name(10 + x, 125 + y);
+        }
+    }
+}
+
+function displayRatings(user, x, y) {
+}
+
+function displayReviews(user, x, y) {
+}
+
+function displayRecentlyWatched(arr, x, y) {
+    if (arr.length <= 0) {
+        emptyList = createP("Nothing has been added here yet");
+        emptyList.position(x + 10, y + 100);
+    } else {
+        for (let i = 1; i <= 3 && arr.lngth - i > 0; i++) {
+            console.log(arr[arr.length - i]);
+            let movie = new Movie(loadMovie(arr[arr.length - i]));
             console.log(movie);
             movie.getImage(10 + x + (i * 40), 10 + y);
             movie.name(10 + x, 125 + y);
@@ -75,18 +98,18 @@ function updateUI(temp) {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    //display(temp.getLastWatched(), leftXPos, recentlyWatchedYPos);
+    displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
     reviews.style("color", "#CBB677");
     reviews.style("font-size", "24px");
-    display(temp.getReviews(), leftXPos, reviewsYPos);
+    displayReviews(temp, leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    display(temp.getRatings(), leftXPos, ratingsYPos);
+    displayRatings(temp, leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
