@@ -1,7 +1,7 @@
 function setup() {
 
     //Test cases
-    
+
     let username = "wgkeppel@gmail.com";
     let temp1 = new User(username, "will", "keppel", "p");
     loadUser(username)
@@ -81,13 +81,13 @@ function setup() {
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
 
-    //Navigation Buttons
-    let friendsButton = createButton("View Friends");
-    friendsButton.position(windowWidth - 100, 100);
-    friendsButton.mousePressed(goToSocialPage);
-    let homeButton = createButton("Home");
-    homeButton.position(windowWidth - 160, 100);
-    homeButton.mousePressed(goToHomePage);
+    //navigation buttons
+    let homePageButton = createButton("To Home Page");
+    homePageButton.position(10, 10);
+    homePageButton.mousePressed(goToHomePage);
+    let socialPageButton = createButton("To Social Page");
+    socialPageButton.position(10, 40);
+    socialPageButton.mousePressed(goToSocialPage);
 }
 
 function display(arr, x, y) {

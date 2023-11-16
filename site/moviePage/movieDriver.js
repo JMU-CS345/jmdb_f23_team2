@@ -13,5 +13,5 @@ function addToSeen() {
 }
 
 function addToFavorites() {
-    
+
 }

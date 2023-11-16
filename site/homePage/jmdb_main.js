@@ -29,15 +29,18 @@ function setup() {
   inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 200);
 
   //title
-  let title = createP("Scroovie");
+  let title = createP("Scroovie Home");
   title.position(windowWidth / 2 - 90, 20);
   title.style("color", "#CBB677");
   title.style("font-size", "36px")
 
-  //test button
+  //navigation buttons
   let userPageButton = createButton("To User Page");
   userPageButton.position(10, 10);
   userPageButton.mousePressed(goToUserPage);
+  let socialPageButton = createButton("To Social Page");
+  socialPageButton.position(10, 40);
+  socialPageButton.mousePressed(goToSocialPage);
 }
 
 function loadMovie() {

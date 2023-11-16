@@ -5,7 +5,6 @@ let fileInput;
 
 function setup() {
 
-
   errorT = createP();
   errorT.position(windowWidth / 2 - 90, 65);
   errorT.style("font-size", "36px");
@@ -29,8 +28,6 @@ function setup() {
   passwordBox = createInput("");
   passwordBox.attribute("placeholder", "Password");
   passwordBox.position(windowWidth / 2 - 90, 350);
-
-
 
   let title = createP("Scroovie Profile Creation");
   title.position(windowWidth / 2 - 90, 20);
@@ -56,11 +53,11 @@ function loader() {
 
     errorT.style("color", "#00FF00");
 
-  //  if (!(checkUnique(emailBox.value()))) {
-  //    errorT.html("Email already in use!");
-  //    errorT.style("color", "#FF0000");
-  //    return;
-  //  }
+    //  if (!(checkUnique(emailBox.value()))) {
+    //    errorT.html("Email already in use!");
+    //    errorT.style("color", "#FF0000");
+    //    return;
+    //  }
     new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
   }
 }

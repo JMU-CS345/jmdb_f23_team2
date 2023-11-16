@@ -22,15 +22,15 @@ class Movie {
   getImage(x, y) {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
-    img.position(x, y); 
+    img.position(x, y);
     img.style("width", "110px");
   }
 }
 
 function loadMovie(movieName) {
   let myMovie;
-  data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${movieName}&api_key=`+ TMDB_API_KEY, function(data){
+  data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${movieName}&api_key=` + TMDB_API_KEY, function (data) {
     myMovie = new Movie(data);
-  } );
+  });
   return myMovie;
 }
