@@ -24,7 +24,7 @@ class Movie {
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
     img.position(x - img.width, y); 
     img.style("width", "110px");
-    img.mousePressed(loadMoviePage);
+    img.mousePressed(loadMoviePage(5));
   }
   getBackground(x, y) {
     let img = createElement("img");
@@ -51,6 +51,6 @@ function loadMovie(movieName) {
   return myMovie;
 }
 
-function loadMoviePage() {
+function loadMoviePage(data) {
   window.location.href = 'moviePage.html';
 }
