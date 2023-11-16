@@ -1,5 +1,13 @@
 function setup() {
 
+    //navigation buttons (PUT AT THE END WHEN FUNCTIONAL SETUP)
+    let homePageButton = createButton("To Home Page");
+    homePageButton.position(10, 10);
+    homePageButton.mousePressed(goToHomePage);
+    let socialPageButton = createButton("To Social Page");
+    socialPageButton.position(10, 40);
+    socialPageButton.mousePressed(goToSocialPage);
+
     //Test cases
 
     let username = "wgkeppel@gmail.com";
@@ -80,14 +88,6 @@ function setup() {
     ratings.position(leftXPos, ratingsYPos);
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
-
-    //navigation buttons
-    let homePageButton = createButton("To Home Page");
-    homePageButton.position(10, 10);
-    homePageButton.mousePressed(goToHomePage);
-    let socialPageButton = createButton("To Social Page");
-    socialPageButton.position(10, 40);
-    socialPageButton.mousePressed(goToSocialPage);
 }
 
 function display(arr, x, y) {
