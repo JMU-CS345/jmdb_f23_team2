@@ -1,11 +1,8 @@
 function setup() {
-    let username = "wgkeppel@gmail.com";
-    let temp1 = new User(username, "will", "keppel", "p");
-
-    User.loadUser(username, (user) => {
+    User.loadUser(localStorage.getItem("user"), (user) => {
         if (user) {
             updateUI(user);
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('user', User.createJSONlayout(user));
         } else {
             console.error("Error loading user or user not found.");
         }
@@ -18,7 +15,9 @@ function display(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
             let movie = new Movie(loadMovie(arr[i]));
+            console.log(movie);
             movie.getImage(10 + x + (i * 40), 10 + y);
             movie.name(10 + x, 125 + y);
         }
@@ -79,7 +78,7 @@ function updateUI(temp) {
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    //display(temp.getRatings(), leftXPos, ratingsYPos);
+    display(temp.getRatings(), leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);

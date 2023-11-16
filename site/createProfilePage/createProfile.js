@@ -53,11 +53,11 @@ function loader() {
 
     errorT.style("color", "#00FF00");
 
-    //  if (!(checkUnique(emailBox.value()))) {
-    //    errorT.html("Email already in use!");
-    //    errorT.style("color", "#FF0000");
-    //    return;
-    //  }
+      if (checkUnique(emailBox.value())) {
+        errorT.html("Email already in use!");
+        errorT.style("color", "#FF0000");
+        return;
+      }
     new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
   }
 }
@@ -87,9 +87,9 @@ function handleFile(file) {
 function checkUnique(email) {
   keyval.get(email, (data) => {
     //User exists
-    return false;
+    return true;
   }, (err) => {
     //User does not exist
-    return true;
+    return false;
   });
 }
