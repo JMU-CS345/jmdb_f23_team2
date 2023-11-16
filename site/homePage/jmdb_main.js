@@ -30,7 +30,7 @@ function setup() {
 
   //title
   let title = createP("Scroovie Home");
-  title.position(windowWidth / 2 - 90, 20);
+  title.position(windowWidth / 2 - 140, 20);
   title.style("color", "#CBB677");
   title.style("font-size", "36px")
 
