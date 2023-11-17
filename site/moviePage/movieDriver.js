@@ -3,12 +3,15 @@ let myPos = 50; //adjust height of all text
 let myColor = "white"; // adjust color
 
 function setup() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let encodedData = urlParams.get('data');
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
 
     // Decode the data and parse it as JSON
     //let decodedData = decodeURIComponent(encodedData);
     //let movieData = JSON.parse(decodedData);
+    const dataValue = urlParams.get('data');
+    console.log(dataValue);
 
     Title = createP();
     let boxSize = 100;
@@ -22,10 +25,16 @@ function setup() {
     watchlist.mousePressed(addToWatchList);
     seen.mousePressed(addToSeen);
     favorites.mousePressed(addToFavorites);
-    const myMovie = new Movie(data);
-    myMovie.getBigImage(windowWidth, windowHeight);
+    console.log(queryString);
+    //console.log(URLSearchParams.get(22599));
 
-    data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=$inception&api_key=` + TMDB_API_KEY, function (data) {
+    //const myMovie = new Movie(data);
+
+    //myMovie.getBigImage(windowWidth, windowHeight);
+
+    //find not search
+    https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}
+    data = loadJSON('https://api.themoviedb.org/3/search/movie?query=$'+ dataValue +'&api_key=' + TMDB_API_KEY, function (data) {
         const myMovie = new Movie(data);
 
         myMovie.getBigImage(windowWidth, windowHeight);
