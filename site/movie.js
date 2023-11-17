@@ -25,7 +25,7 @@ class Movie {
     img.position(x - img.width, y); 
     img.style("width", "110px");
     console.log(data.results[0].id);
-    img.mousePressed(function(){loadMoviePage(data.results[0].original_title);});
+    img.mousePressed(function(){loadMoviePage(data.results[0].id);});
   }
   getBackground(x, y) {
     let img = createElement("img");
