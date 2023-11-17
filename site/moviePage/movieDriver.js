@@ -33,18 +33,23 @@ function setup() {
     //myMovie.getBigImage(windowWidth, windowHeight);
 
     //find not search
-    https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}
-    data = loadJSON('https://api.themoviedb.org/3/search/movie?query=$'+ dataValue +'&api_key=' + TMDB_API_KEY, function (data) {
-        const myMovie = new Movie(data);
+    //https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}
+    data = loadJSON('https://api.themoviedb.org/3/movie/' + dataValue + '?api_key=' + TMDB_API_KEY, function (data) {
+        console.log(data);
+        //const myMovie = new Movie(data);
 
-        myMovie.getBigImage(windowWidth, windowHeight);
+        //myMovie.getBigImage(windowWidth, windowHeight);
+        let img = createElement("img");
+        img.attribute("src", imgUrl + data.poster_path);
+        img.style("width", "250px");
+        img.position((windowWidth / 2) - width * 3, 105);
 
-        Title = createP("Title: " + myMovie.getName());
+        Title = createP("Title: " + data.original_title);
         Title.position(windowWidth / 2, myPos);
         Title.style("font-size", "46px");
         Title.style('color', myColor);
 
-        Release = createP("Date: " + myMovie.getDate());
+        Release = createP("Date: " + data.release_date);
         Release.position(windowWidth / 2, myPos + 50);
         Release.style("font-size", "46px");
         Release.style('color', myColor);
@@ -54,7 +59,7 @@ function setup() {
         AboutTitle.style("font-size", "46px");
         AboutTitle.style('color', myColor);
 
-        About = createP(myMovie.getAbout());
+        About = createP(data.overview);
         About.position(windowWidth / 2, myPos + 170);
         About.style('max-width', '400px');
         About.style("font-size", "30px");
