@@ -14,15 +14,15 @@ function setup() {
     Title = createP();
     let boxSize = 100;
     rect(200, 1500, 1500);
-    const watchlist = createButton("Add To Watch List");
-    watchlist.position(0, 20);
-    const seen = createButton("Add To Seen");
-    seen.position(0, 40);
-    const favorites = createButton("Add To Favorite");
-    favorites.position(0, 60);
-    watchlist.mousePressed(addToWatchList);
-    seen.mousePressed(addToSeen);
-    favorites.mousePressed(addToFavorites);
+    // const watchlist = createButton("Add To Watch List");
+    // watchlist.position(0, 20);
+    // const seen = createButton("Add To Seen");
+    // seen.position(0, 40);
+    // const favorites = createButton("Add To Favorite");
+    // favorites.position(0, 60);
+    // watchlist.mousePressed(addToWatchList);
+    // seen.mousePressed(addToSeen);
+    // favorites.mousePressed(addToFavorites);
     console.log(queryString);
 
 
