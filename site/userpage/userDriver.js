@@ -66,7 +66,6 @@ function displayRecentlyWatched(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         const startIndex = Math.max(0, arr.length - 3);
-
         for (let i = startIndex; i < arr.length; i++) {
             console.log(arr[i]);
             loadMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
