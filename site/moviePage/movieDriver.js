@@ -25,7 +25,13 @@ function setup() {
     // favorites.mousePressed(addToFavorites);
     console.log(queryString);
 
-
+      //navigation buttons
+  let userPageButton = createButton("To User Page");
+  userPageButton.position(10, 10);
+  userPageButton.mousePressed(goToUserPage);
+  let socialPageButton = createButton("To Social Page");
+  socialPageButton.position(10, 40);
+  socialPageButton.mousePressed(goToSocialPage);
 
    
     data = loadJSON('https://api.themoviedb.org/3/movie/' + dataValue + '?api_key=' + TMDB_API_KEY, function (data) {
