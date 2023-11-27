@@ -1,6 +1,6 @@
 let movie;
 let myPos = 50; //adjust height of all text
-let myColor = "white"; // adjust color
+let myColor = "#CBB677"; // adjust color
 
 function setup() {
     const queryString = window.location.search;
@@ -16,15 +16,15 @@ function setup() {
     Title = createP();
     let boxSize = 100;
     rect(200, 1500, 1500);
-    const watchlist = createButton("Add To Watch List");
-    watchlist.position(0, 20);
-    const seen = createButton("Add To Seen");
-    seen.position(0, 40);
-    const favorites = createButton("Add To Favorite");
-    favorites.position(0, 60);
-    watchlist.mousePressed(addToWatchList);
-    seen.mousePressed(addToSeen);
-    favorites.mousePressed(addToFavorites);
+    // const watchlist = createButton("Add To Watch List");
+    // watchlist.position(0, 20);
+    // const seen = createButton("Add To Seen");
+    // seen.position(0, 40);
+    // const favorites = createButton("Add To Favorite");
+    // favorites.position(0, 60);
+    // watchlist.mousePressed(addToWatchList);
+    // seen.mousePressed(addToSeen);
+    // favorites.mousePressed(addToFavorites);
     console.log(queryString);
     //console.log(URLSearchParams.get(22599));
 
@@ -49,13 +49,18 @@ function setup() {
         Release.style("font-size", "46px");
         Release.style('color', myColor);
 
+        Language = createP("Language: " + myMovie.getLanguage());
+        Language.position(windowWidth / 2, myPos + 100);
+        Language.style("font-size", "46px");
+        Language.style('color', myColor);
+
         AboutTitle = createP("About: ")
-        AboutTitle.position(windowWidth / 2, myPos + 100);
+        AboutTitle.position(windowWidth / 2, myPos + 150);
         AboutTitle.style("font-size", "46px");
         AboutTitle.style('color', myColor);
 
         About = createP(myMovie.getAbout());
-        About.position(windowWidth / 2, myPos + 170);
+        About.position(windowWidth / 2, myPos + 220);
         About.style('max-width', '400px');
         About.style("font-size", "30px");
         About.style('color', myColor);

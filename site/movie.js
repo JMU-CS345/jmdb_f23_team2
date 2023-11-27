@@ -11,6 +11,9 @@ class Movie {
   getDate() {
     return (this.data.results[0].release_date);
   }
+  getLanguage() {
+    return (this.data.results[0].original_language);
+  }
   getAbout() {
     return (this.data.results[0].overview);
   }
