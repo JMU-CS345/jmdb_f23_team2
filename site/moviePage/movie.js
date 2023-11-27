@@ -51,3 +51,7 @@ function loadMovie(movieName, x, y) {
     myMovie.getImage(x, y);
   });
 }
+
+function loadMoviePage(id) {
+  window.location.href = `moviePage.html?data=${id}`;
+}
