@@ -115,12 +115,15 @@ class User {
         switch (category) {
             case "favorite":
                 this.favoriteMovies.splice(this.favoriteMovies.indexOf(movie), 1);
+                this.update();
                 break;
             case "seen":
                 this.seenMovies.splice(this.seenMovies.indexOf(movie), 1);
+                this.update();
                 break;
             case "watchlist":
                 this.movieWatchlist.splice(this.movieWatchlist.indexOf(movie), 1);
+                this.update();
                 break;
             default:
                 break;
