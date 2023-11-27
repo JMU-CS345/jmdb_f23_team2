@@ -38,22 +38,16 @@ function display(arr, x, y) {
     }
 }
 
-function displayReviews(arr, x, y) {
-    if (arr.length <= 0) {
+function displayRatings(user, x, y) {
+    if (user.getRatings().length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
-        for (let i = 0; i < Math.min(arr.length, 5); i++) {
-            let review = createP(arr[i]);
-            review.position(x + 10, y + (i * 27) + 40);
-            review.style("color", "#450084");
-            review.style("font-size", "24px")
-        }
     }
 }
 
-function displayRatings(user, x, y) {
-    if (user.getRatings().length <= 0) {
+function displayReviews(user, x, y) {
+    if (user.getReviews().length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
@@ -66,7 +60,7 @@ function displayRecentlyWatched(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         const startIndex = Math.max(0, arr.length - 3);
-
+        
         for (let i = startIndex; i < arr.length; i++) {
             console.log(arr[i]);
             loadMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
@@ -78,9 +72,9 @@ function updateUI(temp) {
     let tempSeen = ["Joker", "The Dark Knight", "The Dark Knight Rises"];
     let tempWatch = ["The Prestige", "Inception", "Interstellar"];
     let tempFav = ["The Dark Knight"];
-    let tempRev = ["The Dark Knight: This movie is fantastic, would recommend.", "Joker: This movie had me on the edge of my seat. Loved it!", "Lord of the Rings: Amazing franchise, Peter Jackson is a genius!", "The Martian: Loved Matt Damon in this one.", "FNAF Movie: This movie was very disappointing. The acting was good but the plot was horrid.", "Mario Movie: Jack Black is GOATed!"];
-    let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars"];
+
     //A string representation of the user object
+
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -123,20 +117,16 @@ function updateUI(temp) {
     displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
 
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
     reviews.style("color", "#CBB677");
     reviews.style("font-size", "24px");
-    displayReviews(tempRev, leftXPos, reviewsYPos);
+    displayReviews(temp, leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    displayRatings(tempRating, leftXPos, ratingsYPos);
+    displayRatings(temp, leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
