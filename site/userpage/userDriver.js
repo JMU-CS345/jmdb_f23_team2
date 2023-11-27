@@ -36,22 +36,38 @@ function display(arr, x, y) {
     }
 }
 
+<<<<<<< Updated upstream
 function displayRatings(arr, x, y) {
+=======
+function displayReviews(arr, x, y) {
+>>>>>>> Stashed changes
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
+<<<<<<< Updated upstream
             let rating = createP(arr[i]);
             rating.position(x + 10, y + (i * 27) + 40);
             rating.style("color", "#450084");
             rating.style("font-size", "24px")
+=======
+            let review = createP(arr[i]);
+            review.position(x + 10, y + (i * 27) + 40);
+            review.style("color", "#450084");
+            review.style("font-size", "24px")
+>>>>>>> Stashed changes
         }
     }
 }
 
+<<<<<<< Updated upstream
 function displayReviews(arr, x, y) {
     if (arr.length <= 0) {
+=======
+function displayRatings(user, x, y) {
+    if (user.getRatings().length <= 0) {
+>>>>>>> Stashed changes
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
@@ -70,6 +86,7 @@ function displayRecentlyWatched(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         const startIndex = Math.max(0, arr.length - 3);
+
         for (let i = startIndex; i < arr.length; i++) {
             console.log(arr[i]);
             loadMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
@@ -82,9 +99,12 @@ function updateUI(temp) {
     let tempWatch = ["The Prestige", "Inception", "Interstellar"];
     let tempFav = ["The Dark Knight"];
     let tempRev = ["The Dark Knight: This movie is fantastic, would recommend.", "Joker: This movie had me on the edge of my seat. Loved it!", "Lord of the Rings: Amazing franchise, Peter Jackson is a genius!", "The Martian: Loved Matt Damon in this one.", "FNAF Movie: This movie was very disappointing. The acting was good but the plot was horrid.", "Mario Movie: Jack Black is GOATed!"];
+<<<<<<< Updated upstream
     let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars", "FNAF Movie: 2 stars"];
+=======
+    let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars"];
+>>>>>>> Stashed changes
     //A string representation of the user object
-
 
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -126,16 +146,23 @@ function updateUI(temp) {
     recentlyWatched.style("font-size", "24px");
     displayRecentlyWatched(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
 
-
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
     reviews.style("color", "#CBB677");
     reviews.style("font-size", "24px");
+<<<<<<< Updated upstream
+=======
+    displayReviews(temp, leftXPos, reviewsYPos);
+>>>>>>> Stashed changes
     displayReviews(tempRev, leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
+<<<<<<< Updated upstream
+=======
+    displayRatings(temp, leftXPos, ratingsYPos);
+>>>>>>> Stashed changes
     displayRatings(tempRating, leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
@@ -148,5 +175,7 @@ function updateUI(temp) {
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
 }
+
 function draw() {
+
 }
