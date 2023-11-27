@@ -49,16 +49,16 @@ function displayReviews(arr, x, y) {
     }
 }
 
-function displayReviews(arr, x, y) {
+function displayRatings(arr, x, y) {
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
-            let review = createP(arr[i]);
-            review.position(x + 10, y + (i * 27) + 40);
-            review.style("color", "#450084");
-            review.style("font-size", "24px")
+            let rating = createP(arr[i]);
+            rating.position(x + 10, y + (i * 27) + 40);
+            rating.style("color", "#450084");
+            rating.style("font-size", "24px")
         }
     }
 }
