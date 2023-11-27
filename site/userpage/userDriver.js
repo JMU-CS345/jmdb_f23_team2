@@ -1,6 +1,14 @@
 function setup() {
     User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
+            user.addMovieFavorite("The Dark Knight");
+            user.addMovieWatchlist("The Prestige");
+            user.addMovieWatchlist("Inception");
+            user.addMovieWatchlist("Interstellar");
+            user.addMovieSeen("Joker");
+            user.addMovieSeen("The Dark Knight");
+            user.addMovieSeen("The Dark Knight Rises");
+            user.addReview("The Dark Knight", "This is a review for the dark knight");
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -108,7 +116,7 @@ function updateUI(temp) {
     recentlyWatched.style("font-size", "24px");
     displayRecentlyWatched(tempSeen, leftXPos, recentlyWatchedYPos);
 
-    
+
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
