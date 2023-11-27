@@ -38,7 +38,7 @@ class User {
     }
 
 
-    update() {
+    update(keyval = new Keyval(KEYVAL_API_KEY)) {
         keyval.set(this.email, this.createJSONlayout());
     }
 
@@ -96,12 +96,15 @@ class User {
         switch (category) {
             case "favorite":
                 this.favoriteMovies.push(movie);
+                this.update();
                 break;
             case "seen":
                 this.seenMovies.push(movie);
+                this.update();
                 break;
             case "watchlist":
                 this.movieWatchlist.push(movie);
+                this.update();
                 break;
             default:
                 break;

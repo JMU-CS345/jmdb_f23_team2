@@ -2,7 +2,9 @@ function setup() {
     User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
             user.addMovie("The Dark Knight", "favorite");
-            user.addMovie("The Dark Knight Rises", "favorite");
+            user.addMovie("Joker", "seen");
+            user.addMovie("The Dark Knight", "seen");
+            user.addMovie("The Dark Knight Rises", "seen");
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -27,9 +29,7 @@ function display(arr, x, y) {
     } else {
         for (let i = 0; i < arr.length; i++) {
             console.log(arr[i]);
-            let movie = loadMovie(arr[i]);
-            movie.getImage(10 + x + (i * 40), 10 + y);
-            movie.name(10 + x, 125 + y);
+            loadMovie(arr[i], x + 15 + (i * 100), y + 70);
         }
     }
 }
@@ -55,12 +55,11 @@ function displayRecentlyWatched(arr, x, y) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
-        for (let i = 1; i <= 3 && arr.length - i > 0; i++) {
-            console.log(arr[arr.length - i]);
-            let movie = new Movie(loadMovie(arr[arr.length - i]));
-            console.log(movie);
-            movie.getImage(10 + x + (i * 40), 10 + y);
-            movie.name(10 + x, 125 + y);
+        const startIndex = Math.max(0, arr.length - 3);
+        
+        for (let i = startIndex; i < arr.length; i++) {
+            console.log(arr[i]);
+            loadMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
         }
     }
 }
