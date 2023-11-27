@@ -34,7 +34,7 @@ function setup() {
 
     //find not search
     https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}
-    data = loadJSON('https://api.themoviedb.org/3/search/movie?query=$'+ dataValue +'&api_key=' + TMDB_API_KEY, function (data) {
+    data = loadJSON('https://api.themoviedb.org/3/search/movie?query=$' + dataValue + '&api_key=' + TMDB_API_KEY, function (data) {
         const myMovie = new Movie(data);
 
         myMovie.getBigImage(windowWidth, windowHeight);
