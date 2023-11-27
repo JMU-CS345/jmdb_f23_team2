@@ -25,15 +25,18 @@ function setup() {
     // favorites.mousePressed(addToFavorites);
     console.log(queryString);
 
-      //navigation buttons
-  let userPageButton = createButton("To User Page");
-  userPageButton.position(10, 10);
-  userPageButton.mousePressed(goToUserPage);
-  let socialPageButton = createButton("To Social Page");
-  socialPageButton.position(10, 40);
-  socialPageButton.mousePressed(goToSocialPage);
+    //navigation buttons
+    let userPageButton = createButton("To User Page");
+    userPageButton.position(10, 10);
+    userPageButton.mousePressed(goToUserPage);
+    let socialPageButton = createButton("To Social Page");
+    socialPageButton.position(10, 40);
+    socialPageButton.mousePressed(goToSocialPage);
+    let homePageButton = createButton("To Home Page");
+    homePageButton.position(10, 70);
+    homePageButton.mousePressed(goToHomePage);
 
-   
+
     data = loadJSON('https://api.themoviedb.org/3/movie/' + dataValue + '?api_key=' + TMDB_API_KEY, function (data) {
         console.log(data);
 
