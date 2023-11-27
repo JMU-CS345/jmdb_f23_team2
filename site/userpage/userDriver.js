@@ -1,7 +1,6 @@
 function setup() {
     User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
-            user.addMovie("The Dark Knight", "favorite");
             user.addMovie("The Prestige", "watchlist");
             user.addMovie("Inception", "watchlist");
             user.addMovie("Interstellar", "watchlist");
