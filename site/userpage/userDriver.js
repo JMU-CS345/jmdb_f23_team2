@@ -1,14 +1,13 @@
 function setup() {
     User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
-            user.addMovieFavorite("The Dark Knight");
-            user.addMovieWatchlist("The Prestige");
-            user.addMovieWatchlist("Inception");
-            user.addMovieWatchlist("Interstellar");
-            user.addMovieSeen("Joker");
-            user.addMovieSeen("The Dark Knight");
-            user.addMovieSeen("The Dark Knight Rises");
-            user.addReview("The Dark Knight", "This is a review for the dark knight");
+            user.addMovie("The Dark Knight", "favorite");
+            user.addMovie("The Prestige", "watchlist");
+            user.addMovie("Inception", "watchlist");
+            user.addMovie("Interstellar", "watchlist");
+            user.addMovie("Joker", "seen");
+            user.addMovie("The Dark Knight", "seen");
+            user.addMovie("The Dark Knight Rises", "seen");
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -32,7 +31,6 @@ function display(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < arr.length; i++) {
-            console.log(arr[i]);
             loadMovie(arr[i], x + 15 + (i * 100), y + 70);
         }
     }
@@ -46,11 +44,17 @@ function displayRatings(user, x, y) {
     }
 }
 
-function displayReviews(user, x, y) {
-    if (user.getReviews().length <= 0) {
+function displayReviews(arr, x, y) {
+    if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
+        for (let i = 0; i < Math.min(arr.length, 5); i++) {
+            let review = createP(arr[i]);
+            review.position(x + 10, y + (i * 27) + 40);
+            review.style("color", "#450084");
+            review.style("font-size", "24px")
+        }
     }
 }
 
@@ -71,7 +75,8 @@ function updateUI(temp) {
     let tempSeen = ["Joker", "The Dark Knight", "The Dark Knight Rises"];
     let tempWatch = ["The Prestige", "Inception", "Interstellar"];
     let tempFav = ["The Dark Knight"];
-
+    let tempRev = ["The Dark Knight: This movie is fantastic, would recommend.", "Joker: This movie had me on the edge of my seat. Loved it!", "Lord of the Rings: Amazing franchise, Peter Jackson is a genius!", "The Martian: Loved Matt Damon in this one.", "FNAF Movie: This movie was very disappointing. The acting was good but the plot was horrid.", "Mario Movie: Jack Black is GOATed!"];
+    let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars"];
     //A string representation of the user object
 
 
@@ -113,7 +118,7 @@ function updateUI(temp) {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
+    displayRecentlyWatched(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
 
 
     let reviews = createP("Reviews: ");
@@ -121,7 +126,7 @@ function updateUI(temp) {
     reviews.position(leftXPos, reviewsYPos);
     reviews.style("color", "#CBB677");
     reviews.style("font-size", "24px");
-    displayReviews(temp, leftXPos, reviewsYPos);
+    displayReviews(tempRev, leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;

@@ -23,8 +23,7 @@ class Movie {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
     img.position(x - img.width, y); 
-    img.style("width", "110px");
-    console.log(data.results[0].id);
+    img.style("width", "80px");
     img.mousePressed(function(){loadMoviePage(data.results[0].id);});
   }
   getBackground(x, y) {
