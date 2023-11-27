@@ -123,10 +123,6 @@ function updateUI(temp) {
     displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
 
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
