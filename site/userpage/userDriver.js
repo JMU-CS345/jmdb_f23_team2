@@ -100,21 +100,21 @@ function updateUI(temp) {
     favMovies.position(leftXPos, favMoviesYPos);
     favMovies.style("color", "#CBB677");
     favMovies.style("font-size", "24px");
-    display(tempFav, leftXPos, favMoviesYPos);
+    display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 380;
     movieWatchList.position(leftXPos, movieWatchListYPos);
     movieWatchList.style("color", "#CBB677");
     movieWatchList.style("font-size", "24px");
-    display(tempWatch, leftXPos, movieWatchListYPos);
+    display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    displayRecentlyWatched(tempSeen, leftXPos, recentlyWatchedYPos);
+    displayRecentlyWatched(temp.getSeen(), leftXPos, recentlyWatchedYPos);
 
 
     let reviews = createP("Reviews: ");
