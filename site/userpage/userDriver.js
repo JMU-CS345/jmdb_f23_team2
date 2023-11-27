@@ -36,11 +36,17 @@ function display(arr, x, y) {
     }
 }
 
-function displayRatings(user, x, y) {
-    if (user.getRatings().length <= 0) {
+function displayRatings(arr, x, y) {
+    if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
+        for (let i = 0; i < Math.min(arr.length, 5); i++) {
+            let rating = createP(arr[i]);
+            rating.position(x + 10, y + (i * 27) + 40);
+            rating.style("color", "#450084");
+            rating.style("font-size", "24px")
+        }
     }
 }
 
@@ -76,7 +82,7 @@ function updateUI(temp) {
     let tempWatch = ["The Prestige", "Inception", "Interstellar"];
     let tempFav = ["The Dark Knight"];
     let tempRev = ["The Dark Knight: This movie is fantastic, would recommend.", "Joker: This movie had me on the edge of my seat. Loved it!", "Lord of the Rings: Amazing franchise, Peter Jackson is a genius!", "The Martian: Loved Matt Damon in this one.", "FNAF Movie: This movie was very disappointing. The acting was good but the plot was horrid.", "Mario Movie: Jack Black is GOATed!"];
-    let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars"];
+    let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars", "FNAF Movie: 2 stars"];
     //A string representation of the user object
 
 
@@ -130,7 +136,7 @@ function updateUI(temp) {
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    displayRatings(temp, leftXPos, ratingsYPos);
+    displayRatings(tempRating, leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
