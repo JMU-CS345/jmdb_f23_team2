@@ -7,9 +7,7 @@ function setup() {
     const urlParams = new URLSearchParams(queryString);
 
 
-    // Decode the data and parse it as JSON
-    //let decodedData = decodeURIComponent(encodedData);
-    //let movieData = JSON.parse(decodedData);
+
     const dataValue = urlParams.get('data');
     console.log(dataValue);
 
@@ -26,19 +24,14 @@ function setup() {
     seen.mousePressed(addToSeen);
     favorites.mousePressed(addToFavorites);
     console.log(queryString);
-    //console.log(URLSearchParams.get(22599));
 
-    //const myMovie = new Movie(data);
 
-    //myMovie.getBigImage(windowWidth, windowHeight);
 
-    //find not search
-    //https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}
+   
     data = loadJSON('https://api.themoviedb.org/3/movie/' + dataValue + '?api_key=' + TMDB_API_KEY, function (data) {
         console.log(data);
-        //const myMovie = new Movie(data);
 
-        //myMovie.getBigImage(windowWidth, windowHeight);
+
         let img = createElement("img");
         img.attribute("src", imgUrl + data.poster_path);
         img.style("width", "250px");
