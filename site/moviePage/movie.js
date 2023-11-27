@@ -52,5 +52,5 @@ function loadMovie(movieName, x, y) {
 }
 
 function loadMoviePage(id) {
-  window.location.href = `moviePage.html?data=${id}`;
+  window.location.replace(`../moviePage/moviePage.html?data=${id}`);
 }
