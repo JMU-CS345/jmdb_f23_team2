@@ -1,10 +1,6 @@
 function setup() {
     User.loadUser("wgkeppel@gmail.com", (user) => {
         if (user) {
-            user.addMovie("The Dark Knight", "favorite");
-            user.addMovie("Joker", "seen");
-            user.addMovie("The Dark Knight", "seen");
-            user.addMovie("The Dark Knight Rises", "seen");
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -65,7 +61,10 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-    let tempArr = ["The Dark Knight", "The Dark Knight Rises"];
+    let tempSeen = ["Joker", "The Dark Knight", "The Dark Knight Rises"];
+    let tempWatch = ["The Prestige", "Inception", "Interstellar"];
+    let tempFav = ["The Dark Knight"];
+
     //A string representation of the user object
 
 
@@ -93,21 +92,21 @@ function updateUI(temp) {
     favMovies.position(leftXPos, favMoviesYPos);
     favMovies.style("color", "#CBB677");
     favMovies.style("font-size", "24px");
-    display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
+    display(tempFav, leftXPos, favMoviesYPos);
 
     let movieWatchList = createP("Movie Watch List: ");
     let movieWatchListYPos = 380;
     movieWatchList.position(leftXPos, movieWatchListYPos);
     movieWatchList.style("color", "#CBB677");
     movieWatchList.style("font-size", "24px");
-    display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
+    display(tempWatch, leftXPos, movieWatchListYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     recentlyWatched.style("color", "#CBB677");
     recentlyWatched.style("font-size", "24px");
-    displayRecentlyWatched(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
+    displayRecentlyWatched(tempSeen, leftXPos, recentlyWatchedYPos);
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
