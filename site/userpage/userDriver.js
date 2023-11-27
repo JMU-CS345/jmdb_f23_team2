@@ -108,6 +108,7 @@ function updateUI(temp) {
     recentlyWatched.style("font-size", "24px");
     displayRecentlyWatched(tempSeen, leftXPos, recentlyWatchedYPos);
 
+    
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
