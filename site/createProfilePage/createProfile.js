@@ -6,33 +6,43 @@ let fileInput;
 function setup() {
 
   errorT = createP();
-  errorT.position(windowWidth / 2 - 90, 65);
+  errorT.position(windowWidth / 2 - 190, 325);
   errorT.style("font-size", "36px");
 
   fileInput = createFileInput(handleFile);
-  fileInput.position(windowWidth / 2 - 90, 400);
+  fileInput.position(windowWidth / 2 - 190, 225);
 
   // textboxes
   saveButton = createButton("Create Account");
-  saveButton.position(windowWidth / 2 - 90, 450);
+  saveButton.position(windowWidth / 2 - 190, 250);
   saveButton.mousePressed(loader);
   firstNameBox = createInput("");
   firstNameBox.attribute("placeholder", "First Name");
-  firstNameBox.position(windowWidth / 2 - 90, 200);
+  firstNameBox.position(windowWidth / 2 - 190, 125);
   lastNameBox = createInput("");
   lastNameBox.attribute("placeholder", "Last Name");
-  lastNameBox.position(windowWidth / 2 - 90, 250);
+  lastNameBox.position(windowWidth / 2 - 190, 150);
   emailBox = createInput("");
   emailBox.attribute("placeholder", "Email");
-  emailBox.position(windowWidth / 2 - 90, 300);
+  emailBox.position(windowWidth / 2 - 190, 175);
   passwordBox = createInput("");
   passwordBox.attribute("placeholder", "Password");
-  passwordBox.position(windowWidth / 2 - 90, 350);
+  passwordBox.position(windowWidth / 2 - 190, 200);
 
   let title = createP("Scroovie Profile Creation");
-  title.position(windowWidth / 2 - 90, 20);
+  title.position(windowWidth / 2 - 190, 25);
   title.style("color", "#CBB677");
-  title.style("font-size", "36px")
+  title.style("font-size", "36px");
+  let subtitle1 = createP("Already have an account?");
+  let subtitle2 = createP("Login");
+  subtitle1.position(windowWidth / 2 - 190, 275);
+  subtitle1.style("color", "#CBB677");
+  subtitle1.style("font-size", "24px");
+  subtitle2.position(windowWidth / 2 - 190, 300);
+  subtitle2.style("color", "#CBB677");
+  subtitle2.style("font-size", "24px");
+  subtitle2.mousePressed(goToLoginPage);
+
 }
 
 function loader() {
