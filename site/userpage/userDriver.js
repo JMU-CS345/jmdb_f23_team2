@@ -6,12 +6,7 @@ function setup() {
     }
     User.loadUser(username, (user) => {
         if (user) {
-            user.addMovie("The Prestige", "watchlist");
-            user.addMovie("Inception", "watchlist");
-            user.addMovie("Interstellar", "watchlist");
-            user.addMovie("Joker", "seen");
-            user.addMovie("The Dark Knight", "seen");
-            user.addMovie("The Dark Knight Rises", "seen");
+
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");
@@ -83,9 +78,6 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-    let tempSeen = ["Joker", "The Dark Knight", "The Dark Knight Rises"];
-    let tempWatch = ["The Prestige", "Inception", "Interstellar"];
-    let tempFav = ["The Dark Knight"];
     let tempRev = ["The Dark Knight: This movie is fantastic, would recommend.", "Joker: This movie had me on the edge of my seat. Loved it!", "Lord of the Rings: Amazing franchise, Peter Jackson is a genius!", "The Martian: Loved Matt Damon in this one.", "FNAF Movie: This movie was very disappointing. The acting was good but the plot was horrid.", "Mario Movie: Jack Black is GOATed!"];
     let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars", "FNAF Movie: 2 stars"];
     //A string representation of the user object

@@ -11,14 +11,20 @@ class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        keyval.set(email, this.createJSONlayout());
+        
+        // Check if the key already exists in the key-value store
+        keyval.get(email, (data) => {
+            if (!data) {
+                // If the key doesn't exist, set the key-value pair
+                keyval.set(email, this.createJSONlayout());
+            }
+        });
     }
 
     //Return a new User if the user exists, otherwise return null
     static loadUser(username, callback, keyval = new Keyval(KEYVAL_API_KEY)) {
         keyval.get(username, (data) => {
             if (data) {
-                console.log(data);
                 data = JSON.parse(data);
                 const user = new User(data.email, data.firstName, data.lastName, data.password);
                 user.setFriends(data.friends);
@@ -27,10 +33,8 @@ class User {
                 user.setFavoriteMovies(data.favoriteMovies);
                 user.setSeenMovies(data.seenMovies);
                 user.setMovieWatchList(data.movieWatchList);
-
                 // Call the callback with the user object
                 callback(user);
-                user.update();
             } else {
                 // Call the callback with null when there's an issue with keyval.get
                 callback(null);
