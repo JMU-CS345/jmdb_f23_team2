@@ -30,6 +30,7 @@ class User {
 
                 // Call the callback with the user object
                 callback(user);
+                user.update();
             } else {
                 // Call the callback with null when there's an issue with keyval.get
                 callback(null);

@@ -14,15 +14,15 @@ function setup() {
     Title = createP();
     let boxSize = 100;
     rect(200, 1500, 1500);
-    // const watchlist = createButton("Add To Watch List");
-    // watchlist.position(0, 20);
-    // const seen = createButton("Add To Seen");
-    // seen.position(0, 40);
-    // const favorites = createButton("Add To Favorite");
-    // favorites.position(0, 60);
-    // watchlist.mousePressed(addToWatchList);
-    // seen.mousePressed(addToSeen);
-    // favorites.mousePressed(addToFavorites);
+    const watchlist = createButton("Add To Watch List");
+    watchlist.position(10, 500);
+    const seen = createButton("Add To Seen");
+    seen.position(10, 530);
+    const favorites = createButton("Add To Favorite");
+    favorites.position(10, 560);
+    watchlist.mousePressed(addToWatchList);
+    seen.mousePressed(addToSeen);
+    favorites.mousePressed(addToFavorites);
     console.log(queryString);
 
     //navigation buttons
@@ -70,21 +70,26 @@ function setup() {
 
 }
 
-function addToWatchList(username) {
-    user = new User(username);
-    user.addMovie(movie, "watchlist");
+function addToWatchList() {
+    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+    movie = data.original_title;
+    User.loadUser(getItem('user'), (user) => {
+        user.addMovie(movie, "watchlist");
+    });
 }
 
-function addToSeen(username) {
-    user = new User(username);
-    user.addMovie(movie, "seen");
+function addToSeen() {
+    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+    movie = data.original_title;
+    User.loadUser(getItem('user'), (user) => {
+        user.addMovie(movie, "seen");
+    });
 }
 
 function addToFavorites() {
-    user = new User(username);
-    user.addMovie(movie, "favorite");
-}
-
-function loadMovie(movieName) {
-    this.movie = loadMovie(movieName);
+    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+    movie = data.original_title;
+    User.loadUser(getItem('user'), (user) => {
+        user.addMovie(movie, "favorite");
+    });
 }
