@@ -1,6 +1,5 @@
 
 let keyval = new Keyval(KEYVAL_API_KEY);
-let fileInput;
 //let errorT = createP("");
 
 function setup() {
@@ -8,9 +7,6 @@ function setup() {
   errorT = createP();
   errorT.position(windowWidth / 2 - 190, 325);
   errorT.style("font-size", "36px");
-
-  fileInput = createFileInput(handleFile);
-  fileInput.position(windowWidth / 2 - 190, 225);
 
   // textboxes
   saveButton = createButton("Create Account");
@@ -77,23 +73,6 @@ function loader() {
 function draw() {
   background(69, 0, 132);
 
-}
-
-function handleFile(file) {
-  if (file.type === 'image') {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      var imageData = e.target.result;
-
-      console.log('Image Data:', imageData);
-
-    };
-
-    reader.readAsDataURL(file);
-  } else {
-    console.error('Invalid file type. Please select an image.');
-  }
 }
 
 function checkUnique(email) {

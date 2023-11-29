@@ -2,6 +2,7 @@ function setup() {
     let username = localStorage.getItem("user");
     if (username == null) {
         username = "wgkeppel@gmail.com";
+        console.log("You suck ass");
     }
     User.loadUser(username, (user) => {
         if (user) {
