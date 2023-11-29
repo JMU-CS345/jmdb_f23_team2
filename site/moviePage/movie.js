@@ -5,6 +5,9 @@ class Movie {
     this.data = data
   }
 
+  getMovieCount() {
+    return (this.data.results.length);
+  }
   getName() {
     return (this.data.results[0].original_title);
   }
@@ -17,6 +20,14 @@ class Movie {
 
   getPopScore() {
     return (this.data.results[0].popularity);
+  }
+
+  getAllImages(x, y, z) {
+    let img = createElement("img");
+    img.attribute("src", imgUrl + this.data.results[z].poster_path);
+    img.position(x , y); 
+    img.style("width", "80px");
+    img.mousePressed(function(){loadMoviePage(data.results[z].id);});
   }
 
   getImage(x, y) {
