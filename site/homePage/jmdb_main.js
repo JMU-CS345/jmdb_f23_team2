@@ -10,10 +10,6 @@ function setup() {
   /button.position(100, 300);
   */
   let username = localStorage.getItem("user");
-  if (username == null) {
-      username = "wgkeppel@gmail.com";
-  }
-
   User.loadUser(username, (user) => {
     updateUI(user);
   });
@@ -67,13 +63,7 @@ function loadMovie() {
       }
       myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth, i);
       xPos-= 100;
-
-      
     }
-    text(myMovie.getName(), 10, 10);
-    text(myMovie.getAbout(), 10, 20);
-    //text(myMovie.getScore(), 10, 50);
-    text(myMovie.getDate(), 10, 60);
   });
 }
 
@@ -101,7 +91,8 @@ function fetchData() {
 }
 
 function updateUI(user){
-  let name = createP("Hello, " + user.getName(), windowWidth - 100, 20);
+  let name = createP("Hello, " + user.getFirstName());
+  name.position(windowWidth - 100, 0);
   name.style("color", "#CBB677");
   name.style("font-size", "20px")
 }
