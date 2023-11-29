@@ -9,6 +9,14 @@ function setup() {
   /button.mousePressed(fetchData);
   /button.position(100, 300);
   */
+  let username = localStorage.getItem("user");
+  if (username == null) {
+      username = "wgkeppel@gmail.com";
+  }
+
+  User.loadUser(username, (user) => {
+    updateUI(user);
+  });
 
   //movie bar
   const Mbutton = createButton("Load Scroovie");
@@ -76,4 +84,10 @@ function fetchData() {
       console.log(data);
     });
   });
+}
+
+function updateUI(user){
+  let name = createP("Hello, " + user.getName(), windowWidth - 100, 20);
+  name.style("color", "#CBB677");
+  name.style("font-size", "20px")
 }
