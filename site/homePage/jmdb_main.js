@@ -47,10 +47,24 @@ function loadMovie() {
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
     print(data);
-    myMovie.getImage(windowWidth / 2 - 230, windowHeight / 2 - 150);
+    arraySize = myMovie.getMovieCount();
+
+    console.log(arraySize);
+    let depth = - 100;
+    let xPos = 400;
+    for(let i = 0; i < arraySize; i++){
+      if(i % 8 == 0 && i != 0){
+        depth = depth + 150;
+        xPos = 400;
+      }
+      myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth, i);
+      xPos-= 100;
+
+      
+    }
     text(myMovie.getName(), 10, 10);
     text(myMovie.getAbout(), 10, 20);
-    text(myMovie.getScore(), 10, 50);
+    //text(myMovie.getScore(), 10, 50);
     text(myMovie.getDate(), 10, 60);
   });
 }
