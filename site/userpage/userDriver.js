@@ -41,7 +41,8 @@ function displayReviews(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
-            let review = createP(arr[i]);
+            let str = arr[i].getMovie() + ": " + arr[i].getReview();
+            let review = createP(str);
             review.position(x + 10, y + (i * 27) + 40);
             review.style("color", "#450084");
             review.style("font-size", "24px")
@@ -55,7 +56,8 @@ function displayRatings(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
-            let rating = createP(arr[i]);
+            let str = arr[i].getMovie() + ": " + arr[i].getRating() + " stars";
+            let rating = createP(str);
             rating.position(x + 10, y + (i * 27) + 40);
             rating.style("color", "#450084");
             rating.style("font-size", "24px")
