@@ -1,6 +1,7 @@
 let movie;
 let myPos = 50; //adjust height of all text
-let myColor = "white"; // adjust color
+let myColor = "#CBB677"; // adjust color
+let myFont = "Burbank Big Condensed";
 
 function setup() {
     const queryString = window.location.search;
@@ -46,25 +47,29 @@ function setup() {
         let img = createElement("img");
         img.attribute("src", imgUrl + data.poster_path);
         img.style("width", "250px");
-        img.position((windowWidth / 2) - width * 3, 105);
+        img.position((windowWidth / 2) - width * 3, myPos + 50);
 
-        Title = createP("Title: " + data.original_title);
-        Title.position(windowWidth / 2, myPos);
-        Title.style("font-size", "46px");
+        Title = createP(data.original_title);
+        Title.position((windowWidth / 2) - width * 3, 5);
+        Title.style('font-family', myFont);
+        Title.style("font-size", "50px");
         Title.style('color', myColor);
 
         Release = createP("Date: " + data.release_date);
         Release.position(windowWidth / 2, myPos + 50);
+        Release.style('font-family', myFont);
         Release.style("font-size", "46px");
         Release.style('color', myColor);
 
         AboutTitle = createP("About: ")
         AboutTitle.position(windowWidth / 2, myPos + 100);
+        AboutTitle.style('font-family', myFont);
         AboutTitle.style("font-size", "46px");
         AboutTitle.style('color', myColor);
 
         About = createP(data.overview);
         About.position(windowWidth / 2, myPos + 170);
+        About.style('font-family', myFont);
         About.style('max-width', '400px');
         About.style("font-size", "30px");
         About.style('color', myColor);
