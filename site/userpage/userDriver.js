@@ -32,6 +32,7 @@ function display(arr, x, y) {
 }
 
 function displayReviews(arr, x, y) {
+    console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
@@ -47,6 +48,7 @@ function displayReviews(arr, x, y) {
 }
 
 function displayRatings(arr, x, y) {
+    console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
@@ -76,10 +78,6 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-    let tempRev = [new Review("Dark Knight", "Incredible."), new Review("Joker", "This movie had me on the edge of my seat. Loved it!"), new Review("Lord of the Rings", "Amazing franchise, Peter Jackson is a genius!")];
-    let tempRating = [new Rating("The Dark Knight", 5), new Rating("Joker", 4), new Rating("FNAF Movie", 2)];
-    //A string representation of the user object
-
     //title
     let title = createP(temp.getFirstName() + "'s Profile");
     title.position(windowWidth / 2 - 90, 20);
@@ -125,11 +123,11 @@ function updateUI(temp) {
     reviews.position(leftXPos, reviewsYPos);
     reviews.style("color", "#CBB677");
     reviews.style("font-size", "24px");
-    displayReviews(tempRev, leftXPos, reviewsYPos);
+    displayReviews(temp.getReviews(), leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
     let ratingsYPos = 980;
-    displayRatings(tempRating, leftXPos, ratingsYPos);
+    displayRatings(temp.getRatings(), leftXPos, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
