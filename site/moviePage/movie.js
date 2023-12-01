@@ -37,7 +37,11 @@ class Movie {
   getAllImages(x, y, z) {
     let img = createElement("img");
     movieList.push(img);
+    if(this.data.results[z].poster_path != null){
     img.attribute("src", imgUrl + this.data.results[z].poster_path);
+    } else{
+      img.attribute("src", imgUrl + this.data.results[z].poster_path);// change to bad jpeg
+    }
     img.position(x , y); 
     img.style("width", "80px");
     img.mousePressed(function(){loadMoviePage(data.results[z].id);});
