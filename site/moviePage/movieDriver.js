@@ -11,6 +11,8 @@ function setup() {
     const dataValue = urlParams.get('data');
     console.log(dataValue);
 
+    buttonData = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+
     Title = createP();
     let boxSize = 100;
     rect(200, 1500, 1500);
@@ -20,9 +22,9 @@ function setup() {
     seen.position(10, 530);
     const favorites = createButton("Add To Favorite");
     favorites.position(10, 560);
-    watchlist.mousePressed(addToWatchList);
-    seen.mousePressed(addToSeen);
-    favorites.mousePressed(addToFavorites);
+    watchlist.mousePressed(addToWatchList(buttonData));
+    seen.mousePressed(addToSeen(buttonData));
+    favorites.mousePressed(addToFavorites(buttonData));
     console.log(queryString);
 
     //navigation buttons
@@ -70,24 +72,21 @@ function setup() {
 
 }
 
-function addToWatchList() {
-    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+function addToWatchList(data) {
     movie = data.original_title;
     User.loadUser(localStorage.getItem('user'), (user) => {
         user.addMovie(movie, "watchlist");
     });
 }
 
-function addToSeen() {
-    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+function addToSeen(data) {
     movie = data.original_title;
     User.loadUser(localStorage.getItem('user'), (user) => {
         user.addMovie(movie, "seen");
     });
 }
 
-function addToFavorites() {
-    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
+function addToFavorites(data) {
     movie = data.original_title;
     User.loadUser(localStorage.getItem('user'), (user) => {
         user.addMovie(movie, "favorite");
