@@ -50,10 +50,10 @@ function setup() {
 function loadMovie() {
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
-    print(data);
+    
     arraySize = myMovie.getMovieCount();
-
-    console.log(arraySize);
+    myMovie.checkLen();
+    myMovie.clearMovieList();
     let depth = - 100;
     let xPos = 400;
     for(let i = 0; i < arraySize; i++){
@@ -64,7 +64,10 @@ function loadMovie() {
       myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth, i);
       xPos-= 100;
     }
+    myMovie.checkLen();
+
   });
+  
 }
 
 function loadActor() {

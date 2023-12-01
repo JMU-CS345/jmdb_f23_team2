@@ -1,8 +1,20 @@
 const imgUrl = 'https://www.themoviedb.org/t/p/w1280'
 
+var movieList = [];
+
 class Movie {
   constructor(data) {
     this.data = data
+  }
+
+  checkLen() {
+    console.log(movieList.length);
+  }
+
+  clearMovieList() {
+    for(var i = 0; i < movieList.length; i++){
+      movieList[i].remove();
+    }
   }
 
   getMovieCount() {
@@ -24,10 +36,12 @@ class Movie {
 
   getAllImages(x, y, z) {
     let img = createElement("img");
+    movieList.push(img);
     img.attribute("src", imgUrl + this.data.results[z].poster_path);
     img.position(x , y); 
     img.style("width", "80px");
     img.mousePressed(function(){loadMoviePage(data.results[z].id);});
+
   }
 
   getImage(x, y) {
