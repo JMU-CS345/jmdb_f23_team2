@@ -17,7 +17,6 @@ function setup() {
     let socialPageButton = createButton("To Social Page");
     socialPageButton.position(10, 40);
     socialPageButton.mousePressed(goToSocialPage);
-
 }
 
 function display(arr, x, y) {
