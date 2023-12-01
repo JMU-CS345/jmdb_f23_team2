@@ -59,28 +59,31 @@ function loader() {
 
     errorT.style("color", "#00FF00");
 
-      if (checkUnique(emailBox.value())) {
-        errorT.html("Email already in use!");
-        errorT.style("color", "#FF0000");
-        return;
-      }
-    new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
-    localStorage.setItem("user", emailBox.value());
-    goToUserPage();
+    if (checkUnique(emailBox.value())) {
+      errorT.html("Email already in use!");
+      errorT.style("color", "#FF0000");
+      return;
+    }
+    const newUser = new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
+    keyval.set(emailBox.value(), newUser.createJSONlayout(), data => {
+      localStorage.setItem("user", emailBox.value());
+      goToUserPage();
+    });
+
   }
-}
 
-function draw() {
-  background(69, 0, 132);
+  function draw() {
+    background(69, 0, 132);
 
-}
+  }
 
-function checkUnique(email) {
-  keyval.get(email, (data) => {
-    //User exists
-    return true;
-  }, (err) => {
-    //User does not exist
-    return false;
-  });
+  function checkUnique(email) {
+    keyval.get(email, (data) => {
+      //User exists
+      return true;
+    }, (err) => {
+      //User does not exist
+      return false;
+    });
+  }
 }
