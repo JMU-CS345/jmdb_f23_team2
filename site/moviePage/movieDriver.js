@@ -73,7 +73,7 @@ function setup() {
 function addToWatchList() {
     data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
     movie = data.original_title;
-    User.loadUser(getItem('user'), (user) => {
+    User.loadUser(localStorage.getItem('user'), (user) => {
         user.addMovie(movie, "watchlist");
     });
 }
@@ -81,7 +81,7 @@ function addToWatchList() {
 function addToSeen() {
     data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
     movie = data.original_title;
-    User.loadUser(getItem('user'), (user) => {
+    User.loadUser(localStorage.getItem('user'), (user) => {
         user.addMovie(movie, "seen");
     });
 }
@@ -89,7 +89,7 @@ function addToSeen() {
 function addToFavorites() {
     data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
     movie = data.original_title;
-    User.loadUser(getItem('user'), (user) => {
+    User.loadUser(localStorage.getItem('user'), (user) => {
         user.addMovie(movie, "favorite");
     });
 }
