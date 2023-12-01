@@ -80,8 +80,8 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-    let tempRev = ["The Dark Knight: This movie is fantastic, would recommend.", "Joker: This movie had me on the edge of my seat. Loved it!", "Lord of the Rings: Amazing franchise, Peter Jackson is a genius!", "The Martian: Loved Matt Damon in this one.", "FNAF Movie: This movie was very disappointing. The acting was good but the plot was horrid.", "Mario Movie: Jack Black is GOATed!"];
-    let tempRating = ["The Dark Knight: 5 stars", "Joker: 4 stars", "FNAF Movie: 2 stars"];
+    let tempRev = [new Review("Dark Knight", "Incredible."), new Review("Joker", "This movie had me on the edge of my seat. Loved it!"), new Review("Lord of the Rings", "Amazing franchise, Peter Jackson is a genius!")];
+    let tempRating = [new Rating("The Dark Knight", 5), new Rating("Joker", 4), new Rating("FNAF Movie", 2)];
     //A string representation of the user object
 
     //title
