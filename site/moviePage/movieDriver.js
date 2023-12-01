@@ -70,11 +70,9 @@ function setup() {
 
 }
 
-function addToWatchList() {
-    data = loadJSON("https://api.themoviedb.org/3/movie/" + dataValue);
-    movie = data.original_title;
+function addToWatchList(title) {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.addMovie(movie, "watchlist");
+        user.addMovie(title, "watchlist");
     });
 }
 
