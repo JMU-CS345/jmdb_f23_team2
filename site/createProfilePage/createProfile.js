@@ -1,9 +1,7 @@
-
 let keyval = new Keyval(KEYVAL_API_KEY);
-//let errorT = createP("");
+let errorT;
 
 function setup() {
-
   errorT = createP();
   errorT.position(windowWidth / 2 - 190, 325);
   errorT.style("font-size", "36px");
@@ -38,52 +36,61 @@ function setup() {
   subtitle2.style("color", "#CBB677");
   subtitle2.style("font-size", "24px");
   subtitle2.mousePressed(goToLoginPage);
-
 }
 
 function loader() {
   errorT.html("");
   errorT.style("color", "");
 
-  errorT.style("font-size", "36px")
+  errorT.style("font-size", "36px");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (firstNameBox.value() == "" || lastNameBox.value() == "" || emailBox.value() == "" || passwordBox.value() == "" ||
-    !(/^[^@]+@[^@]+\.[^@.]+$/i.test(emailBox.value()))) {
+
+  if (
+    firstNameBox.value() == "" ||
+    lastNameBox.value() == "" ||
+    emailBox.value() == "" ||
+    passwordBox.value() == "" ||
+    !emailRegex.test(emailBox.value())
+  ) {
     errorT.html("You must fill out all fields!");
-
     errorT.style("color", "#FF0000");
-
   } else {
+    // Check if email is unique
+    checkUnique(emailBox.value(), (isUnique) => {
+      if (!isUnique) {
+        errorT.html("Email is already in use!");
+        errorT.style("color", "#FF0000");
+      } else {
+        // Continue with user creation logic
+        errorT.html("Creation Success!");
+        errorT.style("color", "#00FF00");
 
-    errorT.html("Creation Success!");
+        const newUser = new User(
+          emailBox.value(),
+          firstNameBox.value(),
+          lastNameBox.value(),
+          passwordBox.value()
+        );
 
-    errorT.style("color", "#00FF00");
-
-    if (checkUnique(emailBox.value())) {
-      errorT.html("Email already in use!");
-      errorT.style("color", "#FF0000");
-      return;
-    }
-    const newUser = new User(emailBox.value(), firstNameBox.value(), lastNameBox.value(), passwordBox.value());
-    keyval.set(emailBox.value(), newUser.createJSONlayout(), data => {
-      localStorage.setItem("user", emailBox.value());
-      goToUserPage();
-    });
-
-  }
-
-  function draw() {
-    background(69, 0, 132);
-
-  }
-
-  function checkUnique(email) {
-    keyval.get(email, (data) => {
-      //User exists
-      return true;
-    }, (err) => {
-      //User does not exist
-      return false;
+        keyval.set(emailBox.value(), newUser.createJSONlayout(), (data) => {
+          localStorage.setItem("user", emailBox.value());
+          goToUserPage();
+        });
+      }
     });
   }
+}
+
+function draw() {
+  background(69, 0, 132);
+}
+
+function checkUnique(email, callback, keyval = new Keyval(KEYVAL_API_KEY)) {
+  keyval.get(email, (data) => {
+    // User exists
+    callback(false);
+  }, (err) => {
+    // User does not exist
+    callback(true);
+  });
 }
