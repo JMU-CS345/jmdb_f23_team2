@@ -87,10 +87,8 @@ function draw() {
 
 function checkUnique(email, callback, keyval = new Keyval(KEYVAL_API_KEY)) {
   keyval.get(email, (data) => {
-    // User exists
     callback(false);
   }, (err) => {
-    // User does not exist
     callback(true);
   });
 }
