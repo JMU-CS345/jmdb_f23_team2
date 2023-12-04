@@ -36,7 +36,8 @@ function setup() {
   //title
   let title = createP("Scroovie Home");
   title.position(windowWidth / 2 - 140, 20);
-  title.style("color", "#CBB677");
+  title.style("color", textColor);
+  title.style('font-family', Font);
   title.style("font-size", "36px")
 
   //navigation buttons
@@ -57,7 +58,8 @@ function loadMovie() {
     if (arraySize == 0) {
       error = createP("No movies found matching that name");
       error.position(windowWidth / 2 - 250, 150);
-      error.style("color", "#FF0000");
+      error.style("color", errorColor);
+      error.style('font-family', Font);
       error.style("font-size", "36px")
     }
     if (arraySize > 0) {
@@ -103,6 +105,7 @@ function fetchData() {
 function updateUI(user) {
   let name = createP("Hello, " + user.getFirstName());
   name.position(windowWidth - 100, 0);
-  name.style("color", "#CBB677");
+  name.style('font-family', Font);
+  name.style("color", textColor);
   name.style("font-size", "20px")
 }
