@@ -79,6 +79,7 @@ function displayRecentlyWatched(arr, x, y) {
 
 function updateUI(temp) {
     //title
+    
     let title = createP(temp.getFirstName() + "'s Profile");
     title.position(windowWidth / 2 - 90, 20);
     title.style("color", "#CBB677");
