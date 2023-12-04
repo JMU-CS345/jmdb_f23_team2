@@ -41,22 +41,24 @@ function login() {
   let email = emailField.value();
   let password = passwordField.value();
   let keyval = new Keyval(KEYVAL_API_KEY);
+
   keyval.get(email, (data) => {
-    if (data) {
+    if (data === "Resource Not Found") {
+      // No data found for the given email (404 error)
+      console.log("No data found for the given email");
+      displayError();
+    } else {
+      console.log("There is data");
       data = JSON.parse(data);
       if (password == data.password) {
+        console.log("Password is correct");
         localStorage.setItem("user", email);
         goToHomePage();
-      } else if (!isError) {
-        displayError;
-      }
-    } else {
-      if (!isError) {
-        displayError;
+      } else {
+        // Password is incorrect
+        displayPasswordIncorrect();
       }
     }
-  }, (err) => {
-    displayError;
   });
 }
 
@@ -68,4 +70,12 @@ function displayError() {
   error.style("font-size", "36px");
   error.style("color", "#FF0000");
   isError = true;
+}
+
+function displayPasswordIncorrect() {
+  passwordField.value("");
+  error = createP("Incorrect Email/Password");
+  error.position(windowWidth / 2 - 190, 325);
+  error.style("font-size", "36px");
+  error.style("color", "#FF0000");
 }
