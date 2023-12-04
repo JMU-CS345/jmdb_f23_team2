@@ -42,9 +42,6 @@ function setup() {
   let userPageButton = createButton("To User Page");
   userPageButton.position(10, 10);
   userPageButton.mousePressed(goToUserPage);
-  let socialPageButton = createButton("To Social Page");
-  socialPageButton.position(10, 40);
-  socialPageButton.mousePressed(goToSocialPage);
 }
 
 function loadMovie() {
