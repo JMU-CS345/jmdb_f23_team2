@@ -37,7 +37,12 @@ function setup() {
 
 
     let img = createElement("img");
-    img.attribute("src", imgUrl + data.poster_path);
+    if(data.poster_path != null){
+        img.attribute("src", imgUrl + data.poster_path);
+        } else{
+          img.attribute("src", "../Black_image.jpg");// change to bad jpeg
+        }
+    //img.attribute("src", imgUrl + data.poster_path);
     img.style("width", "250px");
     img.position((windowWidth / 2) - width * 3, 105);
 
