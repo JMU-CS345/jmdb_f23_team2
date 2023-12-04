@@ -49,28 +49,28 @@ function setup() {
 
     Title = createP(data.original_title);
     Title.position((windowWidth / 2) - width * 3, 5);
-    Title.style('font-family', myFont);
+    Title.style('font-family', Font);
     Title.style("font-size", "50px");
-    Title.style('color', myColor);
+    Title.style('color', textColor);
 
     Release = createP("Date: " + data.release_date);
     Release.position(windowWidth / 2, myPos + 50);
-    Release.style('font-family', myFont);
+    Release.style('font-family', Font);
     Release.style("font-size", "46px");
-    Release.style('color', myColor);
+    Release.style('color', textColor);
 
     AboutTitle = createP("About: ")
     AboutTitle.position(windowWidth / 2, myPos + 100);
-    AboutTitle.style('font-family', myFont);
+    AboutTitle.style('font-family', Font);
     AboutTitle.style("font-size", "46px");
-    AboutTitle.style('color', myColor);
+    AboutTitle.style('color', textColor);
 
     About = createP(data.overview);
     About.position(windowWidth / 2, myPos + 170);
-    About.style('font-family', myFont);
+    About.style('font-family', Font);
     About.style('max-width', '400px');
     About.style("font-size", "30px");
-    About.style('color', myColor);
+    About.style('color', textColor);
 }
 
 function addToWatchlist() {
