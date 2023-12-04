@@ -71,7 +71,7 @@ function loadActor() {
   data = loadJSON(`https://api.themoviedb.org/3/search/person?api_key=efa84f4c1b06a034b1928da13517c220&query=${inputActor.value()}`, function (data) {
     const myActor = new Actor(data);
     print(data);
-    myActor.getImage(windowWidth / 2 + 30, windowHeight / 2 - 150);
+    myActor.getImage(windowWidth / 2 + 200, windowHeight / 2 - 300);
     text(myActor.getName(), windowWidth / 2, windowHeight / 2 - 100);
     text(myActor.getScore(), windowWidth / 2 + 85, windowHeight / 2 - 80);
   });
