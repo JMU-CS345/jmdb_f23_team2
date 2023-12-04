@@ -1,5 +1,6 @@
 
 let keyval = new Keyval(KEYVAL_API_KEY);
+let error;
 
 function setup() {
   createCanvas(0, 0);
@@ -47,24 +48,32 @@ function setup() {
 function loadMovie() {
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
-    
     arraySize = myMovie.getMovieCount();
     myMovie.checkLen();
     myMovie.clearMovieList();
     let depth = - 100;
     let xPos = 400;
-    for(let i = 0; i < arraySize; i++){
-      if(i % 8 == 0 && i != 0){
+    if (arraySize == 0) {
+      error = createP("No movies found matching that name");
+      error.position(windowWidth / 2 - 250, 150);
+      error.style("color", "#FF0000");
+      error.style("font-size", "36px")
+    }
+    if (arraySize > 0) {
+      error.html("");
+    }
+    for (let i = 0; i < arraySize; i++) {
+      if (i % 8 == 0 && i != 0) {
         depth = depth + 150;
         xPos = 400;
       }
       myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth, i);
-      xPos-= 100;
+      xPos -= 100;
     }
     myMovie.checkLen();
 
   });
-  
+
 }
 
 function loadActor() {
@@ -90,7 +99,7 @@ function fetchData() {
   });
 }
 
-function updateUI(user){
+function updateUI(user) {
   let name = createP("Hello, " + user.getFirstName());
   name.position(windowWidth - 100, 0);
   name.style("color", "#CBB677");
