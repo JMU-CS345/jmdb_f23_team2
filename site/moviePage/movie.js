@@ -40,7 +40,7 @@ class Movie {
     if(this.data.results[z].poster_path != null){
     img.attribute("src", imgUrl + this.data.results[z].poster_path);
     } else{
-      img.attribute("src", imgUrl + this.data.results[z].poster_path);// change to bad jpeg
+      img.attribute("src", "../Black_image.jpg");// change to bad jpeg
     }
     img.position(x , y); 
     img.style("width", "80px");
