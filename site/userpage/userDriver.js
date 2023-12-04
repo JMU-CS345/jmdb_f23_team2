@@ -78,8 +78,13 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-    //title
+    let tempReviews = [new Review("Joker", "It was good"), new Review("The Dark Knight", "It was better"), new Review("The Dark Knight Rises", "It was the best")];
+    let tempRatings = [new Rating("Joker", 4), new Rating("The Dark Knight", 5), new Rating("The Dark Knight Rises", 5)];
+    temp.setRatings(tempRatings);
+    temp.setRevies(tempReviews);
+
     
+    //title    
     let title = createP(temp.getFirstName() + "'s Profile");
     title.position(windowWidth / 2 - 90, 20);
     title.style("color", "#CBB677");

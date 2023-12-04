@@ -11,7 +11,7 @@ class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        
+
         // Check if the key already exists in the key-value store
         keyval.get(email, (data) => {
             if (!data) {
@@ -28,8 +28,8 @@ class User {
                 data = JSON.parse(data);
                 const user = new User(data.email, data.firstName, data.lastName, data.password);
                 user.setFriends(data.friends);
-                user.setReviews(data.reviews);
-                user.setRatings(data.ratings);
+                user.setReviewsFromData(data.reviews);
+                user.setRatingsFromData(data.ratings);
                 user.setFavoriteMovies(data.favoriteMovies);
                 user.setSeenMovies(data.seenMovies);
                 user.setMovieWatchList(data.movieWatchList);
@@ -42,6 +42,19 @@ class User {
         });
     }
 
+    setReviewsFromData(reviewsData) {
+        this.reviews = reviewsData.map(review => {
+            // Assuming Review is a class and you have a constructor for it
+            return new Review(review.movie, review.review);
+        });
+    }
+
+    setRatingsFromData(ratingsData) {
+        this.ratings = ratingsData.map(rating => {
+            // Assuming Review is a class and you have a constructor for it
+            return new Rating(rating.movie, rating.rating);
+        });
+    }
 
     update(keyval = new Keyval(KEYVAL_API_KEY)) {
         keyval.set(this.email, this.createJSONlayout());
@@ -138,26 +151,34 @@ class User {
     //SETTERS
     setFriends(friends) {
         this.friends = friends;
+        this.update();
     }
 
     setReviews(reviews) {
         this.reviews = reviews;
+        this.update();
+
     }
 
     setRatings(ratings) {
         this.ratings = ratings;
+        this.update();
+
     }
 
     setFavoriteMovies(favoriteMovies) {
         this.favoriteMovies = favoriteMovies;
+        this.update();
     }
 
     setSeenMovies(seenMovies) {
         this.seenMovies = seenMovies;
+        this.update();
     }
 
     setMovieWatchList(movieWatchList) {
         this.movieWatchList = movieWatchList;
+        this.update();
     }
 
 
