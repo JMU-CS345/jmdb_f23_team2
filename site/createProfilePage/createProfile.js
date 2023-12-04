@@ -30,7 +30,7 @@ function setup() {
   title.style("color", "#CBB677");
   title.style("font-size", "36px");
   let subtitle1 = createP("Already have an account?");
-  let subtitle2 = createP("Login");
+  let subtitle2 = createP("<b>LOGIN</b>");
   subtitle1.position(windowWidth / 2 - 190, 275);
   subtitle1.style("color", "#CBB677");
   subtitle1.style("font-size", "24px");
