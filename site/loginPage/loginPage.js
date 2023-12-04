@@ -7,15 +7,18 @@ function setup() {
   // title and subtitle
   let title = createP("Scroovie Profile Login");
   title.position(windowWidth / 2 - 190, 25);
-  title.style("color", "#CBB677");
+  title.style("color", textColor);
+  title.style('font-family', Font);
   title.style("font-size", "36px")
   let subtitle1 = createP("Don't have an account already?");
   let subtitle2 = createP("Click <b>HERE</b> to get started");
   subtitle1.position(windowWidth / 2 - 190, 225);
-  subtitle1.style("color", "#CBB677");
+  subtitle1.style("color", textColor);
+  subtitle1.style('font-family', Font);
   subtitle1.style("font-size", "24px")
   subtitle2.position(windowWidth / 2 - 190, 250);
-  subtitle2.style("color", "#CBB677");
+  subtitle2.style("color", textColor);
+  subtitle2.style('font-family', Font);
   subtitle2.style("font-size", "24px")
   subtitle2.mousePressed(goToCreateProfile);
 
@@ -68,7 +71,8 @@ function displayError() {
   error = createP("Incorrect Email/Password");
   error.position(windowWidth / 2 - 190, 325);
   error.style("font-size", "36px");
-  error.style("color", "#FF0000");
+  error.style("color", errorColor);
+  error.style('font-family', Font);
   isError = true;
 }
 
@@ -77,5 +81,6 @@ function displayPasswordIncorrect() {
   error = createP("Incorrect Email/Password");
   error.position(windowWidth / 2 - 190, 325);
   error.style("font-size", "36px");
-  error.style("color", "#FF0000");
+  error.style('font-family', Font);
+  error.style("color", errorColor);
 }
