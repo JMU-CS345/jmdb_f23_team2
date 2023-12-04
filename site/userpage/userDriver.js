@@ -32,13 +32,16 @@ function displayReviews(arr, x, y) {
     console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
+        emptyList.style('font-family', Font);
+        emptyList.style('color', textColor);
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
             let str = arr[i].getMovie() + ": " + arr[i].getReview();
             let review = createP(str);
             review.position(x + 10, y + (i * 27) + 40);
-            review.style("color", "#450084");
+            review.style("color", userColor);
+            review.style('font-family', Font);
             review.style("font-size", "24px")
         }
     }
@@ -54,7 +57,8 @@ function displayRatings(arr, x, y) {
             let str = arr[i].getMovie() + ": " + arr[i].getRating() + " stars";
             let rating = createP(str);
             rating.position(x + 10, y + (i * 27) + 40);
-            rating.style("color", "#450084");
+            rating.style("color", userColor);
+            rating.style('font-family', Font);
             rating.style("font-size", "24px")
         }
     }
@@ -79,7 +83,7 @@ function updateUI(temp) {
     //title    
     let title = createP(temp.getFirstName() + "'s Profile");
     title.position(windowWidth / 2 - 90, 20);
-    title.style("color", "#CBB677");
+    title.style("color", textColor);
     title.style("font-size", "36px");
 
     //Creates and Displys User Information
@@ -90,36 +94,42 @@ function updateUI(temp) {
     let email = createP("Email: " + temp.getEmail());
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
-    name.style("color", "#CBB677");
-    email.style("color", "#CBB677");
+    name.style("color", textColor);
+    email.style("color", textColor);
+    email.style('font-family', Font);
+    name.style('font-family', Font);
     name.style("font-size", "24px");
     email.style("font-size", "24px");
 
     let favMovies = createP("Favorite Movies: ");
     let favMoviesYPos = 180;
     favMovies.position(leftXPos, favMoviesYPos);
-    favMovies.style("color", "#CBB677");
+    favMovies.style("color", textColor);
+    favMovies.style('font-family', Font);
     favMovies.style("font-size", "24px");
     display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
 
     let movieWatchlist = createP("Movie Watch List: ");
     let movieWatchlistYPos = 380;
     movieWatchlist.position(leftXPos, movieWatchlistYPos);
-    movieWatchlist.style("color", "#CBB677");
+    movieWatchlist.style("color", textColor);
+    movieWatchlist.style('font-family', Font);
     movieWatchlist.style("font-size", "24px");
     display(temp.getMovieWatchlist(), leftXPos, movieWatchlistYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
-    recentlyWatched.style("color", "#CBB677");
+    recentlyWatched.style("color", textColor);
+    recentlyWatched.style('font-family', Font);
     recentlyWatched.style("font-size", "24px");
     displayRecentlyWatched(temp.getSeenMovies(), leftXPos, recentlyWatchedYPos);
 
     let reviews = createP("Reviews: ");
     let reviewsYPos = 780;
     reviews.position(leftXPos, reviewsYPos);
-    reviews.style("color", "#CBB677");
+    reviews.style("color", textColor);
+    reviews.style('font-family', Font);
     reviews.style("font-size", "24px");
     displayReviews(temp.getReviews(), leftXPos, reviewsYPos);
 
@@ -134,7 +144,8 @@ function updateUI(temp) {
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     movieWatchlist.position(leftXPos, movieWatchlistYPos);
     ratings.position(leftXPos, ratingsYPos);
-    ratings.style("color", "#CBB677");
+    ratings.style("color", textColor);
+    ratings.style('font-family', Font);
     ratings.style("font-size", "24px");
 }
 
