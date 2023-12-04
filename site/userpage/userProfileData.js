@@ -1,16 +1,16 @@
 class User {
-    favoriteMovies = [];
-    reviews = [];
-    ratings = [];
-    movieWatchlist = [];
-    seenMovies = [];
-    friends = [];
 
     constructor(email, firstName, lastName, password, keyval = new Keyval(KEYVAL_API_KEY)) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.favoriteMovies = [];
+        this.reviews = [];
+        this.ratings = [];
+        this.movieWatchlist = [];
+        this.seenMovies = [];
+    
 
         // Check if the key already exists in the key-value store
         keyval.get(email, (data) => {
@@ -27,12 +27,11 @@ class User {
             if (data) {
                 data = JSON.parse(data);
                 const user = new User(data.email, data.firstName, data.lastName, data.password);
-                user.setFriends(data.friends);
                 user.setReviewsFromData(data.reviews);
                 user.setRatingsFromData(data.ratings);
                 user.setFavoriteMovies(data.favoriteMovies);
                 user.setSeenMovies(data.seenMovies);
-                user.setMovieWatchList(data.movieWatchList);
+                user.setMovieWatchlist(data.movieWatchlist);
                 // Call the callback with the user object
                 callback(user);
             } else {
@@ -43,17 +42,15 @@ class User {
     }
 
     setReviewsFromData(reviewsData) {
-        this.reviews = reviewsData.map(review => {
-            // Assuming Review is a class and you have a constructor for it
-            return new Review(review.movie, review.review);
-        });
+        // If reviewsData is truthy (not null or undefined), map and create Review objects
+        // If reviewsData is falsy (null, undefined, or an empty array), set reviews to an empty array
+        this.reviews = reviewsData ? reviewsData.map(review => new Review(review.movie, review.review)) : [];
     }
 
     setRatingsFromData(ratingsData) {
-        this.ratings = ratingsData.map(rating => {
-            // Assuming Review is a class and you have a constructor for it
-            return new Rating(rating.movie, rating.rating);
-        });
+        // If ratingsData is truthy (not null or undefined), map and create Rating objects
+        // If ratingsData is falsy (null, undefined, or an empty array), set ratings to an empty array
+        this.ratings = ratingsData ? ratingsData.map(rating => new Rating(rating.movie, rating.rating)) : [];
     }
 
     update(keyval = new Keyval(KEYVAL_API_KEY)) {
@@ -66,9 +63,8 @@ class User {
             "lastName": this.lastName,
             "email": this.email,
             "password": this.password,
-            "friends": this.friends,
             "seenMovies": this.seenMovies,
-            "movieWatchList": this.movieWatchlist,
+            "movieWatchlist": this.movieWatchlist,
             "favoriteMovies": this.favoriteMovies,
             "reviews": this.reviews,
             "ratings": this.ratings
@@ -79,16 +75,6 @@ class User {
 
 
     //ADD AND REMOVE FUNCTIONS 
-    addFriend(friend) {
-        this.friends.push(friend);
-        this.update();
-    }
-
-    removeFriend(friend) {
-        this.friends.splice(this.friends.indexOf(friend), 1);
-        this.update();
-    }
-
     addReview(review) {
         this.reviews.push(review);
         this.update();
@@ -110,7 +96,6 @@ class User {
     }
 
     addMovie(movie, category) {
-        console.log("Inside addMovie category: " + category);
         switch (category) {
             case "favorite":
                 this.favoriteMovies.push(movie);
@@ -120,7 +105,7 @@ class User {
                 this.seenMovies.push(movie);
                 this.update();
                 break;
-            case "watchlist":
+            case "Watchlist":
                 this.movieWatchlist.push(movie);
                 this.update();
                 break;
@@ -139,7 +124,7 @@ class User {
                 this.seenMovies.splice(this.seenMovies.indexOf(movie), 1);
                 this.update();
                 break;
-            case "watchlist":
+            case "Watchlist":
                 this.movieWatchlist.splice(this.movieWatchlist.indexOf(movie), 1);
                 this.update();
                 break;
@@ -176,8 +161,8 @@ class User {
         this.update();
     }
 
-    setMovieWatchList(movieWatchList) {
-        this.movieWatchList = movieWatchList;
+    setMovieWatchlist(movieWatchlist) {
+        this.movieWatchlist = movieWatchlist;
         this.update();
     }
 
@@ -200,10 +185,6 @@ class User {
         return this.password;
     }
 
-    getFriends() {
-        return this.friends;
-    }
-
     getReviews() {
         return this.reviews;
     }
@@ -220,7 +201,7 @@ class User {
         return this.seenMovies;
     }
 
-    getMovieWatchList() {
+    getMovieWatchlist() {
         return this.movieWatchlist;
     }
 }

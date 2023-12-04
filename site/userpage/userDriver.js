@@ -75,11 +75,6 @@ function displayRecentlyWatched(arr, x, y) {
 }
 
 function updateUI(temp) {
-    let tempReviews = [new Review("Joker", "It was good"), new Review("The Dark Knight", "It was better"), new Review("The Dark Knight Rises", "It was the best")];
-    let tempRatings = [new Rating("Joker", 4), new Rating("The Dark Knight", 5), new Rating("The Dark Knight Rises", 5)];
-    temp.setRatings(tempRatings);
-    temp.setRevies(tempReviews);
-
     
     //title    
     let title = createP(temp.getFirstName() + "'s Profile");
@@ -107,12 +102,12 @@ function updateUI(temp) {
     favMovies.style("font-size", "24px");
     display(temp.getFavoriteMovies(), leftXPos, favMoviesYPos);
 
-    let movieWatchList = createP("Movie Watch List: ");
-    let movieWatchListYPos = 380;
-    movieWatchList.position(leftXPos, movieWatchListYPos);
-    movieWatchList.style("color", "#CBB677");
-    movieWatchList.style("font-size", "24px");
-    display(temp.getMovieWatchList(), leftXPos, movieWatchListYPos);
+    let movieWatchlist = createP("Movie Watch List: ");
+    let movieWatchlistYPos = 380;
+    movieWatchlist.position(leftXPos, movieWatchlistYPos);
+    movieWatchlist.style("color", "#CBB677");
+    movieWatchlist.style("font-size", "24px");
+    display(temp.getMovieWatchlist(), leftXPos, movieWatchlistYPos);
 
     let recentlyWatched = createP("Recently Watched: ");
     let recentlyWatchedYPos = 580;
@@ -137,7 +132,7 @@ function updateUI(temp) {
     favMovies.position(leftXPos, favMoviesYPos);
     reviews.position(leftXPos, reviewsYPos);
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
-    movieWatchList.position(leftXPos, movieWatchListYPos);
+    movieWatchlist.position(leftXPos, movieWatchlistYPos);
     ratings.position(leftXPos, ratingsYPos);
     ratings.style("color", "#CBB677");
     ratings.style("font-size", "24px");
