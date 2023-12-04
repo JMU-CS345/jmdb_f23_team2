@@ -1,7 +1,7 @@
 let movie;
 let myPos = 50; //adjust height of all text
 let myColor = "#CBB677"; // adjust color
-let myFont = "Burbank Big Condensed";
+let myFont = Font;
 let data;
 
 function preload() {
