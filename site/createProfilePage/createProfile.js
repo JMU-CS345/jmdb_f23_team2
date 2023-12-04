@@ -25,15 +25,17 @@ function setup() {
 
   let title = createP("Scroovie Profile Creation");
   title.position(windowWidth / 2 - 190, 25);
-  title.style("color", "#CBB677");
+  title.style("color", textColor);
+  title.style('font-family', Font);
   title.style("font-size", "36px");
   let subtitle1 = createP("Already have an account?");
   let subtitle2 = createP("<b>LOGIN</b>");
   subtitle1.position(windowWidth / 2 - 190, 275);
-  subtitle1.style("color", "#CBB677");
+  subtitle1.style("color", textColor);
+  subtitle1.style('font-family', Font);
   subtitle1.style("font-size", "24px");
   subtitle2.position(windowWidth / 2 - 190, 300);
-  subtitle2.style("color", "#CBB677");
+  subtitle2.style("color", textColor);
   subtitle2.style("font-size", "24px");
   subtitle2.mousePressed(goToLoginPage);
 }
@@ -41,7 +43,7 @@ function setup() {
 function loader() {
   errorT.html("");
   errorT.style("color", "");
-
+  errorT.style('font-family', Font);
   errorT.style("font-size", "36px");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -53,7 +55,7 @@ function loader() {
     !emailRegex.test(emailBox.value())
   ) {
     errorT.html("You must fill out all fields!");
-    errorT.style("color", "#FF0000");
+    errorT.style("color", errorColor);
   } else {
     // Check if email is unique
     checkUnique(emailBox.value(), (isUnique) => {
