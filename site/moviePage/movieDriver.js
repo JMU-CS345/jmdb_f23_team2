@@ -68,7 +68,7 @@ function setup() {
     About = createP(data.overview);
     About.position(windowWidth / 2, myPos + 170);
     About.style('font-family', Font);
-    About.style('max-width', '400px');
+    About.style('max-width', '500px');
     About.style("font-size", "30px");
     About.style('color', textColor);
 }
