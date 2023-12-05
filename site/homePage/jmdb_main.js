@@ -51,7 +51,6 @@ function loadMovie() {
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
     arraySize = myMovie.getMovieCount();
-    myMovie.checkLen();
     myMovie.clearMovieList();
     let depth = - 100;
     let xPos = 400;
@@ -70,7 +69,7 @@ function loadMovie() {
         depth = depth + 150;
         xPos = 400;
       }
-      myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth, i);
+      myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth - 50, i);
       xPos -= 100;
     }
     myMovie.checkLen();
