@@ -133,8 +133,12 @@ function updateUI(temp) {
     displayReviews(temp.getReviews(), leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
-    let ratingsYPos = 980;
-    displayRatings(temp.getRatings(), leftXPos, ratingsYPos);
+    let ratingsYPos = 780;
+    ratings.position(windowWidth / 2 + 25, ratingsYPos);
+    ratings.style("color", textColor);
+    ratings.style('font-family', Font);
+    ratings.style("font-size", "24px");
+    displayRatings(temp.getRatings(), windowWidth / 2 + 25, reviewsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
@@ -142,10 +146,7 @@ function updateUI(temp) {
     reviews.position(leftXPos, reviewsYPos);
     recentlyWatched.position(leftXPos, recentlyWatchedYPos);
     movieWatchlist.position(leftXPos, movieWatchlistYPos);
-    ratings.position(leftXPos, ratingsYPos);
-    ratings.style("color", textColor);
-    ratings.style('font-family', Font);
-    ratings.style("font-size", "24px");
+
 }
 
 function draw() {
