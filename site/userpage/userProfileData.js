@@ -10,7 +10,7 @@ class User {
         this.ratings = [];
         this.movieWatchlist = [];
         this.seenMovies = [];
-    
+
 
         // Check if the key already exists in the key-value store
         keyval.get(email, (data) => {
@@ -80,8 +80,8 @@ class User {
         this.update();
     }
 
-    removeReview(review) {
-        this.reviews.splice(this.reviews.indexOf(review), 1);
+    removeReview(index) {
+        this.reviews.splice(review, 1);
         this.update();
     }
 
@@ -90,8 +90,8 @@ class User {
         this.update();
     }
 
-    removeRating(rating) {
-        this.ratings.splice(this.ratings.indexOf(rating), 1);
+    removeRating(index) {
+        this.ratings.splice(index + 1, 1);
         this.update();
     }
 
@@ -99,14 +99,29 @@ class User {
         switch (category) {
             case "favorite":
                 this.favoriteMovies.push(movie);
+                if (this.movieWatchlist.includes(movie)) {
+                    this.removeMovie(movie(), "Watchlist");
+                }
+                if (this.favoriteMovies.includes(movie)) {
+                    break;
+                }
                 this.update();
                 break;
             case "seen":
                 this.seenMovies.push(movie);
+                if (this.movieWatchlist.includes(movie)) {
+                    this.removeMovie(movie(), "Watchlist");
+                }
+                if (this.seenMovies.includes(movie)) {
+                    break;
+                }
                 this.update();
                 break;
             case "Watchlist":
                 this.movieWatchlist.push(movie);
+                if (this.movieWatchlist.includes(movie)) {
+                    break;
+                }
                 this.update();
                 break;
             default:
@@ -115,22 +130,41 @@ class User {
     }
 
     removeMovie(movie, category) {
+        let index;
         switch (category) {
             case "favorite":
-                this.favoriteMovies.splice(this.favoriteMovies.indexOf(movie), 1);
-                this.update();
+                index = this.searchMovie(movie, this.favoriteMovies);
+                if (index !== -1) {
+                    this.favoriteMovies.splice(index, 1);
+                    this.update();
+                }
                 break;
             case "seen":
-                this.seenMovies.splice(this.seenMovies.indexOf(movie), 1);
-                this.update();
+                index = this.searchMovie(movie, this.seenMovies);
+                if (index !== -1) {
+                    this.seenMovies.splice(index, 1);
+                    this.update();
+                }
                 break;
             case "Watchlist":
-                this.movieWatchlist.splice(this.movieWatchlist.indexOf(movie), 1);
-                this.update();
+                index = this.searchMovie(movie, this.movieWatchlist);
+                if (index !== -1) {
+                    this.movieWatchlist.splice(index, 1);
+                    this.update();
+                }
                 break;
             default:
                 break;
         }
+    }    
+
+    searchMovie(movie, arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == movie) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     //SETTERS
