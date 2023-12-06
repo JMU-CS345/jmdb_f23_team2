@@ -1,63 +1,62 @@
-
 let keyval = new Keyval(KEYVAL_API_KEY);
 let error;
 let newMovies;
 
 function setup() {
   createCanvas(0, 0);
-  /*let input = createInput();
-  /input.position(100, 275);
-  /button = createButton("Fetch");
-  /button.mousePressed(fetchData);
-  /button.position(100, 300);
-  */
+
+  // Title
+  let title = createP("Scroovie Home");
+  title.position(windowWidth / 2 - 170, -35);
+  title.style("color", textColor);
+  title.style('font-family', Font);
+  title.style("font-size", "55px");
+
+  // Navigation buttons
+  let userPageButton = createButton("To User Page");
+  userPageButton.position(10, 10);
+  userPageButton.mousePressed(goToUserPage);
+
+  // Input box/text fields
+  const Mbutton = createButton("Load Scroovie");
+  Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 350);
+  Mbutton.mousePressed(loadMovie);
+
+  loadPerson = createInput();
+  loadPerson.size(85);
+  loadPerson.position(windowWidth / 2 - 145, windowHeight / 2 - 350);
+
+  const Abutton = createButton("Load Actor");
+  Abutton.position(windowWidth / 2, windowHeight / 2 - 350);
+  Abutton.mousePressed(loadActor);
+
+  inputActor = createInput();
+  inputActor.size(85);
+  inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 350);
+
+  const group = createDiv();
+  group.child(Mbutton);
+  group.child(loadPerson);
+  group.child(Abutton);
+  group.child(inputActor);
+
+  // "NEW MOVIES" text
+  newMovies = createDiv("NEW MOVIES");
+  newMovies.position(windowWidth / 2 - 650, windowHeight / 2 - 160);
+  newMovies.style("color", textColor);
+  newMovies.style('font-family', Font);
+  newMovies.style("font-size", "36px");
+
   let username = localStorage.getItem("user");
   User.loadUser(username, (user) => {
     updateUI(user);
   });
 
-  //movie bar
-
-  const Mbutton = createButton("Load Scroovie");
-  Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 200);
-  Mbutton.mousePressed(loadMovie);
-
-  loadPerson = createInput();
-  loadPerson.size(85);
-  loadPerson.position(windowWidth / 2 - 145, windowHeight / 2 - 200);
-
-  //actor bar
-  const Abutton = createButton("Load Actor");
-  Abutton.position(windowWidth / 2, windowHeight / 2 - 200);
-  Abutton.mousePressed(loadActor);
-
-  inputActor = createInput();
-  inputActor.size(85);
-  inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 200);
-
-  //title
-  let title = createP("Scroovie Home");
-  title.position(windowWidth / 2 - 170, -35);
-  title.style("color", textColor);
-  title.style('font-family', Font);
-  title.style("font-size", "55px")
-
-  //navigation buttons
-  let userPageButton = createButton("To User Page");
-  userPageButton.position(10, 10);
-  userPageButton.mousePressed(goToUserPage);
-  
-
   data = loadJSON("https://api.themoviedb.org/3/movie/now_playing?api_key=" + TMDB_API_KEY, (data) => {
-    newMovies = createP("NEW MOVIES");
-    newMovies.position(windowWidth / 2 - 500, 50);
-    newMovies.style("color", textColor);
-    newMovies.style('font-family', Font);
-    newMovies.style("font-size", "36px")
     const myMovie = new Movie(data);
     arraySize = myMovie.getMovieCount();
     myMovie.clearMovieList();
-    let depth = - 100;
+    let depth = -100;
     let xPos = 400;
     for (let i = 0; i < arraySize; i++) {
       if (i % 8 == 0 && i != 0) {
@@ -66,12 +65,8 @@ function setup() {
       }
       myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth - 50, i);
       xPos -= 100;
-
     }
   });
-
-
-
 }
 
 function loadMovie() {

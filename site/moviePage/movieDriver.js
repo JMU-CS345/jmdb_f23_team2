@@ -163,7 +163,7 @@ function addRating() {
 
 function addReview() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.addReview(new Review(data.original_title, ""));
+        user.addReview(new Review(data.original_title, review.value()));
         console.log(user);
     });
 }
