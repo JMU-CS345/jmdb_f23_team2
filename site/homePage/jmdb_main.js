@@ -53,7 +53,7 @@ function setup() {
     newMovies.position(windowWidth / 2 - 500, 50);
     newMovies.style("color", textColor);
     newMovies.style('font-family', Font);
-    newMovies.style("font-size", "36px")
+    newMovies.style("font-size", "36px");
     const myMovie = new Movie(data);
     arraySize = myMovie.getMovieCount();
     myMovie.clearMovieList();
