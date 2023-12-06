@@ -3,6 +3,8 @@ let myPos = 50; //adjust height of all text
 let myColor = "#CBB677"; // adjust color
 let myFont = Font;
 let data;
+let rating;
+let review;
 
 function preload() {
     const queryString = window.location.search;
@@ -44,7 +46,7 @@ function setup() {
     ratingText.style("font-size", "24px");
     ratingText.style("color", myColor);
     const ratingB = createButton("Add Rating");
-    const rating = createInput();
+    rating = createInput();
     rating.position(30, 500);
     rating.style("width", "160px");
     ratingB.position(200, 500);
@@ -54,7 +56,7 @@ function setup() {
     reviewText.position(30, 150);
     reviewText.style("font-size", "24px");
     reviewText.style("color", myColor);
-    const review = createInput();
+    review = createInput();
     review.position(30, 200);
     review.style("width", "300px");
     review.style("height", "100px");
