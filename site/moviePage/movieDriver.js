@@ -49,6 +49,11 @@ function setup() {
     rating = createInput();
     rating.position(30, 500);
     rating.style("width", "160px");
+    rating.attribute("type", "number");
+    rating.attribute("step", "0.1");
+    rating.attribute("min", "0");
+    rating.attribute("max", "5");
+    rating.attribute("placeholder", "0");
     ratingB.position(200, 500);
     ratingB.mousePressed(addRating);
 
