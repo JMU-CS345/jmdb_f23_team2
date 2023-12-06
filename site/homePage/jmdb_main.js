@@ -1,6 +1,7 @@
 
 let keyval = new Keyval(KEYVAL_API_KEY);
 let error;
+let newMovies;
 
 function setup() {
   createCanvas(0, 0);
@@ -16,6 +17,7 @@ function setup() {
   });
 
   //movie bar
+
   const Mbutton = createButton("Load Scroovie");
   Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 200);
   Mbutton.mousePressed(loadMovie);
@@ -44,9 +46,36 @@ function setup() {
   let userPageButton = createButton("To User Page");
   userPageButton.position(10, 10);
   userPageButton.mousePressed(goToUserPage);
+  
+
+  data = loadJSON("https://api.themoviedb.org/3/movie/now_playing?api_key=" + TMDB_API_KEY, (data) => {
+    newMovies = createP("NEW MOVIES");
+    newMovies.position(windowWidth / 2 - 500, 50);
+    newMovies.style("color", textColor);
+    newMovies.style('font-family', Font);
+    newMovies.style("font-size", "36px")
+    const myMovie = new Movie(data);
+    arraySize = myMovie.getMovieCount();
+    myMovie.clearMovieList();
+    let depth = - 100;
+    let xPos = 400;
+    for (let i = 0; i < arraySize; i++) {
+      if (i % 8 == 0 && i != 0) {
+        depth = depth + 150;
+        xPos = 400;
+      }
+      myMovie.getAllImages(windowWidth / 2 - xPos, windowHeight / 2 + depth - 50, i);
+      xPos -= 100;
+
+    }
+  });
+
+
+
 }
 
 function loadMovie() {
+  newMovies = createP("NEW MOVIES");
   error = createP();
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
