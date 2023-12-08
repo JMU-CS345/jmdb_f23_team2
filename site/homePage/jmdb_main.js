@@ -19,20 +19,20 @@ function setup() {
 
   // Input box/text fields
   const Mbutton = createButton("Load Scroovie");
-  Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 350);
+  Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 250);
   Mbutton.mousePressed(loadMovie);
 
   loadPerson = createInput();
   loadPerson.size(85);
-  loadPerson.position(windowWidth / 2 - 145, windowHeight / 2 - 350);
+  loadPerson.position(windowWidth / 2 - 145, windowHeight / 2 - 250);
 
   const Abutton = createButton("Load Actor");
-  Abutton.position(windowWidth / 2, windowHeight / 2 - 350);
+  Abutton.position(windowWidth / 2, windowHeight / 2 - 250);
   Abutton.mousePressed(loadActor);
 
   inputActor = createInput();
   inputActor.size(85);
-  inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 350);
+  inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 250);
 
   const group = createDiv();
   group.child(Mbutton);
