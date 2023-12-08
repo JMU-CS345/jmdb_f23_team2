@@ -6,11 +6,11 @@ function setup() {
   createCanvas(0, 0);
 
   // Title
-  let title = createP("Scroovie Home");
-  title.position(windowWidth / 2 - 170, -35);
-  title.style("color", textColor);
-  title.style('font-family', Font);
-  title.style("font-size", "55px");
+  // let title = createP("Scroovie Home");
+  // title.position(windowWidth / 2 - 170, -35);
+  // title.style("color", textColor);
+  // title.style('font-family', Font);
+  // title.style("font-size", "55px");
 
   // Navigation buttons
   let userPageButton = createButton("To User Page");
