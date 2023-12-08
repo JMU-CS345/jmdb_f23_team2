@@ -32,8 +32,9 @@ function setup() {
   group.child(loadPerson);
 
   // "NEW MOVIES" text
-  newMovies = createDiv("NEW MOVIES");
-  newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -200);
+  error = createP();
+  newMovies = createP("NEW MOVIES");
+  newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -220);
   newMovies.style("color", textColor);
   newMovies.style('font-family', Font);
   newMovies.style("font-size", "36px");
@@ -61,8 +62,8 @@ function setup() {
 }
 
 function loadMovie() {
-  newMovies = createDiv("");
-  error = createP();
+  newMovies.html("");
+  
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
     arraySize = myMovie.getMovieCount();
@@ -75,8 +76,7 @@ function loadMovie() {
       error.style("color", errorColor);
       error.style('font-family', Font);
       error.style("font-size", "36px")
-    }
-    if (arraySize > 0) {
+    }else {
       error.html("");
     }
     for (let i = 0; i < arraySize; i++) {
