@@ -15,3 +15,12 @@ body {
     top: 0;
     z-index: -1;
 }
+@font-face {
+    font-family: 'newFont';
+    src: url('../BurbankBigRegular-Black.otf') format('opentype');
+    /* Add more formats as needed for broader browser support */
+}
+
+body {
+    font-family: 'newFont', sans-serif;
+}
