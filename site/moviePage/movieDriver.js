@@ -33,14 +33,14 @@ function setup() {
     seen.position(30, 630);
     seen.mousePressed(addToSeen);
     const removeS = createButton("Remove From Seen");
-    removeS.position(windowWidth - 180, 630);
+    removeS.position(windowWidth - 180, 645);
     removeS.mousePressed(removeFromSeen);
 
     const favorites = createButton("Add To Favorite");
     favorites.position(30, 660);
     favorites.mousePressed(addToFavorites);
     const removeF = createButton("Remove From Favorite");
-    removeF.position(windowWidth - 180, 660);
+    removeF.position(windowWidth - 180, 675);
     removeF.mousePressed(removeFromFavorites);
 
     ratingText = createP("Rate this movie 0 - 5 stars!");
@@ -98,21 +98,21 @@ function setup() {
     Title.style('color', textColor);
 
     Release = createP("Date: " + data.release_date);
-    Release.position(windowWidth / 2, myPos + 50);
+    Release.position(windowWidth / 2, myPos + 10);
     Release.style('font-family', Font);
     Release.style("font-size", "46px");
     Release.style('color', textColor);
 
     AboutTitle = createP("About: ")
-    AboutTitle.position(windowWidth / 2, myPos + 100);
+    AboutTitle.position(windowWidth / 2, myPos + 60);
     AboutTitle.style('font-family', Font);
     AboutTitle.style("font-size", "46px");
     AboutTitle.style('color', textColor);
 
     About = createP(data.overview);
-    About.position(windowWidth / 2, myPos + 170);
+    About.position(windowWidth / 2, myPos + 130);
     About.style('font-family', Font);
-    About.style('max-width', '500px');
+    About.style('max-width', '600px');
     About.style("font-size", "30px");
     About.style('color', textColor);
 

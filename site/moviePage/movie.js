@@ -41,6 +41,7 @@ class Movie {
     img.attribute("src", imgUrl + this.data.results[z].poster_path);
     } else{
       img.attribute("src", "../Black_image.jpg");// change to bad jpeg
+      img.style("height", "120px");
     }
     img.position(x , y); 
     img.style("width", "80px");
