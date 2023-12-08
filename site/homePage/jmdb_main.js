@@ -42,7 +42,7 @@ function setup() {
 
   // "NEW MOVIES" text
   newMovies = createDiv("NEW MOVIES");
-  newMovies.position(windowWidth / 2 - 650, windowHeight / 2 - 160);
+  newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -200);
   newMovies.style("color", textColor);
   newMovies.style('font-family', Font);
   newMovies.style("font-size", "36px");
