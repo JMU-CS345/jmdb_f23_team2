@@ -1,7 +1,7 @@
-const backgroundColor="#CBB677";
-const textColor="#CBB677";
+//const backgroundColor="#CBB677";
+const textColor="#FFFFFF";
 
 const Font= 'newFont';
 const errorColor= "#FF0000";
-const userColor= "#450084";
+const userColor= "#FFFFFF";
 const textFont="";
