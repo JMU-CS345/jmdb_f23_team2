@@ -3,6 +3,7 @@ let myPos = 50; //adjust height of all text
 let myColor = "#CBB677"; // adjust color
 let myFont = Font;
 let data;
+let cast;
 let rating;
 let review;
 
@@ -13,6 +14,7 @@ function preload() {
     const dataValue = urlParams.get('data');
 
     data = loadJSON('https://api.themoviedb.org/3/movie/' + dataValue + '?api_key=' + TMDB_API_KEY);
+    cast = loadJSON('https://api.themoviedb.org/3/movie/' + dataValue + '/credits?api_key=' + TMDB_API_KEY);
 }
 
 function setup() {
@@ -113,6 +115,8 @@ function setup() {
     About.style('max-width', '500px');
     About.style("font-size", "30px");
     About.style('color', textColor);
+
+    displayCast(300, 600);
 }
 
 function addToWatchlist() {
@@ -173,4 +177,16 @@ function addReview() {
         user.addReview(new Review(data.original_title, review.value()));
         console.log(user);
     });
+}
+
+function displayCast(x, y) {
+    let movieCast = cast.cast;
+    let actorName;
+    console.log(movieCast);
+    for (let i = 0; i < 9; i++) {
+        let temp = new Actor(movieCast[i]);
+        actorName = temp.getName();
+        temp.getImage(x + 15 + (i * 110), y);
+    }
+
 }
