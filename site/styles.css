@@ -7,11 +7,11 @@ body {
 .sticky-div {
         
     background: linear-gradient(to bottom, #450084, #a86e6e);
-    background-size: cover;
     height: 100vh;
     width: 100%;
     position: sticky;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     top: 0;
-  
     z-index: -1;
 }
