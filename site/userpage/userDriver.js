@@ -133,12 +133,12 @@ function updateUI(temp) {
     displayReviews(temp.getReviews(), leftXPos, reviewsYPos);
 
     let ratings = createP("Ratings: ");
-    let ratingsYPos = 780;
-    ratings.position(windowWidth / 2 + 25, ratingsYPos);
+    let ratingsYPos = 580;
+    ratings.position(500, ratingsYPos);
     ratings.style("color", textColor);
     ratings.style('font-family', Font);
     ratings.style("font-size", "24px");
-    displayRatings(temp.getRatings(), windowWidth / 2 + 25, reviewsYPos);
+    displayRatings(temp.getRatings(), 500, ratingsYPos);
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
