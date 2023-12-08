@@ -3,7 +3,7 @@ function setup() {
 
     User.loadUser(username, (user) => {
         if (user) {
-
+            console.log(user);
             updateUI(user);
         } else {
             console.error("Error loading user or user not found.");

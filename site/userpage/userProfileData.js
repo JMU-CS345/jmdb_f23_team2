@@ -98,30 +98,30 @@ class User {
     addMovie(movie, category) {
         switch (category) {
             case "favorite":
-                this.favoriteMovies.push(movie);
                 if (this.movieWatchlist.includes(movie)) {
                     this.removeMovie(movie(), "Watchlist");
                 }
                 if (this.favoriteMovies.includes(movie)) {
                     break;
                 }
+                this.favoriteMovies.push(movie);
                 this.update();
                 break;
             case "seen":
-                this.seenMovies.push(movie);
                 if (this.movieWatchlist.includes(movie)) {
                     this.removeMovie(movie(), "Watchlist");
                 }
                 if (this.seenMovies.includes(movie)) {
                     break;
                 }
+                this.seenMovies.push(movie);
                 this.update();
                 break;
             case "Watchlist":
-                this.movieWatchlist.push(movie);
                 if (this.movieWatchlist.includes(movie)) {
                     break;
                 }
+                this.movieWatchlist.push(movie);
                 this.update();
                 break;
             default:
@@ -156,7 +156,7 @@ class User {
             default:
                 break;
         }
-    }    
+    }
 
     searchMovie(movie, arr) {
         for (let i = 0; i < arr.length; i++) {
