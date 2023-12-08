@@ -19,26 +19,17 @@ function setup() {
 
   // Input box/text fields
   const Mbutton = createButton("Load Scroovie");
-  Mbutton.position(windowWidth / 2 - 250, windowHeight / 2 - 250);
+  Mbutton.position(windowWidth / 2 - 450, windowHeight / 2 - 250);
   Mbutton.mousePressed(loadMovie);
 
   loadPerson = createInput();
   loadPerson.size(85);
-  loadPerson.position(windowWidth / 2 - 145, windowHeight / 2 - 250);
+  loadPerson.position(windowWidth / 2 - 345, windowHeight / 2 - 250);
 
-  const Abutton = createButton("Load Actor");
-  Abutton.position(windowWidth / 2, windowHeight / 2 - 250);
-  Abutton.mousePressed(loadActor);
-
-  inputActor = createInput();
-  inputActor.size(85);
-  inputActor.position(windowWidth / 2 + 85, windowHeight / 2 - 250);
 
   const group = createDiv();
   group.child(Mbutton);
   group.child(loadPerson);
-  group.child(Abutton);
-  group.child(inputActor);
 
   // "NEW MOVIES" text
   newMovies = createDiv("NEW MOVIES");
@@ -70,7 +61,7 @@ function setup() {
 }
 
 function loadMovie() {
-  newMovies = createP("NEW MOVIES");
+  newMovies = createDiv("");
   error = createP();
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
