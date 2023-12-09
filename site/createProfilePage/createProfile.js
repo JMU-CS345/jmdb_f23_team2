@@ -89,8 +89,11 @@ function draw() {
 
 function checkUnique(email, callback, keyval = new Keyval(KEYVAL_API_KEY)) {
   keyval.get(email, (data) => {
-    callback(false);
-  }, (err) => {
-    callback(true);
+    if (data == "Resource Not Found"){
+      callback(true);
+    }
+    else{
+      callback(false);
+    }
   });
 }
