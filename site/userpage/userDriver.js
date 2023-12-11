@@ -23,32 +23,47 @@ function setup() {
 
 function loadUserMovie(movieName, x, y) {
 
-    
-    data = loadJSON("https://api.themoviedb.org/3/search/movie?query=${" + movieName + "}&api_key=" + TMDB_API_KEY, function (data)  {
 
-        const myMovie = new Movie(data);
-        myMovie.getUserImage(x, y);
-        //console.log(myMovie.getName());
-      
+    data = loadJSON('https://api.themoviedb.org/3/movie/' + movieName + '?api_key=' + TMDB_API_KEY, (data) => {
+        console.log(data);
+        let img = createElement("img");
+        if(data.poster_path != null){
+        img.attribute("src", imgUrl + data.poster_path);
+        } else{
+            img.attribute("src", "../Black_image.jpg");// change to bad jpeg
+        }
+        img.position(x , y); 
+        img.style("width", "80px");
+        img.style("height", "120px");
+        //onsole.log(data.results[0].id);
+        img.mousePressed(()=>{loadMoviePage(data.id);});
+
+        
+
+        
     });
-  
+
+}
+
+function loadMoviePage(id) {
+    window.location.replace(`../moviePage/moviePage.html?data=${id}`);
   }
 
 function display(arr, x, y) {
-    console.log(arr);
+    //console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < arr.length; i++) {
-            console.log(arr[i]);
+            //console.log(arr[i]);
             loadUserMovie(arr[i], x + 15 + (i * 100), y + 70);
         }
     }
 }
 
 function displayReviews(arr, x, y) {
-    console.log(arr);
+    //console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
@@ -68,7 +83,7 @@ function displayReviews(arr, x, y) {
 }
 
 function displayRatings(arr, x, y) {
-    console.log(arr);
+    //console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
@@ -92,7 +107,7 @@ function displayRecentlyWatched(arr, x, y) {
         const startIndex = Math.max(0, arr.length - 4);
 
         for (let i = startIndex; i < arr.length; i++) {
-            console.log(arr[i]);
+            //console.log(arr[i]);
             loadUserMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
         }
     }
