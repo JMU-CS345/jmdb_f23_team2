@@ -25,7 +25,7 @@ function setup() {
     Watchlist.position(30, 600);
     Watchlist.mousePressed(addToWatchlist);
     const removeW = createButton("Remove From Watch List");
-    removeW.position(windowWidth - 180, 600);
+    removeW.position(30, 710);
     removeW.mousePressed(removeFromWatchlist);
 
 
@@ -33,14 +33,14 @@ function setup() {
     seen.position(30, 630);
     seen.mousePressed(addToSeen);
     const removeS = createButton("Remove From Seen");
-    removeS.position(windowWidth - 180, 645);
+    removeS.position(30, 740);
     removeS.mousePressed(removeFromSeen);
 
     const favorites = createButton("Add To Favorite");
     favorites.position(30, 660);
     favorites.mousePressed(addToFavorites);
     const removeF = createButton("Remove From Favorite");
-    removeF.position(windowWidth - 180, 675);
+    removeF.position(30, 770);
     removeF.mousePressed(removeFromFavorites);
 
     ratingText = createP("Rate this movie 0 - 5 stars!");
