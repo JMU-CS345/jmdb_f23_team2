@@ -1,6 +1,6 @@
 function setup() {
-    let username = localStorage.getItem("user");
 
+    let username = localStorage.getItem("user");
     User.loadUser(username, (user) => {
         if (user) {
             console.log(user);
