@@ -69,7 +69,7 @@ function displayRecentlyWatched(arr, x, y) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
-        const startIndex = Math.max(0, arr.length - 3);
+        const startIndex = Math.max(0, arr.length - 4);
 
         for (let i = startIndex; i < arr.length; i++) {
             console.log(arr[i]);
