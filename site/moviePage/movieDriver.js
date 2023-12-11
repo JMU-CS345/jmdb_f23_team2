@@ -98,19 +98,23 @@ function setup() {
     Title.style('color', textColor);
 
     Release = createP("Date: " + data.release_date);
-    Release.position(windowWidth / 2, myPos + 10);
+    Release.position(windowWidth / 2, myPos + 60);
     Release.style('font-family', Font);
     Release.style("font-size", "46px");
     Release.style('color', textColor);
 
     AboutTitle = createP("About: ")
-    AboutTitle.position(windowWidth / 2, myPos + 60);
+    AboutTitle.position(windowWidth / 2, myPos + 110);
     AboutTitle.style('font-family', Font);
     AboutTitle.style("font-size", "46px");
     AboutTitle.style('color', textColor);
 
     About = createP(data.overview);
-    About.position(windowWidth / 2, myPos + 130);
+    myText = data.overview;
+    if(myText > 410){
+        myText = myText.substring(0, 410) + "...";
+    }
+    About.position(windowWidth / 2, myPos + 180);
     About.style('font-family', Font);
     About.style('max-width', '600px');
     About.style("font-size", "30px");
