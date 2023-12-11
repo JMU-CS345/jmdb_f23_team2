@@ -67,8 +67,8 @@ class Movie {
         img.attribute("src", "../Black_image.jpg");// change to bad jpeg
       }
       img.position(x , y); 
-      img.style("width", "80px");
-      img.style("height", "120px");
+      img.style("width", "250px");
+      img.style("height", "500px");
       //onsole.log(data.results[0].id);
       img.mousePressed(()=>{loadMoviePage(this.data.results[0].id);});
       
@@ -86,6 +86,7 @@ class Movie {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
     img.style("width", "250px");
+    
     img.position((x/2) - width * 3, 105); 
   }
 
