@@ -8,11 +8,11 @@ class Actor {
   }
 
   getName() {
-    return (data.name);
+    return (this.data.name);
   }
 
   getScore() {
-    return (data.popularity);
+    return (this.data.popularity);
   }
 
   getImage(x, y) {

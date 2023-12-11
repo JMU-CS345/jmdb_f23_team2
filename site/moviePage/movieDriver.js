@@ -111,7 +111,7 @@ function setup() {
 
     About = createP(data.overview);
     myText = data.overview;
-    if(myText > 410){
+    if (myText > 410) {
         myText = myText.substring(0, 410) + "...";
     }
     About.position(windowWidth / 2, myPos + 180);
@@ -190,12 +190,19 @@ function displayCast(x, y) {
     castTitle = createP("Cast:");
     castTitle.style('font-family', Font);
     castTitle.style('color', textColor);
-    castTitle.style("font-size", "24px");
-    castTitle.position(x - 62, y - 50);
-    for (let i = 0; i < 9; i++) {
+    castTitle.style("font-size", "36px");
+    castTitle.position(x - 62, y - 75);
+    for (let i = 0; i < 10; i++) {
         let temp = new Actor(movieCast[i]);
-        actorName = temp.getName();
         temp.getImage((x - 62) + (i * 115), y);
+        actorName = temp.getName();
+        console.log(actorName);
+        actorNameText = createP(actorName);
+        actorNameText.style('font-family', Font);
+        actorNameText.style('color', textColor);
+        actorNameText.style("font-size", "24px");
+        actorNameText.style('max-width', '110px');
+        actorNameText.position((x - 62) + (i * 115), y + 155);
     }
 
 }
