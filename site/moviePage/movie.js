@@ -45,6 +45,7 @@ class Movie {
     }
     img.position(x , y); 
     img.style("width", "80px");
+    img.style("height", "120px");
     img.mousePressed(function(){loadMoviePage(data.results[z].id);});
 
   }
@@ -54,6 +55,7 @@ class Movie {
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
     img.position(x - img.width, y); 
     img.style("width", "80px");
+    img.style("height", "120px");
     img.mousePressed(function(){loadMoviePage(data.results[0].id);});
   }
 
@@ -63,10 +65,10 @@ class Movie {
       img.attribute("src", imgUrl + this.data.results[0].poster_path);
       } else{
         img.attribute("src", "../Black_image.jpg");// change to bad jpeg
-        img.style("height", "120px");
       }
       img.position(x , y); 
       img.style("width", "80px");
+      img.style("height", "120px");
       //onsole.log(data.results[0].id);
       img.mousePressed(()=>{loadMoviePage(this.data.results[0].id);});
       
