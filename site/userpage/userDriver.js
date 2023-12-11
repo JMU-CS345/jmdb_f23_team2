@@ -1,6 +1,6 @@
 function setup() {
-    let username = localStorage.getItem("user");
 
+    let username = localStorage.getItem("user");
     User.loadUser(username, (user) => {
         if (user) {
             console.log(user);
@@ -16,6 +16,19 @@ function setup() {
     homePageButton.mousePressed(goToHomePage);
 }
 
+function loadUserMovie(movieName, x, y) {
+
+    
+    data = loadJSON("https://api.themoviedb.org/3/search/movie?query=${" + movieName + "}&api_key=" + TMDB_API_KEY, function (data)  {
+
+        const myMovie = new Movie(data);
+        myMovie.getUserImage(x, y);
+        //console.log(myMovie.getName());
+      
+    });
+  
+  }
+
 function display(arr, x, y) {
     console.log(arr);
     if (arr.length <= 0) {
@@ -23,7 +36,8 @@ function display(arr, x, y) {
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < arr.length; i++) {
-            loadMovie(arr[i], x + 15 + (i * 100), y + 70);
+            console.log(arr[i]);
+            loadUserMovie(arr[i], x + 15 + (i * 100), y + 70);
         }
     }
 }

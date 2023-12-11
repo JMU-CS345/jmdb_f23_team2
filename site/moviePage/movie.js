@@ -56,6 +56,22 @@ class Movie {
     img.style("width", "80px");
     img.mousePressed(function(){loadMoviePage(data.results[0].id);});
   }
+
+  getUserImage(x, y) {
+    let img = createElement("img");
+    if(this.data.results[0].poster_path != null){
+      img.attribute("src", imgUrl + this.data.results[0].poster_path);
+      } else{
+        img.attribute("src", "../Black_image.jpg");// change to bad jpeg
+        img.style("height", "120px");
+      }
+      img.position(x , y); 
+      img.style("width", "80px");
+      //onsole.log(data.results[0].id);
+      img.mousePressed(()=>{loadMoviePage(this.data.results[0].id);});
+      
+  }
+
   getBackground(x, y) {
     let img = createElement("img");
     img.attribute("src", imgUrl + this.data.results[0].poster_path);
