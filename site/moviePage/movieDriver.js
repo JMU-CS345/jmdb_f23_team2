@@ -109,7 +109,7 @@ function setup() {
     Release.style("font-size", "46px");
     Release.style('color', textColor);
 
-    AboutTitle = createP("About: ")
+    AboutTitle = createP("Summary: ")
     AboutTitle.position(windowWidth / 2, myPos + 60);
     AboutTitle.style('font-family', Font);
     AboutTitle.style("font-size", "46px");
