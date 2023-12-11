@@ -84,7 +84,7 @@ function loader() {
 }
 
 function draw() {
-  background(69, 0, 132);
+  //background(69, 0, 132);
 }
 
 function checkUnique(email, callback, keyval = new Keyval(KEYVAL_API_KEY)) {
