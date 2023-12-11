@@ -24,7 +24,7 @@ class Movie {
     return (this.data.results[0].original_title);
   }
   getDate() {
-    return (this.data.results[0].release_date);
+    return (data.results[0].release_date);
   }
   getAbout() {
     return (this.data.results[0].overview);
