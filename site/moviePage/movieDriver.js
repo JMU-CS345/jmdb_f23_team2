@@ -115,11 +115,12 @@ function setup() {
     AboutTitle.style("font-size", "46px");
     AboutTitle.style('color', textColor);
 
-    About = createP(data.overview);
+    //About = createP(data.overview);
     myAbout = data.overview;
     if(myAbout.length > 410){
         myAbout = myAbout.substring(0, 410) + "...";
     }
+    About = createP(myAbout);
     About.position(windowWidth / 2, myPos + 130);
     About.style('font-family', Font);
     About.style('max-width', '600px');
