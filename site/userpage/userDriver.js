@@ -52,6 +52,9 @@ function displayReviews(arr, x, y) {
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
             let str = arr[i].getMovie() + ": " + arr[i].getReview();
+            if (str.length > 130) {
+                str = str.substring(0, 130) + "...";
+            }
             let review = createP(str);
             review.position(x + 10, y + (i * 27) + 40);
             review.style("color", userColor);
