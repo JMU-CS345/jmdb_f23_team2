@@ -92,7 +92,7 @@ function setup() {
 
     
     
-    myTitle = data.original_title;
+    myTitle = data.title;
     if(myTitle.length > 40){
         myTitle = myTitle.substring(0, 35) + "...";
     }
@@ -205,7 +205,7 @@ function displayCast(x, y) {
         actorNameText = createP(actorName);
         actorNameText.style('font-family', Font);
         actorNameText.style('color', textColor);
-        actorNameText.style("font-size", "24px");
+        actorNameText.style("font-size", "20px");
         actorNameText.style('max-width', '110px');
         actorNameText.position((x - 62) + (i * 115), y + 155);
     }
