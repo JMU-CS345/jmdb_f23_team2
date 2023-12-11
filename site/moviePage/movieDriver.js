@@ -81,6 +81,7 @@ function setup() {
 
 
     let img = createElement("img");
+    console.log(data);
     if (data.poster_path != null) {
         img.attribute("src", imgUrl + data.poster_path);
     } else {
