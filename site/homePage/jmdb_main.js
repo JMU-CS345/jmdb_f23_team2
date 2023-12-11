@@ -5,15 +5,12 @@ let newMovies;
 function setup() {
   createCanvas(0, 0);
 
-  let username = localStorage.getItem("user");
-  User.loadUser(username, (user) => {
-    if (user) {
-      console.log(user);
-      updateUI(user);
-    } else {
-      console.error("Error loading user or user not found.");
-    }
-  });
+  // Title
+  // let title = createP("Scroovie Home");
+  // title.position(windowWidth / 2 - 170, -35);
+  // title.style("color", textColor);
+  // title.style('font-family', Font);
+  // title.style("font-size", "55px");
 
   // Navigation buttons
   let userPageButton = createButton("To User Page");
@@ -61,7 +58,7 @@ function setup() {
 
 function loadMovie() {
   newMovies.html("");
-
+  
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
     arraySize = myMovie.getMovieCount();
@@ -74,7 +71,7 @@ function loadMovie() {
       error.style("color", errorColor);
       error.style('font-family', Font);
       error.style("font-size", "36px")
-    } else {
+    }else {
       error.html("");
     }
     for (let i = 0; i < arraySize; i++) {
@@ -112,12 +109,4 @@ function fetchData() {
       console.log(data);
     });
   });
-}
-
-function updateUI(user) {
-  let name = createP("Hello, " + user.getFirstName());
-  name.position(200, 100);
-  name.style('font-family', Font);
-  name.style("color", textColor);
-  name.style("font-size", "20px")
 }
