@@ -117,8 +117,8 @@ function setup() {
 
     //About = createP(data.overview);
     myAbout = data.overview;
-    if(myAbout.length > 410){
-        myAbout = myAbout.substring(0, 410) + "...";
+    if(myAbout.length > 400){
+        myAbout = myAbout.substring(0, 400) + "...";
     }
     About = createP(myAbout);
     About.position(windowWidth / 2, myPos + 130);
