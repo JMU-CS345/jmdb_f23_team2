@@ -25,7 +25,7 @@ function setup() {
     Watchlist.position(30, 600);
     Watchlist.mousePressed(addToWatchlist);
     const removeW = createButton("Remove From Watch List");
-    removeW.position(30, 710);
+    removeW.position(30, 500);
     removeW.mousePressed(removeFromWatchlist);
 
 
@@ -33,14 +33,14 @@ function setup() {
     seen.position(30, 630);
     seen.mousePressed(addToSeen);
     const removeS = createButton("Remove From Seen");
-    removeS.position(30, 740);
+    removeS.position(30, 530);
     removeS.mousePressed(removeFromSeen);
 
     const favorites = createButton("Add To Favorite");
     favorites.position(30, 660);
     favorites.mousePressed(addToFavorites);
     const removeF = createButton("Remove From Favorite");
-    removeF.position(30, 770);
+    removeF.position(30, 560);
     removeF.mousePressed(removeFromFavorites);
 
     ratingText = createP("Rate this movie 0 - 5 stars!");
@@ -90,31 +90,36 @@ function setup() {
     img.style("width", "250px");
     img.position((windowWidth / 2) - width * 3, 105);
 
-
-    Title = createP(data.original_title);
+    
+    
+    myTitle = data.original_title;
+    if(myTitle.length > 40){
+        myTitle = myTitle.substring(0, 35) + "...";
+    }
+    Title = createP(myTitle);
     Title.position((windowWidth / 2) - width * 3, 5);
     Title.style('font-family', Font);
     Title.style("font-size", "50px");
     Title.style('color', textColor);
 
     Release = createP("Date: " + data.release_date);
-    Release.position(windowWidth / 2, myPos + 60);
+    Release.position(windowWidth / 2, myPos + 10);
     Release.style('font-family', Font);
     Release.style("font-size", "46px");
     Release.style('color', textColor);
 
     AboutTitle = createP("About: ")
-    AboutTitle.position(windowWidth / 2, myPos + 110);
+    AboutTitle.position(windowWidth / 2, myPos + 60);
     AboutTitle.style('font-family', Font);
     AboutTitle.style("font-size", "46px");
     AboutTitle.style('color', textColor);
 
     About = createP(data.overview);
-    myText = data.overview;
-    if (myText > 410) {
-        myText = myText.substring(0, 410) + "...";
+    myAbout = data.overview;
+    if(myAbout.length > 410){
+        myAbout = myAbout.substring(0, 410) + "...";
     }
-    About.position(windowWidth / 2, myPos + 180);
+    About.position(windowWidth / 2, myPos + 130);
     About.style('font-family', Font);
     About.style('max-width', '600px');
     About.style("font-size", "30px");
