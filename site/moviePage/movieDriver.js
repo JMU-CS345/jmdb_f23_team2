@@ -131,42 +131,42 @@ function setup() {
 
 function addToWatchlist() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.addMovie(data.original_title, "Watchlist");
+        user.addMovie(data.id, "Watchlist");
         console.log(user);
     });
 }
 
 function removeFromWatchlist() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.removeMovie(data.original_title, "Watchlist");
+        user.removeMovie(data.id, "Watchlist");
         console.log(user);
     });
 }
 
 function addToSeen() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.addMovie(data.original_title, "seen");
+        user.addMovie(data.id, "seen");
         console.log(user);
     });
 }
 
 function removeFromSeen() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.removeMovie(data.original_title, "seen");
+        user.removeMovie(data.id, "seen");
         console.log(user);
     });
 }
 
 function addToFavorites() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.addMovie(data.original_title, "favorite");
+        user.addMovie(data.id, "favorite");
         console.log(user);
     });
 }
 
 function removeFromFavorites() {
     User.loadUser(localStorage.getItem('user'), (user) => {
-        user.removeMovie(data.original_title, "favorite");
+        user.removeMovie(data.id, "favorite");
         console.log(user);
     });
 }
