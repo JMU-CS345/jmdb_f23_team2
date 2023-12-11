@@ -53,9 +53,8 @@ function setup() {
     rating.style("width", "160px");
     rating.attribute("type", "number");
     rating.attribute("step", "0.1");
-    rating.attribute("min", "0");
+    rating.attribute("min", "0.1");
     rating.attribute("max", "5");
-    rating.attribute("placeholder", "0");
     ratingB.position(200, 450);
     ratingB.mousePressed(addRating);
 
@@ -175,12 +174,12 @@ function removeFromFavorites() {
 function addRating() {
     if (rating.value() > 5 || rating.value() < 0) {
         error = createP("Please enter a rating between 0 and 5");
+    } else {
+        User.loadUser(localStorage.getItem('user'), (user) => {
+            user.addRating(new Rating(data.original_title, rating.value()));
+            console.log(user);
+        });
     }
-
-    User.loadUser(localStorage.getItem('user'), (user) => {
-        user.addRating(new Rating(data.original_title, rating.value()));
-        console.log(user);
-    });
 }
 
 function addReview() {

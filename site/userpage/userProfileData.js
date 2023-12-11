@@ -81,7 +81,7 @@ class User {
     }
 
     removeReview(index) {
-        this.reviews.splice(review, 1);
+        this.reviews.splice(index, 1);
         this.update();
     }
 
@@ -91,7 +91,7 @@ class User {
     }
 
     removeRating(index) {
-        this.ratings.splice(index + 1, 1);
+        this.ratings.splice(index, 1);
         this.update();
     }
 

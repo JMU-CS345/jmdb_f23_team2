@@ -1,3 +1,8 @@
+let ratingsDD;
+let removeRatingButton;
+let reviewsDD;
+let removeReviewButton;
+
 function setup() {
 
     let username = localStorage.getItem("user");
@@ -46,8 +51,6 @@ function displayReviews(arr, x, y) {
     console.log(arr);
     if (arr.length <= 0) {
         emptyList = createP("Nothing has been added here yet");
-        emptyList.style('font-family', Font);
-        emptyList.style('color', textColor);
         emptyList.position(x + 10, y + 100);
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
@@ -93,6 +96,16 @@ function displayRecentlyWatched(arr, x, y) {
             loadUserMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
         }
     }
+}
+
+function removeUserRating(temp) {
+    temp.removeRating(ratingsDD.value());
+    location.reload();
+}
+
+function removeUserReview(temp) {
+    temp.removeReview(reviewsDD.value());
+    location.reload();
 }
 
 function updateUI(temp) {
@@ -156,6 +169,30 @@ function updateUI(temp) {
     ratings.style('font-family', Font);
     ratings.style("font-size", "24px");
     displayRatings(temp.getRatings(), 500, ratingsYPos);
+
+    if(temp.getRatings().length > 0) {
+        let tempRatings = temp.getRatings();
+        ratingsDD = createSelect();
+        ratingsDD.position(1320, 640);
+        removeRatingButton = createButton("Remove Rating");
+        removeRatingButton.mousePressed(() => {removeUserRating(temp)});
+        removeRatingButton.position(1320, 660);
+        for(let i = 0; i < tempRatings.length && i < 5; i++) {
+            ratingsDD.option(tempRatings[i].getMovie(), i);
+        }
+    }
+
+    if(temp.getReviews().length > 0) {
+        let tempReviews = temp.getReviews();
+        reviewsDD = createSelect();
+        reviewsDD.position(1320, 840);
+        removeReviewButton = createButton("Remove Review");
+        removeReviewButton.mousePressed(() => {removeUserReview(temp)});
+        removeReviewButton.position(1320, 860);
+        for(let i = 0; i < tempReviews.length && i < 5; i++) {
+            reviewsDD.option(tempReviews[i].getMovie(), i);
+        }
+    }
 
     name.position(leftXPos, nameYPos);
     email.position(leftXPos, emailYPos);
