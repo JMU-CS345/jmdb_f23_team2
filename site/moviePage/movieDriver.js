@@ -83,12 +83,17 @@ function setup() {
     console.log(data);
     if (data.poster_path != null) {
         img.attribute("src", imgUrl + data.poster_path);
+        console.log(data.poster_path);
+        
     } else {
         img.attribute("src", "../Black_image.jpg");// change to bad jpeg
     }
     //img.attribute("src", imgUrl + data.poster_path);
     img.style("width", "250px");
+    img.style("height", "375px");
+    img.style("width", "250px");
     img.position((windowWidth / 2) - width * 3, 105);
+    console.log((width / 2) - 150 + img.width);
 
     
     
