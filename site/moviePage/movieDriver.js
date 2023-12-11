@@ -44,19 +44,19 @@ function setup() {
     removeF.mousePressed(removeFromFavorites);
 
     ratingText = createP("Rate this movie 0 - 5 stars!");
-    ratingText.position(30, 450);
+    ratingText.position(30, 400);
     ratingText.style("font-size", "24px");
     ratingText.style("color", myColor);
     const ratingB = createButton("Add Rating");
     rating = createInput();
-    rating.position(30, 500);
+    rating.position(30, 450);
     rating.style("width", "160px");
     rating.attribute("type", "number");
     rating.attribute("step", "0.1");
     rating.attribute("min", "0");
     rating.attribute("max", "5");
     rating.attribute("placeholder", "0");
-    ratingB.position(200, 500);
+    ratingB.position(200, 450);
     ratingB.mousePressed(addRating);
 
     reviewText = createP("Write a review!");
@@ -120,7 +120,7 @@ function setup() {
     About.style("font-size", "30px");
     About.style('color', textColor);
 
-    displayCast(300, 600);
+    displayCast(300, 550);
 }
 
 function addToWatchlist() {
@@ -187,10 +187,15 @@ function displayCast(x, y) {
     let movieCast = cast.cast;
     let actorName;
     console.log(movieCast);
+    castTitle = createP("Cast:");
+    castTitle.style('font-family', Font);
+    castTitle.style('color', textColor);
+    castTitle.style("font-size", "24px");
+    castTitle.position(x - 62, y - 50);
     for (let i = 0; i < 9; i++) {
         let temp = new Actor(movieCast[i]);
         actorName = temp.getName();
-        temp.getImage(x + 15 + (i * 110), y);
+        temp.getImage((x - 62) + (i * 115), y);
     }
 
 }

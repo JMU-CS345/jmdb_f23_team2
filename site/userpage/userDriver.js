@@ -56,7 +56,7 @@ function displayReviews(arr, x, y) {
             review.position(x + 10, y + (i * 27) + 40);
             review.style("color", userColor);
             review.style('font-family', Font);
-            review.style("font-size", "24px")
+            review.style("font-size", "24px");
         }
     }
 }
