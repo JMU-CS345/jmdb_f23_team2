@@ -104,12 +104,15 @@ class User {
                 if (this.favoriteMovies.includes(movie)) {
                     break;
                 }
+                if (!this.seenMovies.includes(movie)) {
+                    this.addMovie(movie, "seen");
+                }
                 this.favoriteMovies.push(movie);
                 this.update();
                 break;
             case "seen":
                 if (this.movieWatchlist.includes(movie)) {
-                    this.removeMovie(movie(), "Watchlist");
+                    this.removeMovie(movie, "Watchlist");
                 }
                 if (this.seenMovies.includes(movie)) {
                     break;
