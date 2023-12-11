@@ -57,7 +57,7 @@ function setup() {
 }
 
 function loadMovie() {
-  newMovies.html("");
+  newMovies.html("\"" +loadPerson.value()+"\"" );
   
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
     const myMovie = new Movie(data);
