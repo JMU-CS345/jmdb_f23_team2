@@ -1,4 +1,4 @@
-const backgroundColor="#CBB677";
+//const backgroundColor="#CBB677";
 const textColor="#CBB677";
 
 const Font= 'newFont';
