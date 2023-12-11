@@ -87,7 +87,7 @@ function displayRecentlyWatched(arr, x, y) {
 
         for (let i = startIndex; i < arr.length; i++) {
             console.log(arr[i]);
-            loadMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
+            loadUserMovie(arr[i], x + 15 + ((i - startIndex) * 100), y + 70);
         }
     }
 }
