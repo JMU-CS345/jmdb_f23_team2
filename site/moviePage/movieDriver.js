@@ -84,7 +84,7 @@ function setup() {
     if (data.poster_path != null) {
         img.attribute("src", imgUrl + data.poster_path);
         console.log(data.poster_path);
-        
+
     } else {
         img.attribute("src", "../Black_image.jpg");// change to bad jpeg
     }
@@ -95,10 +95,10 @@ function setup() {
     img.position((windowWidth / 2) - width * 3, 105);
     console.log((width / 2) - 150 + img.width);
 
-    
-    
+
+
     myTitle = data.title;
-    if(myTitle.length > 40){
+    if (myTitle.length > 40) {
         myTitle = myTitle.substring(0, 35) + "...";
     }
     Title = createP(myTitle);
@@ -121,7 +121,7 @@ function setup() {
 
     //About = createP(data.overview);
     myAbout = data.overview;
-    if(myAbout.length > 400){
+    if (myAbout.length > 400) {
         myAbout = myAbout.substring(0, 400) + "...";
     }
     About = createP(myAbout);

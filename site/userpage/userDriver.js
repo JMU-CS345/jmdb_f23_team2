@@ -27,27 +27,27 @@ function loadUserMovie(movieName, x, y) {
     data = loadJSON('https://api.themoviedb.org/3/movie/' + movieName + '?api_key=' + TMDB_API_KEY, (data) => {
         console.log(data);
         let img = createElement("img");
-        if(data.poster_path != null){
-        img.attribute("src", imgUrl + data.poster_path);
-        } else{
+        if (data.poster_path != null) {
+            img.attribute("src", imgUrl + data.poster_path);
+        } else {
             img.attribute("src", "../Black_image.jpg");// change to bad jpeg
         }
-        img.position(x , y); 
+        img.position(x, y);
         img.style("width", "80px");
         img.style("height", "120px");
         //onsole.log(data.results[0].id);
-        img.mousePressed(()=>{loadMoviePage(data.id);});
+        img.mousePressed(() => { loadMoviePage(data.id); });
 
-        
 
-        
+
+
     });
 
 }
 
 function loadMoviePage(id) {
     window.location.replace(`../moviePage/moviePage.html?data=${id}`);
-  }
+}
 
 function display(arr, x, y) {
     //console.log(arr);
@@ -55,7 +55,7 @@ function display(arr, x, y) {
         emptyList = createP("Nothing has been added here yet");
         emptyList.position(x + 10, y + 100);
     } else {
-        for (let i = 0; i < arr.length; i++) {
+        for (let i = 0; i < Math.min(arr.length, 14); i++) {
             //console.log(arr[i]);
             loadUserMovie(arr[i], x + 15 + (i * 100), y + 70);
         }
@@ -70,8 +70,8 @@ function displayReviews(arr, x, y) {
     } else {
         for (let i = 0; i < Math.min(arr.length, 5); i++) {
             let str = arr[i].getMovie() + ": " + arr[i].getReview();
-            if (str.length > 130) {
-                str = str.substring(0, 130) + "...";
+            if (str.length > 95) {
+                str = str.substring(0, 95) + "...";
             }
             let review = createP(str);
             review.position(x + 10, y + (i * 27) + 40);
@@ -185,26 +185,26 @@ function updateUI(temp) {
     ratings.style("font-size", "24px");
     displayRatings(temp.getRatings(), 500, ratingsYPos);
 
-    if(temp.getRatings().length > 0) {
+    if (temp.getRatings().length > 0) {
         let tempRatings = temp.getRatings();
         ratingsDD = createSelect();
-        ratingsDD.position(1320, 640);
+        ratingsDD.position(1145, 640);
         removeRatingButton = createButton("Remove Rating");
-        removeRatingButton.mousePressed(() => {removeUserRating(temp)});
-        removeRatingButton.position(1320, 660);
-        for(let i = 0; i < tempRatings.length && i < 5; i++) {
+        removeRatingButton.mousePressed(() => { removeUserRating(temp) });
+        removeRatingButton.position(1355, 660);
+        for (let i = 0; i < tempRatings.length && i < 5; i++) {
             ratingsDD.option(tempRatings[i].getMovie(), i);
         }
     }
 
-    if(temp.getReviews().length > 0) {
+    if (temp.getReviews().length > 0) {
         let tempReviews = temp.getReviews();
         reviewsDD = createSelect();
-        reviewsDD.position(1320, 840);
+        reviewsDD.position(1145, 840);
         removeReviewButton = createButton("Remove Review");
-        removeReviewButton.mousePressed(() => {removeUserReview(temp)});
-        removeReviewButton.position(1320, 860);
-        for(let i = 0; i < tempReviews.length && i < 5; i++) {
+        removeReviewButton.mousePressed(() => { removeUserReview(temp) });
+        removeReviewButton.position(1350, 860);
+        for (let i = 0; i < tempReviews.length && i < 5; i++) {
             reviewsDD.option(tempReviews[i].getMovie(), i);
         }
     }

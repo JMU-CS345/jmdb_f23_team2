@@ -35,7 +35,7 @@ function setup() {
   error = createP();
   newMovies = createP("NEW MOVIES");
   newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -220);
-  newMovies.style("color", '#FFD700');
+  newMovies.style("color", '#FFFFFF');
   newMovies.style('font-family', Font);
   newMovies.style("font-size", "36px");
 
@@ -57,7 +57,7 @@ function setup() {
 }
 
 function loadMovie() {
-  newMovies.html("Showing Results For: \"" +loadPerson.value().toUpperCase()+"\"" );
+  newMovies.html("Showing Results For: \"" + loadPerson.value().toUpperCase() + "\"");
   newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -225);
   newMovies.style("color", '#FFFFFF');
   data = loadJSON(`https://api.themoviedb.org/3/search/movie?query=${loadPerson.value()}&api_key=` + TMDB_API_KEY, (data) => {
@@ -72,7 +72,7 @@ function loadMovie() {
       error.style("color", errorColor);
       error.style('font-family', Font);
       error.style("font-size", "36px")
-    }else {
+    } else {
       error.html("");
     }
     for (let i = 0; i < arraySize; i++) {
