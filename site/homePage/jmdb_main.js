@@ -26,8 +26,8 @@ function setup() {
   // "NEW MOVIES" text
   error = createP();
   newMovies = createP("NEW MOVIES");
-  newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -220);
-  newMovies.style("color", '#FFFFFF');
+  newMovies.position(windowWidth / 2 - 400, windowHeight / 2 + -225);
+  newMovies.style("color", '#CBB677');
   newMovies.style('font-family', Font);
   newMovies.style("font-size", "36px");
 
