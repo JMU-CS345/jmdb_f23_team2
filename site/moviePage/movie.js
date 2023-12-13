@@ -20,12 +20,15 @@ class Movie {
   getMovieCount() {
     return (this.data.results.length);
   }
+
   getName() {
     return (this.data.results[0].original_title);
   }
+
   getDate() {
     return (data.results[0].release_date);
   }
+
   getAbout() {
     return (this.data.results[0].overview);
   }

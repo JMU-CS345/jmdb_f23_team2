@@ -23,7 +23,6 @@ function setup() {
 
 function loadUserMovie(movieName, x, y) {
 
-
     data = loadJSON('https://api.themoviedb.org/3/movie/' + movieName + '?api_key=' + TMDB_API_KEY, (data) => {
         console.log(data);
         let img = createElement("img");
@@ -37,12 +36,7 @@ function loadUserMovie(movieName, x, y) {
         img.style("height", "120px");
         //onsole.log(data.results[0].id);
         img.mousePressed(() => { loadMoviePage(data.id); });
-
-
-
-
     });
-
 }
 
 function loadMoviePage(id) {

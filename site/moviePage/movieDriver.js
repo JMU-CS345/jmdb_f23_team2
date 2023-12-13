@@ -28,7 +28,6 @@ function setup() {
     removeW.position(30, 500);
     removeW.mousePressed(removeFromWatchlist);
 
-
     const seen = createButton("Add To Seen");
     seen.position(30, 630);
     seen.mousePressed(addToSeen);
@@ -78,7 +77,6 @@ function setup() {
     homePageButton.position(10, 40);
     homePageButton.mousePressed(goToHomePage);
 
-
     let img = createElement("img");
     console.log(data);
     if (data.poster_path != null) {
@@ -94,8 +92,6 @@ function setup() {
     img.style("width", "250px");
     img.position((windowWidth / 2) - width * 3, 105);
     console.log((width / 2) - 150 + img.width);
-
-
 
     myTitle = data.title;
     if (myTitle.length > 40) {
@@ -203,7 +199,7 @@ function displayCast(x, y) {
     castTitle.style('color', textColor);
     castTitle.style("font-size", "36px");
     castTitle.position(x - 62, y - 75);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 11; i++) {
         let temp = new Actor(movieCast[i]);
         temp.getImage((x - 62) + (i * 115), y);
         actorName = temp.getName();
@@ -215,5 +211,4 @@ function displayCast(x, y) {
         actorNameText.style('max-width', '110px');
         actorNameText.position((x - 62) + (i * 115), y + 155);
     }
-
 }

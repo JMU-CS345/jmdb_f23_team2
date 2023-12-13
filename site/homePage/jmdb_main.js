@@ -5,13 +5,6 @@ let newMovies;
 function setup() {
   createCanvas(0, 0);
 
-  // Title
-  // let title = createP("Scroovie Home");
-  // title.position(windowWidth / 2 - 170, -35);
-  // title.style("color", textColor);
-  // title.style('font-family', Font);
-  // title.style("font-size", "55px");
-
   // Navigation buttons
   let userPageButton = createButton("To User Page");
   userPageButton.position(10, 10);
@@ -25,7 +18,6 @@ function setup() {
   loadPerson = createInput();
   loadPerson.size(85);
   loadPerson.position(windowWidth / 2 - 345, windowHeight / 2 - 250);
-
 
   const group = createDiv();
   group.child(Mbutton);
@@ -84,9 +76,7 @@ function loadMovie() {
       xPos -= 100;
     }
     myMovie.checkLen();
-
   });
-
 }
 
 function loadActor() {

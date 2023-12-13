@@ -11,7 +11,6 @@ class User {
         this.movieWatchlist = [];
         this.seenMovies = [];
 
-
         // Check if the key already exists in the key-value store
         keyval.get(email, (data) => {
             if (!data) {
@@ -71,8 +70,6 @@ class User {
         }
         return JSON.stringify(userJSON);
     }
-
-
 
     //ADD AND REMOVE FUNCTIONS 
     addReview(review) {
@@ -202,8 +199,6 @@ class User {
         this.movieWatchlist = movieWatchlist;
         this.update();
     }
-
-
 
     //GETTERS
     getFirstName() {
