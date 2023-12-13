@@ -23,7 +23,7 @@ function setup() {
   passwordBox.attribute("placeholder", "Password");
   passwordBox.position(windowWidth / 2 - 190, 200);
 
-  let title = createP("Scroovie Profile Creation");
+  let title = createP("MOVIENITE Profile Creation");
   title.position(windowWidth / 2 - 190, 25);
   title.style("color", textColor);
   title.style('font-family', Font);
