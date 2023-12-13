@@ -67,7 +67,7 @@ function loadMovie() {
     let depth = - 100;
     let xPos = 400;
     if (arraySize == 0) {
-      error = createP("No movies found matching that name");
+      newMovies.html("No movies found matching that name");
       error.position(windowWidth / 2 - 400, windowHeight / 2 + -125);
       error.style("color", errorColor);
       error.style('font-family', Font);
