@@ -5,7 +5,7 @@ let isError = false;
 function setup() {
 
   // title and subtitle
-  let title = createP("Scroovie Profile Login");
+  let title = createP("MOVIENITE Profile Login");
   title.position(windowWidth / 2 - 190, 25);
   title.style("color", textColor);
   title.style('font-family', Font);
